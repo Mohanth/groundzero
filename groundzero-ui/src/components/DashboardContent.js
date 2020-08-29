@@ -12,12 +12,14 @@ export default class DashboardContent extends React.Component {
                 return StudentDashboardPanels;
         }
     }
+    panelData = DashboardContent.getDashboardPanelData(this.props.userType);
 
     render() {
         return (
             <div>
-                <VerticalNav/>
-                <DisplayDashboardContent panels={DashboardContent.getDashboardPanelData(this.props.userType)}/>
+                <h2>{this.panelData.id}</h2>
+                <VerticalNav panelData={this.panelData}/>
+                <DisplayDashboardContent/>
             </div>
         );
     }
