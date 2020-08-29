@@ -1,0 +1,23 @@
+{
+  "panels": [
+    {
+      "id": "myLiveClasses",
+      "value": "My live classes",
+      "link": "/liveClasses",
+      "css": "fa fa-link"
+    },
+    {
+      "id": "courseCatalog",
+      "value": "Courses catalog",
+      "link": "/courseCatalog",
+      "css": "fa fa-link"
+    },
+    {
+      "id": "discussionForum",
+      "value": "Discussion Forum",
+      "link": "/discussionForum",
+      "css": "fa fa-link"
+    }
+
+  ]
+}

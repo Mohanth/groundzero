@@ -1,16 +1,15 @@
 import React from "react";
-
 import "./App.css";
-import Nav from "./components/Navigation";
-import Body from "./components/Body";
+import GlobalDashboard from './components/GlobalDashboard'
+import GlobalHeader from "./components/GlobalHeader";
 
 function App() {
-  return (
-    <div className="App">
-      <Nav />
-      <Body />
-    </div>
-  );
+    return (
+        <div>
+            <GlobalHeader/>
+            <GlobalDashboard/>
+        </div>
+    );
 }
 
 export default App;
