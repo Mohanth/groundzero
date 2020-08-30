@@ -1,25 +1,31 @@
 import React from 'react';
 import userMale from '../resources/icons8-user-male.svg'
+import DisplayDashboardContent from "./DisplayDashboardContent";
+
 export default class VerticalNav extends React.Component {
     render() {
         return (
-            <div class="sideMenu bg-light">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><h5>Dashboard</h5></li>
-                    {
-                        this.props.panelData.panels.map(function (panel) {
-                            return (
-                                <li className="nav-item">
-                                    <a href={panel.link} class="nav-link px-2">
-                                        <span><img src={userMale}/></span>
-                                        <span>{panel.value}</span>
-                                    </a>
-                                </li>
-                            )
-                        })
-                    }
+            <div className="wrapper d-flex">
+                <div className="sideMenu bg-light">
+                    <ul className="navbar-nav">
+                        <li className="nav-item"><h5>Dashboard</h5></li>
+                        {
+                            this.props.panelData.panels.map(function (panel) {
+                                return (
+                                    <li className="nav-item">
+                                        <a href={panel.link} className="nav-link px-2">
+                                            <span><img alt={""} src={userMale}/></span>
+                                            <span>{panel.value}</span>
+                                        </a>
+                                    </li>
+                                )
+                            })
+                        }
 
-                </ul>
+                    </ul>
+
+                </div>
+                <DisplayDashboardContent/>
             </div>
         );
     }

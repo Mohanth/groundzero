@@ -19,7 +19,7 @@ export default class DashboardContent extends React.Component {
             <div>
                 <h2>{this.panelData.id}</h2>
                 <VerticalNav panelData={this.panelData}/>
-                <DisplayDashboardContent/>
+                {/*<DisplayDashboardContent/>*/}
             </div>
         );
     }
