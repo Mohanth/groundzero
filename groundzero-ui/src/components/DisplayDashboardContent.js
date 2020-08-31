@@ -5,6 +5,7 @@ class DisplayDashboardContent extends React.Component {
     render() {
         return Courses.course.map((Courses) => {
             return (
+                <div class="main_content">
                 <div className="card">
                     <img className="card-img-top" src={Courses.img} alt="Card image cap"></img>
                     <div className="card-body">
@@ -14,6 +15,7 @@ class DisplayDashboardContent extends React.Component {
                             {Courses.prize}
                         </a>
                     </div>
+                </div>
                 </div>
             );
         });
