@@ -16,7 +16,7 @@ export default class VerticalNav extends React.Component {
                 <li className="nav-item">
                   <a href={panel.link} className="nav-link px-2">
                     <span>
-                      <img alt={""} src={userMale} />
+                      <i class={panel.icon}></i>
                     </span>
                     <span>{panel.value}</span>
                   </a>
@@ -25,6 +25,7 @@ export default class VerticalNav extends React.Component {
             })}
           </ul>
         </div>
+        <DisplayDashboardContent />
       </div>
     );
   }

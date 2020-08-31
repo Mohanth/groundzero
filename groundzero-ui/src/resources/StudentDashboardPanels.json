@@ -4,19 +4,19 @@
       "id": "myLiveClasses",
       "value": "My live classes",
       "link": "/live",
-      "css": "fa fa-link"
+      "icon": "fa fa-link"
     },
     {
       "id": "courseCatalog",
       "value": "Courses catalog",
       "link": "/coursecatlog",
-      "css": "fa fa-link"
+      "icon": "fa fa-link"
     },
     {
       "id": "discussionForum",
       "value": "Discussion Forum",
       "link": "/discussionform",
-      "css": "fa fa-link"
+      "icon": "fas fa-comment"
     }
   ]
 }

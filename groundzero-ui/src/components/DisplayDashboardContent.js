@@ -1,25 +1,19 @@
-import * as React from 'react';
+import * as React from "react";
+import Courses from "../resources/Courses";
 
-export default class DisplayDashboardContent extends React.Component {
-    render() {
-        return (
-            <main>
-                <div className="container-fluid">
-                    <div className="card">
-                        <h5 className="card-header">Courses</h5>
-                        <div className="card-body">
-                            <h5 className="card-title">Lorem espon</h5>
-                            <p className="card-text">
-                                Content content nconrwenwef vjdsfav jbdsavd hdushfailsdh dsvbads
-                                dfbvhds uuhaf fau sh.
-                            </p>
-                            <a href="" className="btn btn-primary">
-                                Courses
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        );
-    }
-}
+const Data = Courses.course.map((Courses) => {
+  return (
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap"></img>
+      <div class="card-body">
+        <h5 class="card-title">{Courses.title}</h5>
+        <p class="card-text">{Courses.desc}</p>
+        <a href="#" class="btn btn-primary">
+          {Courses.prize}
+        </a>
+      </div>
+    </div>
+  );
+});
+
+export default Data;
