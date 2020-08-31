@@ -1,19 +1,23 @@
 import * as React from "react";
 import Courses from "../resources/Courses";
 
-const Data = Courses.course.map((Courses) => {
-  return (
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap"></img>
-      <div class="card-body">
-        <h5 class="card-title">{Courses.title}</h5>
-        <p class="card-text">{Courses.desc}</p>
-        <a href="#" class="btn btn-primary">
-          {Courses.prize}
-        </a>
-      </div>
-    </div>
-  );
-});
+class DisplayDashboardContent extends React.Component {
+    render() {
+        return Courses.course.map((Courses) => {
+            return (
+                <div className="card">
+                    <img className="card-img-top" src={Courses.img} alt="Card image cap"></img>
+                    <div className="card-body">
+                        <h5 className="card-title">{Courses.title}</h5>
+                        <p className="card-text">{Courses.desc}</p>
+                        <a href="#" className="btn btn-primary">
+                            {Courses.prize}
+                        </a>
+                    </div>
+                </div>
+            );
+        });
+    }
+}
 
-export default Data;
+export default DisplayDashboardContent;
