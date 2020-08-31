@@ -3,21 +3,20 @@
     {
       "id": "myLiveClasses",
       "value": "My live classes",
-      "link": "/",
+      "link": "/live",
       "css": "fa fa-link"
     },
     {
       "id": "courseCatalog",
       "value": "Courses catalog",
-      "link": "/",
+      "link": "/coursecatlog",
       "css": "fa fa-link"
     },
     {
       "id": "discussionForum",
       "value": "Discussion Forum",
-      "link": "/",
+      "link": "/discussionform",
       "css": "fa fa-link"
     }
-
   ]
 }
