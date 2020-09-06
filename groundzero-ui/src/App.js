@@ -1,30 +1,30 @@
 import React from "react";
 import "./App.css";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import Loginandsignin from "./components/Loginandsignin";
+import Discuss from "./components/Discuss";
 import GlobalDashboard from "./components/GlobalDashboard";
 import GlobalHeader from "./components/GlobalHeader";
-import Mylive from "./components/Mylive";
-import Courses from "./components/Courses";
-import Discuss from "./components/Discuss";
-import Loginandsignin from "./components/Loginandsignin";
-import VerticalNav from "./components/VerticalNav";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import MyLiveClasses from "./components/Mylive";
+import Dashboard from "./components/Dashboard";
 
-function App() {
-  return (
-    <Router>
-      <Route exact path="/">
-        <Route exact path="/" component={GlobalHeader}></Route>
-        <Route exact path="/" component={GlobalDashboard}></Route>
-      </Route>
-      <Route path="/live">
-        <GlobalHeader />
-        <VerticalNav />
-        <Mylive />
-      </Route>
-      <Route exact path="/discussionform" component={Discuss}></Route>
-      <Route exact path="/login" component={Loginandsignin}></Route>
-    </Router>
-  );
+class App extends React.Component {
+    render(): React.ReactNode {
+        return (
+            <Router>
+                <Route exact path="/">
+                    <Route exact path="/" component={GlobalDashboard}/>
+                    {/*<Dashboard/>*/}
+                </Route>
+                <Route path="/live">
+                <GlobalHeader/>
+                <MyLiveClasses/>
+            </Route>
+            <Route exact path="/discussionForm" component={Discuss}/>
+            <Route exact path="/login" component={Loginandsignin}/>
+            </Router>
+        );
+    }
 }
 
 export default App;
