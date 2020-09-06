@@ -12,12 +12,15 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 function App() {
   return (
     <Router>
-      
       <Route exact path="/">
-         <Route exact path="/" component={GlobalHeader}></Route> 
-        <Route exact path="/" component={GlobalDashboard}></Route>        
+        <Route exact path="/" component={GlobalHeader}></Route>
+        <Route exact path="/" component={GlobalDashboard}></Route>
       </Route>
-      <Route exact path="/coursecatlog" component={Courses}></Route>
+      <Route path="/live">
+        <GlobalHeader />
+        <VerticalNav />
+        <Mylive />
+      </Route>
       <Route exact path="/discussionform" component={Discuss}></Route>
       <Route exact path="/login" component={Loginandsignin}></Route>
     </Router>

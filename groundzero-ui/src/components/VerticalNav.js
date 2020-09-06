@@ -41,7 +41,7 @@ export default class VerticalNav extends React.Component {
           <div class="sidebar_inner">
             <ul>
               <li>
-                <a href="#">
+                <a href="/live">
                   <span class="icon">
                     <i class="fas fa-link"></i>
                   </span>
@@ -66,14 +66,6 @@ export default class VerticalNav extends React.Component {
               </li>
             </ul>
           </div>
-        </div>
-
-        <div class="main_container">
-        <div class="content">
-          <DisplayDashboardContent />
-        </div>
-
-          
         </div>
       </div>
     );

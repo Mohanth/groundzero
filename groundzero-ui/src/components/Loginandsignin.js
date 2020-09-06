@@ -19,8 +19,10 @@ function Auth() {
   return (
     <div>
       <div className="container-fluid">
-        <nav>
-          <h5>GroundZeroLearning</h5>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-sm-none d-xl-block">
+          <a class="navbar-brand" href="#">
+            GroundZerolearning
+          </a>
         </nav>
         <div className="forms-container">
           <div className="signin-signup">
@@ -55,6 +57,7 @@ function Auth() {
                 </a>
               </div>
             </form>
+
             <form action="#" className="sign-up-form">
               <h2 className="title">Sign up</h2>
               <div className="input-field">

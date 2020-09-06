@@ -1,15 +1,15 @@
 import React from "react";
+import "../live.css";
 
 function Class() {
   return (
-    <div class="main_content">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap"></img>
-        <div class="card-body">
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
+    <div class="main_container">
+      <div class="content">
+        <div class="border">
+          <div class="row">
+            <h5 class="">Programing for Begineers</h5>
+            <button class="btn btn-primary">Completed</button>
+          </div>
         </div>
       </div>
     </div>
