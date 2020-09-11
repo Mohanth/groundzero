@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-fluid{
+    background-color: black;
+}
+.container-fluid h3,p{
+    color: white;
+}
+.innerrow{
+    padding: 100px;
+}
+#mobilefluid{
+    padding: 30px;
+}
+.instructormobile{
+    padding:20px;
+    margin-top: 20px;
+}
+#imgmobile-instructor{
+    width: 80px;
+    border-radius: 100%;
+
+}
+
+.instructormobile span{
+    padding: 10px;margin-top: 20px;
+}
+.detail {
+    border: 1px solid gray;
+}
+

@@ -1,7 +1,7 @@
 import React from "react";
 import "../login.css";
 
-function script() {
+/*function script() {
   const sign_in_btn = document.querySelector("#sign-in-btn");
   const sign_up_btn = document.querySelector("#sign-up-btn");
   const container = document.querySelector(".container-fluid");
@@ -13,12 +13,12 @@ function script() {
   sign_in_btn.addEventListener("click", () => {
     container.classList.remove("sign-up-mode");
   });
-}
+}*/
 
 function Auth() {
   return (
     <div>
-      <div className="container-fluid">
+      <div className="container-fluid-login">
         <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-sm-none d-xl-block">
           <a class="navbar-brand" href="#">
             GroundZerolearning
@@ -102,7 +102,7 @@ function Auth() {
               </p>
               <button
                 className="btn transparent"
-                onClick={script}
+                //onClick={script}
                 id="sign-up-btn"
               >
                 Sign up
@@ -119,7 +119,7 @@ function Auth() {
               </p>
               <button
                 className="btn transparent"
-                onClick={script}
+                //onClick={script}
                 id="sign-in-btn"
               >
                 Sign up
