@@ -14,8 +14,8 @@ class Detail extends React.Component {
                         <h3 style={{fontFamily:"'Rubik', sans-serif"}}>What you will learn</h3>
                         <div style={{marginLeft:10}}>
                             <ul >
-                                {Coursename.GZ101.details.learn.map((learn) => {
-                                    return <li style={{color: "black", padding: 5,}}>{learn}</li>
+                                {this.props.learn.map((learn) => {
+                                    return <p style={{color:"black"}}>{learn}</p>
                                 })}
                             </ul>
 

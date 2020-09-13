@@ -46,13 +46,12 @@ class Saii extends React.Component {
                                 </div>
                             </Col>
                             <Col xs={5}>
-                                <div className="card" style={{width: 350,marginTop:50}}>
+                                <div className="card instructor-info" style={{width: 350,marginTop:50,backgroundColor:"black"}}>
                                     <img className="card-img-top" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image"
-                                         style={{width: 350,padding:5,height:300,textAlign:"right"}} />
-                                         <div>{this.state.detail.GZ101.details.price}</div>
+                                         style={{width: "auto",padding:10,height:300,textAlign:"right"}} />
                                         <div className="card-body">
-                                            <h4 className="card-title">Mohanth</h4>
-                                            <p className="card-text" style={{color:"black"}}>React js developer</p>
+                                            <h4 className="card-title" style={{color:"white"}}>{this.state.detail.GZ101.details.instructorObj.instructorName}</h4>
+                                            <p className="card-text" >{this.state.detail.GZ101.details.instructorObj.instructorDesignation}</p>
                                         </div>
                                 </div>
                             </Col>
@@ -82,10 +81,8 @@ class Saii extends React.Component {
                         </Row>
                     </Container>
                     {/* END MOBILE VIEW */}
-                    <Detail />
+                    <Detail learn={this.state.detail.GZ101.details.learn}/>
                     <Syllabus syllabus={this.state.detail.GZ101.details.syllabus}/>
-
-
                 </div>
             );
 
