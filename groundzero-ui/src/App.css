@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;600&display=swap");
-@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url("https://fonts.googleapis.com/css?family=Muli");
 * {
   font-family: "Baloo Paaji 2", cursive;
   margin: 0;
@@ -149,4 +149,7 @@ body {
   margin-left: 20px;
   margin-bottom: 10px;
   box-shadow: 5px 10px 18px #888888;
+}
+.card span {
+  margin-left: 200px;
 }

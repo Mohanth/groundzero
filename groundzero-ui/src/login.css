@@ -11,13 +11,13 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-.container-fluid {
+.container-fluid-login {
   position: absolute;
   width: 100%;
   background-color: #fff;
   min-height: 100vh;
   overflow: hidden;
- 
+
 }
 
 .forms-container {
@@ -161,7 +161,7 @@ form.sign-in-form {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.container-fluid:before {
+.container-fluid-login:before {
   content: "";
   position: absolute;
   height: 2000px;
@@ -234,45 +234,45 @@ form.sign-in-form {
 
 /* ANIMATION */
 
-.container-fluid.sign-up-mode:before {
+.container-fluid-login.sign-up-mode:before {
   transform: translate(100%, -50%);
   right: 52%;
 }
 
-.container-fluid.sign-up-mode .left-panel .image,
-.container-fluid.sign-up-mode .left-panel .content {
+.container-fluid-login.sign-up-mode .left-panel .image,
+.container-fluid-login.sign-up-mode .left-panel .content {
   transform: translateX(-800px);
 }
 
-.container-fluid.sign-up-mode .signin-signup {
+.container-fluid-login.sign-up-mode .signin-signup {
   left: 25%;
 }
 
-.container-fluid.sign-up-mode form.sign-up-form {
+.container-fluid-login.sign-up-mode form.sign-up-form {
   opacity: 1;
   z-index: 2;
 }
 
-.container-fluid.sign-up-mode form.sign-in-form {
+.container-fluid-login.sign-up-mode form.sign-in-form {
   opacity: 0;
   z-index: 1;
 }
 
-.container-fluid.sign-up-mode .right-panel .image,
-.container-fluid.sign-up-mode .right-panel .content {
+.container-fluid-login.sign-up-mode .right-panel .image,
+.container-fluid-login.sign-up-mode .right-panel .content {
   transform: translateX(0%);
 }
 
-.container-fluid.sign-up-mode .left-panel {
+.container-fluid-login.sign-up-mode .left-panel {
   pointer-events: none;
 }
 
-.container-fluid.sign-up-mode .right-panel {
+.container-fluid-login.sign-up-mode .right-panel {
   pointer-events: all;
 }
 
 @media (max-width: 870px) {
-  .container-fluid {
+  .container-fluid-login {
     min-height: 800px;
     height: 100vh;
   }
@@ -284,7 +284,7 @@ form.sign-in-form {
   }
 
   .signin-signup,
-  .container-fluid.sign-up-mode .signin-signup {
+  .container-fluid-login.sign-up-mode .signin-signup {
     left: 50%;
   }
 
@@ -336,7 +336,7 @@ form.sign-in-form {
     font-size: 0.7rem;
   }
 
-  .container-fluid:before {
+  .container-fluid-login:before {
     width: 1500px;
     height: 1500px;
     transform: translateX(-50%);
@@ -347,19 +347,19 @@ form.sign-in-form {
     transition: 2s ease-in-out;
   }
 
-  .container-fluid.sign-up-mode:before {
+  .container-fluid-login.sign-up-mode:before {
     transform: translate(-50%, 100%);
     bottom: 32%;
     right: initial;
   }
 
-  .container-fluid.sign-up-mode .left-panel .image,
-  .container-fluid.sign-up-mode .left-panel .content {
+  .container-fluid-login.sign-up-mode .left-panel .image,
+  .container-fluid-login.sign-up-mode .left-panel .content {
     transform: translateY(-300px);
   }
 
-  .container-fluid.sign-up-mode .right-panel .image,
-  .container-fluid.sign-up-mode .right-panel .content {
+  .container-fluid-login.sign-up-mode .right-panel .image,
+  .container-fluid-login.sign-up-mode .right-panel .content {
     transform: translateY(0px);
   }
 
@@ -368,7 +368,7 @@ form.sign-in-form {
     transform: translateY(300px);
   }
 
-  .container-fluid.sign-up-mode .signin-signup {
+  .container-fluid-login.sign-up-mode .signin-signup {
     top: 5%;
     transform: translate(-50%, 0);
   }
@@ -385,16 +385,16 @@ form.sign-in-form {
   .panel .content {
     padding: 0.5rem 1rem;
   }
-  .container-fluid {
+  .container-fluid-login {
     padding: 1.5rem;
   }
 
-  .container-fluid:before {
+  .container-fluid-login:before {
     bottom: 72%;
     left: 50%;
   }
 
-  .container-fluid.sign-up-mode:before {
+  .container-fluid-login.sign-up-mode:before {
     bottom: 28%;
     left: 50%;
   }

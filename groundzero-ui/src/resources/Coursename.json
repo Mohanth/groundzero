@@ -1,0 +1,37 @@
+{
+  "GZ101": {
+    "details":
+      {
+        "id": 1,
+        "title": "React js",
+        "desc": "The Astonishing Power of High Performance JS (Without The Headache). Brought to You By Facebook and Instagram as React",
+        "price": 4500,
+        "img": "",
+        "instructorObj":
+          {
+            "instructorName": "",
+            "instructorId": "",
+            "instructorDesignation": "",
+            "instructorImg": ""
+          }
+        ,
+        "instructor": "mohanth",
+        "designation": "react js developer",
+        "learn": [
+          "Build front-end apps with React.js as a view layer",
+          "Render React.js on the Node.js server (isomorphism)",
+          "Utilize JSX",
+          "Hooks",
+          "Redux"
+        ],
+        "syllabus": [
+          "introduction",
+          "developing first project using react js ",
+          "introducing backend for our project"
+        ]
+      }
+  }
+
+
+
+}

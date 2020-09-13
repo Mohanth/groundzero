@@ -7,21 +7,34 @@ import GlobalDashboard from "./components/GlobalDashboard";
 import GlobalHeader from "./components/GlobalHeader";
 import MyLiveClasses from "./components/Mylive";
 import Dashboard from "./components/Dashboard";
+import Coursedetail from "./components/Coursedetail";
+import Whatyouwill from "./components/Whatyouwill";
+import Syllabus from "./components/Syllabus"
 
 class App extends React.Component {
-    render(): React.ReactNode {
+    render() {
         return (
             <Router>
                 <Route exact path="/">
-                    <Route exact path="/" component={GlobalDashboard}/>
-                    {/*<Dashboard/>*/}
+                    {/* <Route exact path="/" component={GlobalDashboard} /> */}
+                    <Dashboard/>
                 </Route>
-                <Route path="/live">
-                <GlobalHeader/>
-                <MyLiveClasses/>
-            </Route>
-            <Route exact path="/discussionForm" component={Discuss}/>
-            <Route exact path="/login" component={Loginandsignin}/>
+                {/* <Route path="/live">
+          <GlobalHeader />
+          <MyLiveClasses />
+        </Route>
+
+        <Route exact path="/discussionForm" component={Discuss} />
+        <Route exact path="/login" component={Loginandsignin} /> */}
+
+                <Route exact path="/detail">
+                    <Coursedetail/>
+
+                </Route>
+                <Route exact path="/login">
+                    <Loginandsignin />
+
+                </Route>
             </Router>
         );
     }

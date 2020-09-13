@@ -4,7 +4,7 @@ import "../login.css";
 function script() {
   const sign_in_btn = document.querySelector("#sign-in-btn");
   const sign_up_btn = document.querySelector("#sign-up-btn");
-  const container = document.querySelector(".container-fluid");
+  const container = document.querySelector(".container-fluid-login");
 
   sign_up_btn.addEventListener("click", () => {
     container.classList.add("sign-up-mode");
@@ -18,7 +18,7 @@ function script() {
 function Auth() {
   return (
     <div>
-      <div className="container-fluid">
+      <div className="container-fluid-login">
         <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-sm-none d-xl-block">
           <a class="navbar-brand" href="#">
             GroundZerolearning

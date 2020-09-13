@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         height: 56,
         width: 3,
         backgroundColor: '#DDE2FF',
-        position: 'absolute',
+        position: 'fixed',
         left: 0
     },
     activeContainer: {

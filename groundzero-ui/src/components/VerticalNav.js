@@ -1,9 +1,7 @@
 import React from "react";
 
 export default class VerticalNav extends React.Component {
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
   render() {
     return (
       <div>
@@ -13,31 +11,31 @@ export default class VerticalNav extends React.Component {
               <li>
                 <a href="/live">
                   <span class="icon">
-                    <i class="fas fa-link"/>
+                    <i class="fas fa-link" />
                   </span>
-                                    <span class="text">My live classes</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
+                  <span class="text">My live classes</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
                   <span class="icon">
-                    <i class="fas fa-link"/>
+                    <i class="fas fa-link" />
                   </span>
-                                    <span class="text">Course catlog</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
+                  <span class="text">Course catlog</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
                   <span class="icon">
-                    <i class=" far fa-comment-alt"/>
+                    <i class=" far fa-comment-alt" />
                   </span>
-                                    <span class="text">Discussion form</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+                  <span class="text">Discussion form</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
