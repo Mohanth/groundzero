@@ -1,2 +1,0 @@
-# groundzero
-GroundZero Learnings Website
