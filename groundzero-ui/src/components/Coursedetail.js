@@ -1,15 +1,11 @@
 import React from "react";
-import {Container, Col, Row} from 'react-bootstrap';
+import {Col, Container, Row} from 'react-bootstrap';
 import {StyleSheet} from "aphrodite";
 import "../coursedetail.css";
 import FacultyImg from '../resources/images/mohanthbrothersmall.jpeg'
 import Coursename from "../resources/Coursename.json"
-import Maindetail from "../resources/Maindetail.json"
 import Detail from "./Whatyouwill";
 import Syllabus from "./Syllabus";
-import {Route} from "react-router-dom";
-import User from "../resources/user.json";
-
 
 
 const styles = StyleSheet.create({
