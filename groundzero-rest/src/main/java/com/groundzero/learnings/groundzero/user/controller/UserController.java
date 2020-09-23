@@ -8,11 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-    private UserService userService;
-
-    public UserController(UserService userService) {
-        userService = new UserServiceImpl();
-    }
+    private UserServiceImpl userService = new UserServiceImpl();
 
     @GetMapping("/getUser/{id}")
     @ResponseBody
