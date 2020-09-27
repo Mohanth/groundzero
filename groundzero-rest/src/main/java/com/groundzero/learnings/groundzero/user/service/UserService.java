@@ -1,7 +1,10 @@
 package com.groundzero.learnings.groundzero.user.service;
 
 
+import com.groundzero.learnings.groundzero.user.UserDetails;
+
 public interface UserService {
 
-    String getUserDetailsById(String userId);
+    UserDetails getUserDetailsById(String userId);
+    String saveuserdetails(UserDetails userDetails);
 }

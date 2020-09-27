@@ -1,5 +1,7 @@
 package com.groundzero.learnings.groundzero.user.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.groundzero.learnings.groundzero.user.UserDetails;
 import com.groundzero.learnings.groundzero.user.service.UserService;
 import com.groundzero.learnings.groundzero.user.service.impl.UserServiceImpl;
@@ -12,12 +14,15 @@ public class UserController {
 
     @GetMapping("/getUser/{id}")
     @ResponseBody
-    public String getUserId(String userId) {
-        return userService.getUserDetailsById(userId);
+    public UserDetails getUserId(@PathVariable String id) {
+        return userService.getUserDetailsById(id);
     }
 
     @PostMapping("/saveUser")
-    public String saveUser(@RequestBody UserDetails userDetails) {
-        return "";
+    public String saveuser(@RequestBody String userDetailsStr) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
+        return userService.saveuserdetails(userDetails);
     }
+
 }
