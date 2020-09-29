@@ -11,8 +11,8 @@ public class CourseDetails {
     String courseId;
     String courseName;
     String coursePrice;
-    String Instructor;
-    String Duration;
+    String courseInstructor;
+    String courseCreatedDate;
 
     public CourseDetails(){
 
@@ -43,19 +43,19 @@ public class CourseDetails {
         this.coursePrice = coursePrice;
     }
 
-    public String getInstructor() {
-        return Instructor;
+    public String getcourseInstructor() {
+        return courseInstructor;
     }
 
-    public void setInstructor(String instructor) {
-        Instructor = instructor;
+    public void setcourseInstructor(String courseInstructor) {
+        this.courseInstructor = courseInstructor;
     }
 
-    public String getDuration() {
-        return Duration;
+    public String getcourseCreatedDate() {
+        return courseCreatedDate;
     }
 
-    public void setDuration(String duration) {
-        Duration = duration;
+    public void setcourseCreatedDate(String courseCreatedDate) {
+        this.courseCreatedDate = courseCreatedDate;
     }
 }
