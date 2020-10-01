@@ -44,5 +44,4 @@ public class UserController {
         UserCredits userCredits = mapper.readValue(userCreditsStr,UserCredits.class);
         return userService.updateusercredits(userCredits);
     }
-
 }

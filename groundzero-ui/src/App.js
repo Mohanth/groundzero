@@ -8,6 +8,7 @@ import GlobalHeader from "./components/GlobalHeader";
 import MyLiveClasses from "./components/Mylive";
 import Dashboard from "./components/Dashboard";
 import Coursedetail from "./components/Coursedetail";
+import LandingPage from "./components/LandingPage";
 import Whatyouwill from "./components/Whatyouwill";
 import Syllabus from "./components/Syllabus"
 
@@ -33,6 +34,10 @@ class App extends React.Component {
                 </Route>
                 <Route exact path="/login">
                     <Loginandsignin />
+
+                </Route>
+                <Route exact path="/landingpage">
+                   <LandingPage />
 
                 </Route>
             </Router>

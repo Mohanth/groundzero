@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-.navbar{
+/*.navbar{
     background-color: black;
     position: fixed;
     top: -100px;
@@ -15,7 +15,7 @@
 .navbar span{
     color: white;
     padding:15px;
-}
+}*/
 .container-fluid{
     background-color: black;
 }
