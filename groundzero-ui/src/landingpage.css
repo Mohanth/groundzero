@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Peddana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+.cookieFont{
+    font-family: 'Cookie', cursive;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-#carouselExampleIndicators{
-    margin-top: 20px;
+body{
+    overflow-x: hidden;
 }
+
 .achieveyourgoals{
     margin-top: 50px;
     margin-bottom: 119px;
@@ -110,6 +117,78 @@
 .instructor-items:not(:last-child){
     margin-right: 6vw;
 }
+.testimonial{
+    position: relative;
+    background-color: #fafbfc;
+    display: inherit;
+    padding: 20px;
+    padding-top: 10px;
+    margin-top: 120px;
+    margin-bottom: 50px;
+}
+.contain{
+    max-width: 1180px;
+}
+.contain-small{
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+.main-item{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+#quote-carousel{
+    padding: 0 10px 30px 10px;
+    margin-top: 30px;
+    text-align: center;
+}
+.caurosel{
+    position: relative;
+}
+#quote-carousel .carousel-indicator{
+    right: 50%;
+    top: auto;
+    bottom: -10px;
+    margin-right: -19px;
+}
+.carousel-indicator{
+    position: absolute;
+    left: 50%;
+    z-index:15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+}
+#quote-carousel .carousel-indicator li{
+    background: #c0c0c0;
+}
+.carousel-inner{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.mb-half{
+    margin-bottom: 12px;
+}
+.mb-1{
+    margin-bottom: 24px;
+}
+.inline{
+    display: inline-block;
+}
+h6{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #7d97ad;
+}
+
+
 
 @media (max-width: 767px){
     .achieve-item:not(:last-child){

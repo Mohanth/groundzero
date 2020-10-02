@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Container, Row} from 'react-bootstrap';
 import FacultyImg from "../resources/images/mohanthbrothersmall.jpeg";
-import groundzero from "../assets/Transparent_logo.png";
+import groundzero from "../resources/images/Only_Logo.png";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
@@ -11,15 +11,45 @@ class landingpage extends React.Component{
     render() {
         return(
             <div>
-                <nav>
-                    <h2 className="navbar navbar-brand"> GroundZeroLearning</h2>
+
+               <nav style={{backgroundColor:"black"}} className="navbar navbar-expand-lg navbar-light ">
+                   <a style={{color:"#ffff"}}><h1>GroundZeroLearning</h1></a>
+                    {/*<a href="/" className="pull-left visible-md visible-lg">
+                        <img style={{height:80,width:200}} src={groundzero}/>
+
+                        </a>*/}
+
+                    <button style={{color:"white"}} className="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav mr-auto">
+                            <li className="nav-item active">
+                                <a style={{color:"white",marginRight:10,marginLeft:10}} className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                            </li>
+                            <li className="nav-item">
+                                <a style={{color:"white",marginRight:10}} className="nav-link" href="#">Courses</a>
+                            </li>
+                            <li className="nav-item">
+                                <a style={{color:"white"}} className="nav-link " href="#"
+                                   >About</a>
+                            </li>
+                        </ul>
+                        <form className="form-inline my-2 my-lg-0">
+                                <button style={{width:120,boxShadow:"8px 10px 20px 0px rgba(46,61,73,0.15)"}} className="btn btn-primary " type="submit">register</button>
+                        </form>
+                    </div>
                 </nav>
+
 
                 <div  id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"/>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"/>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"/>
                     </ol>
                     <div className="carousel-inner">
                         <div className="carousel-item active">
@@ -135,39 +165,69 @@ class landingpage extends React.Component{
                 </div>
                 </section>
 
-                <div data-aos="fade-up" id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-                    <ol className="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"/>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1" />
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2" />
-                    </ol>
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <h5 style={{padding:50,textAlign:"center"}}><blockquote>it is normal looking website</blockquote></h5>
+                <section data-aos="fade-left" className="testimonial">
+                    <div className="contain contain-small">
+                        <h3 style={{fontWeight:700,color:"#1f1f1f"}} className="text-center">TESTIMONIALS</h3>
+                        <div className="row main-item">
+                            <div className="col-md-12">
+                                <div className="carousel slide" data-ride="carousel" id="quote-carousel">
+                                    <ol className="carousel-indicators">
+                                        <li data-target="#quote-carousel" data-slide-to="0" className="active"/>
+                                        <li data-target="#quote-carousel" data-slide-to="1" />
+                                        <li data-target="#quote-carousel" data-slide-to="2" />
+                                    </ol>
+                                    <div className="carousel-inner">
+                                        <div className="carousel-item active">
+                                            <div className="row">
+                                                <div className="col-sm-12">
+                                                    <h4 className="text-center cookieFont mb-half">
+                                                       " Learning directly from mentor is a bliss. The classrooms where always discussion oriented rather than ‘pause and google doubts mode of MOOCs’. The program emphasis on practise of concepts with supervision is what I loved the most."
+                                                    </h4>
+                                                    <h6 className="mb-1 inline">-mohanth , developer , jpmorgan</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="carousel-item ">
+                                            <div className="row">
+                                                <div className="col-sm-12">
+                                                    <h4 className="text-center cookieFont mb-half">
+                                                        ""Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa error facere illo, ipsum magnam nulla quasi rem repellendus similique. Assumenda inventore libero quos rem repellat repellendus saepe sequi voluptas!""
+                                                    </h4>
+                                                    <h6 className="mb-1 inline">-saii , developer , jpmorgan</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="carousel-item">
-                            <h5 style={{padding:50,textAlign:"center"}}>"It is a very intersting website "</h5>
-                        </div>
-                        <div className="carousel-item">
-                            <h5 style={{padding:50,textAlign:"center"}}>"nice website "</h5>
-                        </div>
-                        <div className="carousel-item">
-                            <h5 style={{padding:50,textAlign:"center"}}>"very useful to all persons"</h5>
-                        </div>
+
                     </div>
-                </div>
+                </section>
+
+
 
 
 
                 <footer  class="page-footer font-small blue pt-4">
-                    <div class="container-fluid text-center  text-md-left">
+                    <div style={{backgroundColor:"#f3f3f3"}} class="container-fluid text-center  text-md-left">
                         <div class="row" style={{marginLeft:20}}>
                             <div class="col-md-5 mt-md-0 mt-3">
-                                <h5  style={{fontSize:20,marginTop:20,font:"bold",color:"white",}}  class="text-uppercase">GroundZeroLearning</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet at aut consequatur debitis dolores doloribus eius excepturi fugiat inventore maiores nulla placeat quae quas quis quod, tempora temporibus? Iste, natus.</p>
+                                <h5  style={{fontSize:20,marginTop:20,font:"bold"}}  class="text-uppercase">GroundZeroLearning</h5>
+                                <p style={{color:"black"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet at aut consequatur debitis dolores doloribus eius excepturi fugiat inventore maiores nulla placeat quae quas quis quod, tempora temporibus? Iste, natus.</p>
                             </div>
+                            <hr class="clearfix w-100 d-md-none pb-3" />
+                                <div class="col-md-3 mb-md-0 mb-3">
+                                    <h5 style={{fontSize:20,marginTop:20,font:"bold",fontFamily:"sanserif",color:"black",marginBottom:15}} class="text-uppercase">Location</h5>
+                                    <p style={{color:"black"}}><i style={{marginRight:20,color:"black"}} className="fa fa-map-marker"/>hyderabad</p>
+                                    <p style={{color:"black"}}><i style={{marginRight:20,color:"black"}} className="fa fa-phone"/>987456321 </p>
+                                    <p style={{color:"black"}}><i  style={{marginRight:20,color:"black"}} className="fa fa-envelope"/>groundlearning@gmail.com</p>
+                                </div>
+                            <hr className="clearfix w-100 d-md-none pb-3"/>
                             <div className="col-md-4 mb-md-0 mb-3">
-                                <div style={{marginTop: 50}} className="social-media">
+                                <h5 style={{fontSize: 20, marginTop: 20, font: "bold"}}
+                                    className="text-uppercase">Follow Us On</h5>
+                                <div style={{display:"flex"}} className="social">
                                     <a href="#" className="social-icon">
                                         <i className="fab fa-facebook-f"/>
                                     </a>
@@ -183,20 +243,12 @@ class landingpage extends React.Component{
                                 </div>
 
                             </div>
-                            <hr class="clearfix w-100 d-md-none pb-3" />
-                                <div class="col-md-3 mb-md-0 mb-3">
-                                    <h5 style={{fontSize:20,marginTop:20,font:"bold",fontFamily:"sanserif",color:"white",marginBottom:15}} class="text-uppercase">Location</h5>
-                                    <p><i style={{marginRight:20}} className="fa fa-map-marker"/>hyderabad</p>
-                                    <p><i style={{marginRight:20}} className="fa fa-phone"/>987456321 </p>
-                                    <p><i  style={{marginRight:20}} className="fa fa-envelope"/>xyz@gmail.com</p>
-                                </div>
-                            <hr className="clearfix w-100 d-md-none pb-3"/>
-
+                        </div>
+                        <div className="footer-copyright text-center py-3">© 2020 Copyright:
+                            <a href="https://mdbootstrap.com/"> Groundzerolearning</a>
                         </div>
                     </div>
-                    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                        <a href="https://mdbootstrap.com/"> Groundzerolearning</a>
-                    </div>
+
                 </footer>
 
 

@@ -40,7 +40,7 @@ function Auth() {
                 <i className="fas fa-lock"/>
                 <input type="password" placeholder="Password" />
               </div>
-              <input type="submit" value="Login" className="btn solid" />
+              <input type="submit" value="Login" className="button solid" />
               <p className="social-text">Or Sign in with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
@@ -72,7 +72,7 @@ function Auth() {
                 <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Password" />
               </div>
-              <input type="submit" className="btn" value="Sign up" />
+              <input type="submit" className="button" value="Sign up" />
               <p className="social-text">Or Sign up with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
@@ -101,9 +101,9 @@ function Auth() {
                 Debitis, ex ratione. Aliquid!
               </p>
               <button
-                className="btn transparent"
+                className="button transparent"
                 onClick={script}
-                id="sign-up-btn"
+                id="sign-up-button"
               >
                 Sign up
               </button>
@@ -118,9 +118,9 @@ function Auth() {
                 laboriosam ad deleniti.
               </p>
               <button
-                className="btn transparent"
+                className="button transparent"
                 onClick={script}
-                id="sign-in-btn"
+                id="sign-in-button"
               >
                 Sign up
               </button>
