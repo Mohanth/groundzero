@@ -1,7 +1,8 @@
 import React from "react";
 import {Col, Container, Row} from 'react-bootstrap';
 import FacultyImg from "../resources/images/mohanthbrothersmall.jpeg";
-import groundzero from "../resources/images/Only_Logo.png";
+import groundzero from "../resources/images/Pink_Transparent_200.png";
+import loginpage from "./Loginandsignin";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
@@ -13,12 +14,10 @@ class landingpage extends React.Component{
             <div>
 
                <nav style={{backgroundColor:"black"}} className="navbar navbar-expand-lg navbar-light ">
-                   <a style={{color:"#ffff"}}><h1>GroundZeroLearning</h1></a>
-                    {/*<a href="/" className="pull-left visible-md visible-lg">
-                        <img style={{height:80,width:200}} src={groundzero}/>
+                  {/* <a style={{color:"#ffff"}}><h1>GroundZeroLearning</h1></a>*/}
 
-                        </a>*/}
 
+                   <h3 style={{color:"white",padding:10}}>GroundZeroLearning</h3>
                     <button style={{color:"white"}} className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +25,7 @@ class landingpage extends React.Component{
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
+                        <ul className="navbar-nav ml-auto">
                             <li className="nav-item active">
                                 <a style={{color:"white",marginRight:10,marginLeft:10}} className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                             </li>
@@ -37,10 +36,10 @@ class landingpage extends React.Component{
                                 <a style={{color:"white"}} className="nav-link " href="#"
                                    >About</a>
                             </li>
+                            <li className="nav-item">
+                                <a href="/login"> <button style={{boxShadow:"8px 10px 20px 0px rgba(46,61,73,0.15)"}} className="btn btn-primary " type="submit">register</button></a>
+                            </li>
                         </ul>
-                        <form className="form-inline my-2 my-lg-0">
-                                <button style={{width:120,boxShadow:"8px 10px 20px 0px rgba(46,61,73,0.15)"}} className="btn btn-primary " type="submit">register</button>
-                        </form>
                     </div>
                 </nav>
 
@@ -214,6 +213,7 @@ class landingpage extends React.Component{
                         <div class="row" style={{marginLeft:20}}>
                             <div class="col-md-5 mt-md-0 mt-3">
                                 <h5  style={{fontSize:20,marginTop:20,font:"bold"}}  class="text-uppercase">GroundZeroLearning</h5>
+                                <img style={{width:80,marginBottom:10}} src={groundzero}/>
                                 <p style={{color:"black"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet at aut consequatur debitis dolores doloribus eius excepturi fugiat inventore maiores nulla placeat quae quas quis quod, tempora temporibus? Iste, natus.</p>
                             </div>
                             <hr class="clearfix w-100 d-md-none pb-3" />

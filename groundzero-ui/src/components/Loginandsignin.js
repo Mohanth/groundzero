@@ -103,7 +103,7 @@ function Auth() {
               <button
                 className="button transparent"
                 onClick={script}
-                id="sign-up-button"
+                id="sign-up-btn"
               >
                 Sign up
               </button>
@@ -120,7 +120,7 @@ function Auth() {
               <button
                 className="button transparent"
                 onClick={script}
-                id="sign-in-button"
+                id="sign-in-btn"
               >
                 Sign up
               </button>
