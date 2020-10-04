@@ -18,7 +18,7 @@ class landingpage extends React.Component{
 
 
                    <h3 style={{color:"white",padding:10}}>GroundZeroLearning</h3>
-                    <button style={{color:"white"}} className="navbar-toggler" type="button" data-toggle="collapse"
+                    <button  className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@ class landingpage extends React.Component{
                                    >About</a>
                             </li>
                             <li className="nav-item">
-                                <a href="/login"> <button style={{boxShadow:"8px 10px 20px 0px rgba(46,61,73,0.15)"}} className="btn btn-primary " type="submit">register</button></a>
+                                <a style={{padding:8}} href="/login"> <button style={{boxShadow:"8px 10px 20px 0px rgba(46,61,73,0.15)"}} className="btn btn-primary " type="submit">register</button></a>
                             </li>
                         </ul>
                     </div>
