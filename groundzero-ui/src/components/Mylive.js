@@ -7,7 +7,7 @@ function Class() {
       <div class="content">
         <div class="border">
           <div class="row">
-            <h5 class="">Programing for Begineers</h5>
+            <h5 className="">Programing for Begineers</h5>
             <button class="btn btn-primary">Completed</button>
           </div>
         </div>

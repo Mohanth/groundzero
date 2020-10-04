@@ -1,16 +1,7 @@
 import React from "react";
 import "./App.css";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import Loginandsignin from "./components/Loginandsignin";
-import Discuss from "./components/Discuss";
-import GlobalDashboard from "./components/GlobalDashboard";
-import GlobalHeader from "./components/GlobalHeader";
-import MyLiveClasses from "./components/Mylive";
-import Dashboard from "./components/Dashboard";
-import Coursedetail from "./components/Coursedetail";
 import LandingPage from "./components/LandingPage";
-import Whatyouwill from "./components/Whatyouwill";
-import Syllabus from "./components/Syllabus"
 
 class App extends React.Component {
     render() {
@@ -18,7 +9,8 @@ class App extends React.Component {
             <Router>
                 <Route exact path="/">
                     {/* <Route exact path="/" component={GlobalDashboard} /> */}
-                    <Dashboard/>
+                    <LandingPage/>
+                    {/*<Dashboard/>*/}
                 </Route>
                 {/* <Route path="/live">
           <GlobalHeader />
@@ -28,18 +20,18 @@ class App extends React.Component {
         <Route exact path="/discussionForm" component={Discuss} />
         <Route exact path="/login" component={Loginandsignin} /> */}
 
-                <Route exact path="/detail">
+                {/*<Route exact path="/detail">
                     <Coursedetail/>
 
                 </Route>
                 <Route exact path="/login">
-                    <Loginandsignin />
+                    <Loginandsignin/>
 
                 </Route>
                 <Route exact path="/landingpage">
-                   <LandingPage />
+                    <LandingPage/>
 
-                </Route>
+                </Route>*/}
             </Router>
         );
     }

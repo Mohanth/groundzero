@@ -1,0 +1,7 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+.iconStyles{
+    size: 30px;
+}

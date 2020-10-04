@@ -21,7 +21,7 @@ function Auth() {
       <div className="container-fluid-login">
         <nav class="navbar navbar-expand-lg navbar-light bg-light d-none d-sm-none d-xl-block">
           <a class="navbar-brand" href="#">
-            GroundZerolearning
+            GroundZero Learnings
           </a>
         </nav>
         <div className="forms-container">
@@ -50,10 +50,10 @@ function Auth() {
                   <i className="fab fa-twitter"/>
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-google"></i>
+                  <i className="fab fa-google"/>
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-linkedin-in"></i>
+                  <i className="fab fa-linkedin-in"/>
                 </a>
               </div>
             </form>
@@ -69,7 +69,7 @@ function Auth() {
                 <input type="email" placeholder="Email" />
               </div>
               <div className="input-field">
-                <i className="fas fa-lock"></i>
+                <i className="fas fa-lock"/>
                 <input type="password" placeholder="Password" />
               </div>
               <input type="submit" className="button" value="Sign up" />
@@ -79,13 +79,13 @@ function Auth() {
                   <i className="fab fa-facebook-f"/>
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"/>
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-google"></i>
+                  <i className="fab fa-google"/>
                 </a>
                 <a href="#" className="social-icon">
-                  <i className="fab fa-linkedin-in"></i>
+                  <i className="fab fa-linkedin-in"/>
                 </a>
               </div>
             </form>
