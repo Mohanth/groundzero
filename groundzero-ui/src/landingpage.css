@@ -3,6 +3,9 @@
 .cookieFont{
     font-family: 'Cookie', cursive;
 }
+.navbar-inverse .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;..");
+}
 
 *{
     margin: 0;
