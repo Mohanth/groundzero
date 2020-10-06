@@ -48,8 +48,8 @@ public class UserServiceImpl implements UserService {
         dataSource.setPassword("groundzero");
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-        String sql = "INSERT into user(user_id , user_name , user_firstname , user_lastname , user_email , user_phone ) VALUES(?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, userDetails.getUserId(), userDetails.getUserFullName(), userDetails.getUserFirstName(), userDetails.getUserLastName(), userDetails.getUserEmail(), userDetails.getUserPhone());
+        String sql = "INSERT into user( user_id , user_name , user_firstname , user_lastname , user_email ,user_phone ) VALUES(?,?,?,?,?,?)";
+        jdbcTemplate.update(sql, userDetails.getUserId() , userDetails.getUserFullName(), userDetails.getUserFirstName(), userDetails.getUserLastName(), userDetails.getUserEmail(),userDetails.getUserPhone());
 
         return "successfully saved";
     }

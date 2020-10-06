@@ -33,17 +33,17 @@ class LandingPage extends React.Component {
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <a style={{color: "white", marginRight: 10, marginLeft: 10}} className="nav-link"
-                                   href="#">Home</a>
+                                   href="/">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a style={{color: "white", marginRight: 10}} className="nav-link" href="#">Courses</a>
+                                <a style={{color: "white", marginRight: 10}} className="nav-link" href="/">Courses</a>
                             </li>
                             <li className="nav-item">
-                                <a style={{color: "white"}} className="nav-link " href="#"
+                                <a style={{color: "white"}} className="nav-link " href="/"
                                 >About</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#">
+                                <a style={{padding:8}} href="/login">
                                     <Button outline color="info">Register</Button>{' '}
                                 </a>
                             </li>
@@ -83,7 +83,7 @@ class LandingPage extends React.Component {
                         <ul className="achieve">
                             <li className="achieve-item">
                                 <div className="img-container">
-                                    <img src={groupClasses}/>
+                                    <img src={groupClasses} alt="img"/>
                                 </div>
                                 <div className="achieve-item-title">
                                     <span>
@@ -94,7 +94,7 @@ class LandingPage extends React.Component {
                             </li>
                             <li className="achieve-item">
                                 <div className="img-container">
-                                    <img src={onlineExam}/>
+                                    <img src={onlineExam} alt="img"/>
                                 </div>
                                 <div className="achieve-item-title">
                                     <span>
@@ -105,7 +105,7 @@ class LandingPage extends React.Component {
                             </li>
                             <li className="achieve-item">
                                 <div className="img-container">
-                                    <img style={{maxHeight: 55}} src={doubts}/>
+                                    <img style={{maxHeight: 55}} src={doubts} alt="img"/>
                                 </div>
                                 <div className="achieve-item-title">
                                     <span>
@@ -116,7 +116,7 @@ class LandingPage extends React.Component {
                             </li>
                             <li className="achieve-item">
                                 <div className="img-container">
-                                    <img style={{maxHeight: 55}} src={support}/>
+                                    <img style={{maxHeight: 55}} src={support} alt="img"/>
                                 </div>
                                 <div className="achieve-item-title">
                                     <span>
@@ -220,7 +220,7 @@ class LandingPage extends React.Component {
                             <div className="col-md-5 mt-md-0 mt-3">
                                 <h5 style={{fontSize: 20, marginTop: 20, font: "bold"}}
                                     className="text-uppercase">GroundZeroLearning</h5>
-                                <img style={{width: 80, marginBottom: 10}} src={groundZeroLogo}/>
+                                <img style={{width: 80, marginBottom: 10}} src={groundZeroLogo} alt="img"/>
                                 <p style={{color: "black"}}>We GroundZero Learnings in a new era of online school. We
                                     provide online classes for all students on MPC, JEE preparation, online coding for
                                     kids. We also provide the One-One mentoring system and group classes</p>
@@ -266,7 +266,7 @@ class LandingPage extends React.Component {
                             </div>
                         </div>
                         <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                            <a href="#"> GroundZero Learnings Pvt Ltd.,</a>
+                            <a href="/"> GroundZero Learnings Pvt Ltd.,</a>
                         </div>
                     </div>
 
