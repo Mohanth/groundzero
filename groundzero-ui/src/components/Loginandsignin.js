@@ -17,6 +17,7 @@ function script() {
 
 class Auth  extends React.Component {
 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,11 +27,52 @@ class Auth  extends React.Component {
       userlastname: '',
       userphone: '',
       useremail: '',
-      userpassword: ''
+      userpassword: '',
+      facultyid:'',
+      facultyname:'',
+      facultyfirstname:'',
+      facultylastname:'',
+      facultyemail:'',
+      facultyphone:'',
+      preferredsubject:''
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handlefacultychange = this.handlefacultychange.bind(this)
+    this.facultysubmit = this.facultysubmit.bind(this)
+  }
+
+  handlefacultychange = (event) =>{
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  facultysubmit = (event) => {
+    event.preventDefault();
+    let data = {
+      facultyId:this.state.facultyid,
+      facultyName:this.state.facultyname,
+      facultyFirstName:this.state.facultyfirstname,
+      facultyLastName:this.state.facultylastname,
+      facultyEmail:this.state.facultyemail,
+      facultyPhone:this.state.facultyphone,
+      preferredSubject:this.state.preferredsubject
+    }
+
+    fetch('http://localhost:8080/api/faculty/savefaculty', {
+      method: 'POST',
+      body: JSON.stringify(data), // data can be `string` or {object}!
+
+      headers: {'Content-Type': 'application/json'}
+    })
+
+        .then(res => res.json())
+
+        .catch(error => console.error('Error:', error))
+
+        .then(response => console.log('Success:', response));
   }
 
   handleChange = (event) => {
@@ -82,7 +124,7 @@ class Auth  extends React.Component {
             <div className="forms-container" >
               <div className="signin-signup">
                 <form action="#" method="POST" className="sign-in-form" >
-                  <h2 className="title">SIGNUP</h2>
+                  <h2 className="title">SIGNUP for students</h2>
                   <div className="input-field">
                     <i className="fas fa-user"/>
                     <input type="text" name="userid" value={this.state.userid} onChange={this.handleChange}
@@ -138,21 +180,45 @@ class Auth  extends React.Component {
                   </div>
                 </form>
 
-                <form action="#" className="sign-up-form">
-                  <h2 className="title">Sign up</h2>
+                <form action="#" method="POST" className="sign-up-form">
+                  <h2 className="title">Sign up for faculty</h2>
                   <div className="input-field">
                     <i className="fas fa-user"/>
-                    <input type="text" placeholder="Username"/>
+                    <input type="text" name="facultyid" value={this.state.facultyid} onChange={this.handlefacultychange}
+                           placeholder="userid"/>
+                  </div>
+                  <div className="input-field">
+                    <i className="fas fa-user"/>
+                    <input type="text" name="facultyname" value={this.state.facultyname} onChange={this.handlefacultychange}
+                           placeholder="Username"/>
+                  </div>
+                  <div className="input-field">
+                    <i className="fas fa-user"/>
+                    <input  type="text" name="facultyfirstname" value={this.state.facultyfirstname}
+                            onChange={this.handlefacultychange}
+                            placeholder="User_Firstname"/>
+                  </div>
+                  <div className="input-field">
+                    <i className="fas fa-user"/>
+                    <input type="text" name="facultylastname" value={this.state.facultylastname} onChange={this.handlefacultychange}
+                           placeholder="Userlastname"/>
+                  </div>
+                  <div className="input-field">
+                    <i className="fas fa-user"/>
+                    <input type="number" name="facultyphone" value={this.state.facultyphone} onChange={this.handlefacultychange}
+                           placeholder="phone number"/>
                   </div>
                   <div className="input-field">
                     <i className="fas fa-envelope"/>
-                    <input type="email" placeholder="Email"/>
+                    <input type="email" name="facultyemail" value={this.state.facultyemail} onChange={this.handlefacultychange}
+                           placeholder="Email"/>
                   </div>
                   <div className="input-field">
                     <i className="fas fa-lock"/>
-                    <input type="password" placeholder="Password"/>
+                    <input  type="password" name="userpassword" value={this.state.userpassword}
+                            onChange={this.handlefacultychange} placeholder="Password"/>
                   </div>
-                  <input type="submit" className="button" value="Sign up"/>
+                  <button onClick={this.facultysubmit} className="btn btn-primary">Login</button>
                   <p className="social-text">Or Sign up with social platforms</p>
                   <div className="social-media">
                     <a href="/" className="social-icon">
