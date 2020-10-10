@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.groundzero.learnings.groundzero.courses.CourseDetails;
 import com.groundzero.learnings.groundzero.courses.service.impl.CoursesServiceImpl;
-import com.groundzero.learnings.groundzero.user.UserDetails;
-import com.groundzero.learnings.groundzero.user.service.impl.UserServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,7 +21,7 @@ public class CoursesController {
     public String savecourse(@RequestBody String courseDetailsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         CourseDetails courseDetails = mapper.readValue(courseDetailsStr,CourseDetails.class);
-        return coursesService.savecoursedetails(courseDetails);
+        return coursesService.saveCourseDetails(courseDetails);
     }
 
 

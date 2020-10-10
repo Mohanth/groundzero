@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.groundzero.learnings.groundzero.faculty.FacultyDetails;
 import com.groundzero.learnings.groundzero.faculty.service.impl.FacultyServiceImpl;
-import com.groundzero.learnings.groundzero.user.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -2,7 +2,6 @@ package com.groundzero.learnings.groundzero.faculty.service.impl;
 
 import com.groundzero.learnings.groundzero.faculty.FacultyDetails;
 import com.groundzero.learnings.groundzero.faculty.service.FacultyService;
-import com.groundzero.learnings.groundzero.user.UserDetails;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

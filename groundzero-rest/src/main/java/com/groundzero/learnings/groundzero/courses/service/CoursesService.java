@@ -5,7 +5,7 @@ import com.groundzero.learnings.groundzero.courses.CourseDetails;
 public interface CoursesService {
 
     CourseDetails getCourseDetailsById(String CourseId);
-    String savecoursedetails(CourseDetails courseDetails);
+    String saveCourseDetails(CourseDetails courseDetails);
 
 
 

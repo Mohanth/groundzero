@@ -2,7 +2,6 @@ package com.groundzero.learnings.groundzero.courses.service.impl;
 
 import com.groundzero.learnings.groundzero.courses.CourseDetails;
 import com.groundzero.learnings.groundzero.courses.service.CoursesService;
-import com.groundzero.learnings.groundzero.user.UserDetails;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,7 +37,7 @@ public class CoursesServiceImpl implements CoursesService {
     }
 
     @Override
-    public String savecoursedetails(CourseDetails courseDetails) {
+    public String saveCourseDetails(CourseDetails courseDetails) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://groundzero-db.cqqbhji3hylj.us-east-1.rds.amazonaws.com/groundzero_db");
@@ -47,20 +46,7 @@ public class CoursesServiceImpl implements CoursesService {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         String sql="INSERT into courses(course_id , course_name , course_price, course_instructor) values (?,?,?,?)";
-        jdbcTemplate.update(sql, courseDetails.getCourseId() , courseDetails.getCourseName(), courseDetails.getCoursePrice(),courseDetails.getcourseInstructor());
+        jdbcTemplate.update(sql, courseDetails.getCourseId() , courseDetails.getCourseName(), courseDetails.getCoursePrice(),courseDetails.getCourseInstructor());
         return "successfully saved";
     }
-
-    /*public String savecoursesdetails(CourseDetails courseDetails){
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://groundzero-db.cqqbhji3hylj.us-east-1.rds.amazonaws.com/groundzero_db");
-        dataSource.setUsername("admin");
-        dataSource.setPassword("groundzero");
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-
-        String sql="INSERT into courses(course_id , course_name , course_price, course_instructor) values (?,?,?,?)";
-        jdbcTemplate.update(sql, courseDetails.getCourseId() , courseDetails.getCourseName(), courseDetails.getCoursePrice(),courseDetails.getcourseInstructor());
-        return "successfully saved";
-    }*/
 }
