@@ -1,4 +1,4 @@
-package com.groundzero.learnings.groundzero.faculty;
+package com.groundzero.learnings.groundzero.faculty.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
