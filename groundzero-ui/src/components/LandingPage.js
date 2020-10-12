@@ -13,6 +13,7 @@ import 'aos/dist/aos.css';
 import "../landingpage.css";
 import {Button} from "reactstrap";
 
+
 AOS.init({offset: 200, duration: 1000});
 
 class LandingPage extends React.Component {
@@ -249,17 +250,17 @@ class LandingPage extends React.Component {
                                     className="text-uppercase">Follow Us On</h5>
                                 <div style={{display: "flex"}} className="social">
                                     <a href="https://www.facebook.com/GZLearnings/">
-                                        <i className="fab fa-facebook fa-2x" style={{padding: "5px"}}/>
+                                        <img src="https://img.icons8.com/color/48/000000/facebook.png"/>
                                     </a>
-                                    <a href="https://www.instagram.com/groundzerolearnings/" className="social-icon">
-                                        <i className="fab fa-instagram fa-2x" style={{padding: "5px"}}/>
+                                    <a href="https://www.instagram.com/groundzerolearnings/" >
+                                        <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
                                     </a>
-                                    <a href="https://g.page/groundzero-learnings/review?rc" className="social-icon">
-                                        <i className="fab fa-google-plus fa-2x" style={{padding: "5px"}}/>
+                                    <a href="https://g.page/groundzero-learnings/review?rc">
+                                        <img src="https://img.icons8.com/color/48/000000/google-plus-squared.png"/>
                                     </a>
                                     <a href="https://www.linkedin.com/company/groundzero-learnings"
-                                       className="social-icon">
-                                        <i className="fab fa-linkedin fa-2x" style={{padding: "5px"}}/>
+                                    >
+                                        <img src="https://img.icons8.com/color/48/000000/linkedin.png"/>
                                     </a>
                                 </div>
 

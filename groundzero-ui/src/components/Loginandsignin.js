@@ -1,5 +1,15 @@
 import React from "react";
+import img from "../resources/Pink_Transparent_200 (1).png";
+import background from "../resources/FullLogo_Black (1).png";
 import "../login.css";
+import {Button} from "reactstrap";
+import Snackbar from "@material-ui/core/Snackbar";
+import Icon from "@material-ui/core/IconButton";
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 function script() {
   const sign_in_btn = document.querySelector("#sign-in-btn");
@@ -36,11 +46,17 @@ class Auth  extends React.Component {
       facultyphone:'',
       preferredsubject:''
     }
-
+    this.state={
+      snackbaropen:false,
+      snackbarmsg:''
+    };
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlefacultychange = this.handlefacultychange.bind(this)
     this.facultysubmit = this.facultysubmit.bind(this)
+  }
+  snackbarClose = (event) => {
+    this.setState({snackbaropen:false});
   }
 
   handlefacultychange = (event) =>{
@@ -52,13 +68,9 @@ class Auth  extends React.Component {
   facultysubmit = (event) => {
     event.preventDefault();
     let data = {
-      facultyId:this.state.facultyid,
       facultyName:this.state.facultyname,
-      facultyFirstName:this.state.facultyfirstname,
-      facultyLastName:this.state.facultylastname,
       facultyEmail:this.state.facultyemail,
       facultyPhone:this.state.facultyphone,
-      preferredSubject:this.state.preferredsubject
     }
 
     fetch('http://localhost:8080/api/faculty/savefaculty', {
@@ -88,10 +100,7 @@ class Auth  extends React.Component {
 
 
     let data = {
-      userId:this.state.userid,
       userFullName: this.state.username,
-      userFirstName: this.state.userfirstname,
-      userLastname: this.state.userlastname,
       userEmail: this.state.useremail,
       userPhone:this.state.userphone
     }
@@ -109,47 +118,50 @@ class Auth  extends React.Component {
         .catch(error => console.error('Error:', error))
 
         .then(response => console.log('Success:', response));
+
+
+    this.setState({snackbaropen:true,snackbarmsg:'Stored Successfully'});
+
+
   }
 
   render() {
     return (
         <div>
-          <div className="container-fluid-login">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light d-none d-sm-none d-xl-block">
-              <a className="navbar-brand" href="/">
-                GroundZerolearning
-              </a>
-            </nav>
+          <div style={{backgroundColor:""}} className="container-fluid-login">
 
+
+            <Snackbar anchorOrigin={{vertical:'top',horizontal:'right'}} open={this.state.snackbaropen} autoHideDuration={3000} onClose={this.snackbarClose} message={<span id="message-id" >{this.state.snackbarmsg}</span>}
+            /*action={[
+              <Icon key="close" arial-label="close" color="inherit" onClick={this.snackbarClose} severity="success">
+                x
+              </Icon>
+            ]}*/
+            >
+              <Alert onClose={this.snackbarClose} severity="success">
+                {this.state.snackbarmsg}
+              </Alert>
+            </Snackbar>
             <div className="forms-container" >
               <div className="signin-signup">
                 <form action="#" method="POST" className="sign-in-form" >
-                  <h2 className="title">SIGNUP for students</h2>
-                  <div className="input-field">
-                    <i className="fas fa-user"/>
-                    <input type="text" name="userid" value={this.state.userid} onChange={this.handleChange}
-                           placeholder="userid"/>
-                  </div>
+                  <img style={{
+                     width:"200px",
+                    padding:"25px",
+
+                  }} src={img} className="image " alt=""/>
+                  <h2 className="title">SIGNUP FOR STUDENTS</h2>
+
                   <div className="input-field">
                     <i className="fas fa-user"/>
                     <input type="text" name="username" value={this.state.username} onChange={this.handleChange}
                            placeholder="Username"/>
                   </div>
+
                   <div className="input-field">
-                    <i className="fas fa-user"/>
-                    <input  type="text" name="userfirstname" value={this.state.userfirstname}
-                           onChange={this.handleChange}
-                           placeholder="User_Firstname"/>
-                  </div>
-                  <div className="input-field">
-                    <i className="fas fa-user"/>
-                    <input type="text" name="userlastname" value={this.state.userlastname} onChange={this.handleChange}
-                           placeholder="Userlastname"/>
-                  </div>
-                  <div className="input-field">
-                    <i className="fas fa-user"/>
+                    <i className="fas fa-phone"/>
                     <input type="number" name="userphone" value={this.state.userphone} onChange={this.handleChange}
-                           placeholder="phone number"/>
+                           placeholder="Phone number"/>
                   </div>
                   <div className="input-field">
                     <i className="fas fa-envelope"/>
@@ -161,32 +173,36 @@ class Auth  extends React.Component {
                     <input  type="password" name="userpassword" value={this.state.userpassword}
                            onChange={this.handleChange} placeholder="Password"/>
                   </div>
-                  <button onClick={this.handleSubmit} className="btn btn-primary">Login</button>
+                  <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info" onClick={this.handleSubmit} >Register</Button>
+
+                  {/*<button outline color="info"   onClick={this.handleSubmit} className="btn btn-primary submit-button">Register</button>*/}
+
                   {/*<input onSubmit={this.handleSubmit} type="submit" value="Login" className="button solid"/>*/}
-                  <p className="social-text">Or Sign in with social platforms</p>
-                  <div className="social-media">
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-facebook-f"/>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-twitter"/>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-google"></i>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                  </div>
+                  <p style={{marginBottom:0}} className="social-text">Or Sign in with social platforms</p>
+                    <div style={{display: "flex"}} className="social">
+                        <a href="https://www.facebook.com/GZLearnings/">
+                            <img src="https://img.icons8.com/color/48/000000/facebook.png"/>
+                        </a>
+                        <a href="https://www.instagram.com/groundzerolearnings/" >
+                          <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+                        </a>
+                        <a href="https://g.page/groundzero-learnings/review?rc">
+                            <img src="https://img.icons8.com/color/48/000000/google-plus-squared.png"/>
+                        </a>
+                        <a href="https://www.linkedin.com/company/groundzero-learnings"
+                        >
+                            <img src="https://img.icons8.com/color/48/000000/linkedin.png"/>
+                        </a>
+                    </div>
                 </form>
 
                 <form action="#" method="POST" className="sign-up-form">
-                  <h2 className="title">Sign up for faculty</h2>
-                  <div className="input-field">
-                    <i className="fas fa-user"/>
-                    <input type="text" name="facultyid" value={this.state.facultyid} onChange={this.handlefacultychange}
-                           placeholder="userid"/>
-                  </div>
+                  <img style={{
+                    width:"200px",
+                    padding:"25px",
+
+                  }} src={img} className="image " alt=""/>
+                  <h2 className="title">SIGN UP FOR FACULTY</h2>
                   <div className="input-field">
                     <i className="fas fa-user"/>
                     <input type="text" name="facultyname" value={this.state.facultyname} onChange={this.handlefacultychange}
@@ -194,19 +210,8 @@ class Auth  extends React.Component {
                   </div>
                   <div className="input-field">
                     <i className="fas fa-user"/>
-                    <input  type="text" name="facultyfirstname" value={this.state.facultyfirstname}
-                            onChange={this.handlefacultychange}
-                            placeholder="User_Firstname"/>
-                  </div>
-                  <div className="input-field">
-                    <i className="fas fa-user"/>
-                    <input type="text" name="facultylastname" value={this.state.facultylastname} onChange={this.handlefacultychange}
-                           placeholder="Userlastname"/>
-                  </div>
-                  <div className="input-field">
-                    <i className="fas fa-user"/>
                     <input type="number" name="facultyphone" value={this.state.facultyphone} onChange={this.handlefacultychange}
-                           placeholder="phone number"/>
+                           placeholder="Phone number"/>
                   </div>
                   <div className="input-field">
                     <i className="fas fa-envelope"/>
@@ -218,22 +223,24 @@ class Auth  extends React.Component {
                     <input  type="password" name="userpassword" value={this.state.userpassword}
                             onChange={this.handlefacultychange} placeholder="Password"/>
                   </div>
-                  <button onClick={this.facultysubmit} className="btn btn-primary">Login</button>
-                  <p className="social-text">Or Sign up with social platforms</p>
-                  <div className="social-media">
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-facebook-f"/>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-twitter"/>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-google"/>
-                    </a>
-                    <a href="/" className="social-icon">
-                      <i className="fab fa-linkedin-in"/>
-                    </a>
-                  </div>
+                  <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info" onClick={this.facultysubmit} >Register</Button>
+
+                  <p style={{marginBottom:0}} className="social-text">Or Sign up with social platforms</p>
+                    <div style={{display: "flex"}} className="social">
+                        <a href="https://www.facebook.com/GZLearnings/">
+                            <img src="https://img.icons8.com/color/48/000000/facebook.png"/>
+                        </a>
+                        <a href="https://www.instagram.com/groundzerolearnings/" >
+                          <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+                        </a>
+                        <a href="https://g.page/groundzero-learnings/review?rc">
+                            <img src="https://img.icons8.com/color/48/000000/google-plus-squared.png"/>
+                        </a>
+                        <a href="https://www.linkedin.com/company/groundzero-learnings"
+                        >
+                            <img src="https://img.icons8.com/color/48/000000/linkedin.png"/>
+                        </a>
+                    </div>
                 </form>
               </div>
             </div>
@@ -271,7 +278,7 @@ class Auth  extends React.Component {
                     Sign up
                   </button>
                 </div>
-                <img src="Final_logo.png" className="image" alt=""/>
+                {/*<img src={img} className="image" alt=""/>*/}
               </div>
             </div>
           </div>
