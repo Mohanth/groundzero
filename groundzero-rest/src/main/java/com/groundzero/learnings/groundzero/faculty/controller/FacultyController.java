@@ -20,6 +20,7 @@ public class FacultyController {
     public FacultyDetails getfacultyid(@PathVariable String id){return facultyService.getFacultyDetailsById(id);}
 
     @PostMapping("/savefaculty")
+    @CrossOrigin("*")
     public String savefaculty(@RequestBody String facultyDetailsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         FacultyDetails facultyDetails = mapper.readValue(facultyDetailsStr,FacultyDetails.class);

@@ -75,7 +75,7 @@ class Auth  extends React.Component {
       password:this.state.facultypassword
     }
 
-    fetch('http://localhost:5000/api/faculty/savefaculty', {
+    fetch('http://groundzerolearnings-env.eba-7e4bkbxz.us-east-1.elasticbeanstalk.com/api/faculty/savefaculty', {
       method: 'POST',
       body: JSON.stringify(data), // data can be `string` or {object}!
 
