@@ -40,9 +40,8 @@ public class UserServiceImpl implements UserService {
 
     public String saveUserDetails(UserDetails userDetails) {
 
-
-        String sql = "INSERT into user(  user_name , user_email ,user_phone ) VALUES(?,?,?)";
-        gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getUserEmail(), userDetails.getUserPhone());
+        String sql = "INSERT into user(  user_name , user_email ,user_phone , password ) VALUES(?,?,?,?)";
+        gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getUserEmail(), userDetails.getUserPhone(),userDetails.getPassword());
 
         return "successfully saved";
     }

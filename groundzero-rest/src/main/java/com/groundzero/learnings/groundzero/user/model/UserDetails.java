@@ -18,6 +18,7 @@ public class UserDetails {
     String userPhone;
     String createdDt;
     String isActive;
+    String password;
 
     public UserDetails(){
 

@@ -17,6 +17,7 @@ public class FacultyDetails {
     String facultyLastName;
     String facultyEmail;
     String facultyPhone;
+    String password;
     String preferredSubject;
 
     public FacultyDetails() {

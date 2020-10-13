@@ -44,6 +44,7 @@ class Auth  extends React.Component {
       facultylastname:'',
       facultyemail:'',
       facultyphone:'',
+      facultypassword:'',
       preferredsubject:''
     }
     this.state={
@@ -71,9 +72,10 @@ class Auth  extends React.Component {
       facultyName:this.state.facultyname,
       facultyEmail:this.state.facultyemail,
       facultyPhone:this.state.facultyphone,
+      password:this.state.facultypassword
     }
 
-    fetch('http://localhost:8080/api/faculty/savefaculty', {
+    fetch('http://localhost:5000/api/faculty/savefaculty', {
       method: 'POST',
       body: JSON.stringify(data), // data can be `string` or {object}!
 
@@ -85,6 +87,9 @@ class Auth  extends React.Component {
         .catch(error => console.error('Error:', error))
 
         .then(response => console.log('Success:', response));
+
+    this.setState({snackbaropen:true,snackbarmsg:'Stored Successfully'});
+
   }
 
   handleChange = (event) => {
@@ -102,11 +107,12 @@ class Auth  extends React.Component {
     let data = {
       userFullName: this.state.username,
       userEmail: this.state.useremail,
-      userPhone:this.state.userphone
+      userPhone:this.state.userphone,
+      password:this.state.userpassword
     }
 
 
-    fetch('http://localhost:8080/api/user/saveUser', {
+    fetch('http://groundzerolearnings-env.eba-7e4bkbxz.us-east-1.elasticbeanstalk.com/api/user/saveUser', {
       method: 'POST',
       body: JSON.stringify(data), // data can be `string` or {object}!
 
@@ -220,7 +226,7 @@ class Auth  extends React.Component {
                   </div>
                   <div className="input-field">
                     <i className="fas fa-lock"/>
-                    <input  type="password" name="userpassword" value={this.state.userpassword}
+                    <input  type="password" name="facultypassword" value={this.state.facultypassword}
                             onChange={this.handlefacultychange} placeholder="Password"/>
                   </div>
                   <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info" onClick={this.facultysubmit} >Register</Button>

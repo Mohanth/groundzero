@@ -1,7 +1,10 @@
 package com.groundzero.learnings.groundzero.faculty.service.impl;
 
+import com.groundzero.learnings.groundzero.exception.FacultyNotFoundException;
+import com.groundzero.learnings.groundzero.exception.StudentNotFoundException;
 import com.groundzero.learnings.groundzero.faculty.model.FacultyDetails;
 import com.groundzero.learnings.groundzero.faculty.service.FacultyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -14,8 +17,7 @@ import java.util.Map;
 
 
 @Repository
-@Transactional
-@Configuration
+@Slf4j
 public class FacultyServiceImpl implements FacultyService {
 
     @Autowired
@@ -24,18 +26,26 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public FacultyDetails getFacultyDetailsById(String facultyid) {
 
-        String sql = "SELECT * FROM faculty WHERE faculty_id = ?";
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("facultyId", facultyid);
-        FacultyDetails facultyDetails = gzJdbcTemplate.queryForObject(sql, new Object[]{facultyid},
-                BeanPropertyRowMapper.newInstance(FacultyDetails.class));
+        FacultyDetails facultyDetails= null;
+
+        try{
+            String sql = "SELECT * FROM faculty WHERE faculty_id = ?";
+            Map<String, Object> paramMap = new HashMap<>();
+            paramMap.put("facultyId", facultyid);
+             facultyDetails = gzJdbcTemplate.queryForObject(sql, new Object[]{facultyid},
+                    BeanPropertyRowMapper.newInstance(FacultyDetails.class));
+        }catch(Exception e){
+            log.error("Error:" + e);
+            throw new FacultyNotFoundException();
+
+        }
         return facultyDetails;
+
     }
 
-    @Override
     public String savefacultydetails(FacultyDetails facultyDetails) {
-        String sql = "INSERT into faculty(faculty_id , faculty_name , faculty_firstname , faculty_lastname , faculty_email , faculty_phone , preferred_subject ) VALUES(?,?,?,?,?,?,?)";
-        gzJdbcTemplate.update(sql, facultyDetails.getFacultyId(), facultyDetails.getFacultyName(), facultyDetails.getFacultyFirstName(), facultyDetails.getFacultyLastName(), facultyDetails.getFacultyEmail(), facultyDetails.getFacultyPhone(), facultyDetails.getPreferredSubject());
+        String sql = "INSERT into faculty( faculty_name , faculty_email , faculty_phone ,password  ) VALUES(?,?,?,?)";
+        gzJdbcTemplate.update(sql, facultyDetails.getFacultyName(), facultyDetails.getFacultyEmail(), facultyDetails.getFacultyPhone() ,facultyDetails.getPassword());
         return "successfully saved";
     }
 }

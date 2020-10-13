@@ -27,8 +27,6 @@ public class UserController {
 
 
     @PostMapping("/saveUser")
-    @CrossOrigin(origins="http://localhost:3000")
-
     public String saveuser(@RequestBody String userDetailsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
