@@ -3,7 +3,7 @@ import FacultyImg from "../resources/mohanthbrothersmall.jpeg";
 import groundZeroLogo from "../resources/images/Pink_Transparent_200.png";
 import faculty01 from "../resources/images/faculty_01.png";
 import humanIcon from "../resources/images/human_01.png";
-import vrImg from "../resources/vr.jpeg";
+import vrImg from "../resources/vr.png";
 import groupClasses from "../resources/images/group_classes.png";
 import onlineExam from "../resources/images/online_exam.png";
 import doubts from "../resources/images/doubts.png";
