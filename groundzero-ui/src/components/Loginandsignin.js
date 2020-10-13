@@ -212,7 +212,7 @@ class Auth  extends React.Component {
                   <div className="input-field">
                     <i className="fas fa-user"/>
                     <input type="text" name="facultyname" value={this.state.facultyname} onChange={this.handlefacultychange}
-                           placeholder="Username"/>
+                           placeholder="Name"/>
                   </div>
                   <div className="input-field">
                     <i className="fas fa-user"/>
