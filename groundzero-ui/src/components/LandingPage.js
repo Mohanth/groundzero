@@ -19,21 +19,21 @@ AOS.init({offset: 200, duration: 1000});
 class LandingPage extends React.Component {
     render() {
         return (
-            <div>
+            <div style={{overflowX:"hidden"}}>
 
                 <nav style={{backgroundColor: "black"}} className="navbar navbar-expand-lg navbar-light ">
 
                     <h3 style={{color: "white"}}>GroundZero Learnings</h3>
-                    <button style={{color: "white"}} className="navbar-toggler" type="button" data-toggle="collapse"
+                    <button  className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"/>
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ml-auto">
+                        <ul id="navlist" className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a style={{color: "white", marginRight: 10, marginLeft: 10}} className="nav-link"
+                                <a style={{color: "white", marginRight: 10}} className="nav-link"
                                    href="/">Home</a>
                             </li>
                             <li className="nav-item">
@@ -43,7 +43,7 @@ class LandingPage extends React.Component {
                                 <a style={{color: "white"}} className="nav-link " href="/"
                                 >About</a>
                             </li>
-                            <li className="nav-item">
+                            <li style={{textAlign:"center"}} className="nav-item">
                                 <a style={{padding:8}} href="/login">
                                     <Button outline color="info">Register</Button>{' '}
                                 </a>
@@ -59,12 +59,18 @@ class LandingPage extends React.Component {
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"/>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"/>
                     </ol>
-                    <div className="carousel-inner">
+                    <div className="carousel-inner d-none d-md-block d-lg-block d-xl-block">
                         <div className="carousel-item image-container">
                             <img className="" src={vrImg} alt="First slide"/>
                         </div>
                     </div>
-                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                    <div className="carousel-inner 	d-block d-sm-block d-md-none">
+                        <div className="carousel-item image-container">
+                            <img style={{width:"360px"}} className="" src={vrImg} alt="First slide"/>
+                        </div>
+                    </div>
+                    
+                    {/*<a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                        data-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"/>
                         <span className="sr-only">Previous</span>
@@ -73,7 +79,7 @@ class LandingPage extends React.Component {
                        data-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true"/>
                         <span className="sr-only">Next</span>
-                    </a>
+                    </a>*/}
                 </div>
 
 
@@ -246,9 +252,9 @@ class LandingPage extends React.Component {
                             </div>
                             <hr className="clearfix w-100 d-md-none pb-3"/>
                             <div className="col-md-4 mb-md-0 mb-3">
-                                <h5 style={{fontSize: 20, marginTop: 20, font: "bold"}}
+                                <h5 style={{fontSize: 20, marginTop: 20, font: "bold",textAlign:"center"}}
                                     className="text-uppercase">Follow Us On</h5>
-                                <div style={{display: "flex"}} className="social">
+                                <div style={{display: "flex",justifyContent:"center"}} className="social">
                                     <a href="https://www.facebook.com/GZLearnings/">
                                         <img src="https://img.icons8.com/color/48/000000/facebook.png"/>
                                     </a>

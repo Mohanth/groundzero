@@ -3,6 +3,13 @@
 .cookieFont{
     font-family: 'Cookie', cursive;
 }
+.navbar-toggler{
+    background-color: gainsboro;
+}
+#navlist a{
+    text-align: center;
+    padding:10px;
+}
 
 *{
     margin: 0;

@@ -137,13 +137,7 @@ class Auth  extends React.Component {
           <div style={{backgroundColor:""}} className="container-fluid-login">
 
 
-            <Snackbar anchorOrigin={{vertical:'top',horizontal:'right'}} open={this.state.snackbaropen} autoHideDuration={3000} onClose={this.snackbarClose} message={<span id="message-id" >{this.state.snackbarmsg}</span>}
-            /*action={[
-              <Icon key="close" arial-label="close" color="inherit" onClick={this.snackbarClose} severity="success">
-                x
-              </Icon>
-            ]}*/
-            >
+            <Snackbar anchorOrigin={{vertical:'top',horizontal:'right'}} open={this.state.snackbaropen} autoHideDuration={3000} onClose={this.snackbarClose} message={<span id="message-id" >{this.state.snackbarmsg}</span>} >
               <Alert onClose={this.snackbarClose} severity="success">
                 {this.state.snackbarmsg}
               </Alert>
@@ -155,7 +149,7 @@ class Auth  extends React.Component {
                      width:"200px",
                     padding:"25px",
 
-                  }} src={img} className="image " alt=""/>
+                  }} src={img} className="image  d-none d-md-none d-lg-block d-xl-block " alt=""/>
                   <h2 className="title">SIGNUP FOR STUDENTS</h2>
 
                   <div className="input-field">
@@ -256,8 +250,7 @@ class Auth  extends React.Component {
                 <div className="content">
                   <h3>Signup for faculty</h3>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Debitis, ex ratione. Aliquid!
+                    If you want to register as a faculty click here
                   </p>
                   <button
                       className="button transparent"
@@ -273,8 +266,7 @@ class Auth  extends React.Component {
                 <div className="content">
                   <h3>Signup for students </h3>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                    laboriosam ad deleniti.
+                   If you want to register as a student click here
                   </p>
                   <button
                       className="button transparent"
