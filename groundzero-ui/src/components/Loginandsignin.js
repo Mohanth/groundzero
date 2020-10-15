@@ -94,17 +94,17 @@ class Auth  extends React.Component {
 
     if(!this.state.facultyname)
     {
-      nameerror="name cant be blank";
+      nameerror="Required";
     }
     if(!this.state.facultyemail){
-      emailerror="email cant be blank";
+      emailerror="Required";
     }
     if(!this.state.facultypassword){
-      passworderror="password cant be blank";
+      passworderror="Required";
     }
     if(!this.state.facultyphone)
     {
-      phoneerror="phone number should not be blank";
+      phoneerror="Required";
     }
 
     if(nameerror || emailerror || phoneerror || passworderror )
@@ -122,17 +122,17 @@ class Auth  extends React.Component {
     let phoneerror='';
 
     if(!this.state.username){
-      nameerror="name cant be blank";
+      nameerror="Required";
     }
     if(!this.state.useremail ){
-          emailerror="email cant be blank";
+          emailerror="Required";
     }
     if(!this.state.userpassword){
-          passworderror="password cant be blank";
+          passworderror="Required";
     }
     if(!this.state.userphone)
     {
-      phoneerror="phone number should not be blank";
+      phoneerror="Required";
     }
 
     if(nameerror || emailerror || phoneerror || passworderror )
