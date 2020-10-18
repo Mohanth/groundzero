@@ -43,9 +43,10 @@ class LandingPage extends React.Component {
                                 <a style={{color: "white"}} className="nav-link " href="/"
                                 >About</a>
                             </li>
+
                             <li style={{textAlign:"center"}} className="nav-item">
-                                <a style={{padding:8}} href="/login">
-                                    <Button outline color="info">Register</Button>{' '}
+                                <a style={{padding:8}} href="/register">
+                                    <Button className="butt" outline color="info">Register</Button>{' '}
                                 </a>
                             </li>
                         </ul>

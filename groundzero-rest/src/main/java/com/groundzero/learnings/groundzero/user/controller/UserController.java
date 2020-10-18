@@ -7,6 +7,8 @@ import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+
     @GetMapping("/getUser/{id}")
     @ResponseBody
     public UserDetails getUserId(@PathVariable String id) {
@@ -24,15 +27,21 @@ public class UserController {
     }
 
 
-
-
     @PostMapping("/saveUser")
     @CrossOrigin("*")
     public String saveuser(@RequestBody String userDetailsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
+
         return userService.saveUserDetails(userDetails);
     }
+
+    /*SimpleMailMessage simpleMailMessage=new SimpleMailMessage();
+        simpleMailMessage.setFrom("srisai50814@gmail.com");
+        simpleMailMessage.setTo(to);
+        simpleMailMessage.setSubject(topic);
+        simpleMailMessage.setText(text);
+        javaMailSender.send(simpleMailMessage)*/
 
 
     @GetMapping("/getorders/{id}")

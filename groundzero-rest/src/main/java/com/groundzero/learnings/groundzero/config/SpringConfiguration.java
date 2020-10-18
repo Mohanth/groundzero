@@ -8,8 +8,11 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 public class SpringConfiguration {
@@ -31,5 +34,10 @@ public class SpringConfiguration {
     public JdbcTemplate gzJdbcTemplate(@Qualifier("gzDataSource") DataSource ds) {
         return new JdbcTemplate(ds);
     }
+
+
+
+
+
 
 }
