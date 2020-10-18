@@ -1,19 +1,36 @@
 package com.groundzero.learnings.groundzero.user.service.impl;
 
 import com.groundzero.learnings.groundzero.exception.StudentNotFoundException;
+import com.groundzero.learnings.groundzero.user.controller.UserController;
 import com.groundzero.learnings.groundzero.user.model.UserCredits;
 import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Repository;
+import org.thymeleaf.context.IContext;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 @Slf4j
 @Repository
@@ -21,6 +38,17 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JdbcTemplate gzJdbcTemplate;
+
+
+    @Autowired
+    private SpringTemplateEngine templateEngine;
+
+
+    @Autowired
+    private JavaMailSender mailSender;
+
+
+
 
     @Override
     public UserDetails getUserDetailsById(String userId) {
@@ -38,11 +66,21 @@ public class UserServiceImpl implements UserService {
         return userDetails;
     }
 
-    public String saveUserDetails(UserDetails userDetails) {
+    public String saveUserDetails(UserDetails userDetails)  {
 
         String sql = "INSERT into user(  user_name , user_email ,user_phone , password ) VALUES(?,?,?,?)";
         gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getUserEmail(), userDetails.getUserPhone(),userDetails.getPassword());
 
+
+        SimpleMailMessage simpleMailMessage=new SimpleMailMessage();
+        Context context = new Context();
+        String html = templateEngine.process("gmail",  context);
+
+        simpleMailMessage.setFrom("n.srisai1234@gmail.com");
+        simpleMailMessage.setTo(userDetails.getUserEmail());
+        simpleMailMessage.setSubject("groundzerolearning");
+        simpleMailMessage.setText(html);
+        mailSender.send(simpleMailMessage);
         return "successfully saved";
     }
 

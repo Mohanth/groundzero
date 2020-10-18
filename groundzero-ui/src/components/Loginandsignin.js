@@ -83,6 +83,10 @@ class Auth  extends React.Component {
     this.handlefacultychange = this.handlefacultychange.bind(this)
     this.facultysubmit = this.facultysubmit.bind(this)
   }
+
+
+
+
   snackbarClose = (event) => {
     this.setState({snackbaropen:false});
   }
@@ -202,7 +206,7 @@ class Auth  extends React.Component {
 
     if(isvalid)
     {
-    fetch('http://groundzerolearnings-env.eba-7e4bkbxz.us-east-1.elasticbeanstalk.com/api/user/saveUser', {
+    fetch('http://localhost:5000/api/user/saveUser', {
         method: 'POST',
         body: JSON.stringify(data), // data can be `string` or {object}!
 
@@ -235,7 +239,7 @@ class Auth  extends React.Component {
             </Snackbar>
             <div className="forms-container" >
               <div className="signin-signup">
-                <form action="#" method="POST" className="sign-in-form" >
+                <form action="#" method="POST"  id="form" className="sign-in-form" >
                   <img style={{
                      width:"200px",
                     padding:"25px",
@@ -243,7 +247,7 @@ class Auth  extends React.Component {
                   <h2 className="title">SIGNUP FOR STUDENTS</h2>
                   <div className="input-field">
                     <i className="fas fa-user"/>
-                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username"/>
+                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" />
                   </div>
                     <div style={{color:"red",fontSize:"15px"}}>{this.state.nameerror}</div>
                   <div className="input-field">
@@ -261,7 +265,7 @@ class Auth  extends React.Component {
                     <input  type="password" name="userpassword" value={this.state.userpassword} onChange={this.handleChange} placeholder="Password"/>
                   </div>
                     <div style={{color:"red",fontSize:"15px"}}>{this.state.passworderror}</div>
-                  <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info" onClick={this.handleSubmit} >Register</Button>
+                  <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info" onClick={this.handleSubmit}  >Register</Button>
                   <p style={{marginBottom:0}} className="social-text">Or Sign in with social platforms</p>
                     <div style={{display: "flex"}} className="social">
                         <a href="https://www.facebook.com/GZLearnings/">
