@@ -22,31 +22,6 @@ function script() {
   });
 }
 
-const intialstate={
-    username: '',
-    userfirstname: '',
-    userlastname: '',
-    userphone: '',
-    useremail: '',
-    userpassword: '',
-    nameerror:'',
-    passworderror: '',
-    emailerror:'',
-    phoneerror:''
-}
-const intialfacultystate={
-  facultyname:'',
-  facultyfirstname:'',
-  facultylastname:'',
-  facultyemail:'',
-  facultyphone:'',
-  facultypassword:'',
-  preferredsubject:'',
-  nameerror:'',
-  passworderror: '',
-  emailerror:'',
-  phoneerror:''
-}
 
 class Auth  extends React.Component {
 
@@ -68,12 +43,7 @@ class Auth  extends React.Component {
       facultyphone:'',
       facultypassword:'',
       preferredsubject:'',
-
-      nameerror:'',
-      passworderror:'',
-      emailerror:'',
-      phoneerror:''
-    }
+      }
     this.state={
       snackbaropen:false,
       snackbarmsg:''
@@ -84,68 +54,8 @@ class Auth  extends React.Component {
     this.facultysubmit = this.facultysubmit.bind(this)
   }
 
-
-
-
   snackbarClose = (event) => {
     this.setState({snackbaropen:false});
-  }
-  validatefaculty=()=>{
-    let nameerror='';
-    let passworderror='';
-    let emailerror='';
-    let phoneerror='';
-
-    if(!this.state.facultyname)
-    {
-      nameerror="Required";
-    }
-    if(!this.state.facultyemail){
-      emailerror="Required";
-    }
-    if(!this.state.facultypassword){
-      passworderror="Required";
-    }
-    if(!this.state.facultyphone)
-    {
-      phoneerror="Required";
-    }
-
-    if(nameerror || emailerror || phoneerror || passworderror )
-    {
-      this.setState({nameerror,emailerror,phoneerror,passworderror});
-      return false;
-    }
-    return true;
-
-  }
-  validate =() => {
-    let nameerror='';
-    let passworderror='';
-    let emailerror='';
-    let phoneerror='';
-
-    if(!this.state.username){
-      nameerror="Required";
-    }
-    if(!this.state.useremail ){
-          emailerror="Required";
-    }
-    if(!this.state.userpassword){
-          passworderror="Required";
-    }
-    if(!this.state.userphone)
-    {
-      phoneerror="Required";
-    }
-
-    if(nameerror || emailerror || phoneerror || passworderror )
-    {
-     this.setState({nameerror,emailerror,phoneerror,passworderror});
-      return false;
-    }
-    return true;
-
   }
 
   handlefacultychange = (event) =>{
@@ -157,14 +67,14 @@ class Auth  extends React.Component {
   }
   facultysubmit = (event) => {
     event.preventDefault();
-    const isvalid=this.validatefaculty();
+
     let data = {
       facultyName:this.state.facultyname,
       facultyEmail:this.state.facultyemail,
       facultyPhone:this.state.facultyphone,
       password:this.state.facultypassword
     }
-    if(isvalid){
+
       fetch('http://groundzerolearnings-env.eba-7e4bkbxz.us-east-1.elasticbeanstalk.com/api/faculty/savefaculty', {
         method: 'POST',
         body: JSON.stringify(data), // data can be `string` or {object}!
@@ -179,10 +89,6 @@ class Auth  extends React.Component {
           .then(response => console.log('Success:', response));
 
       this.setState({snackbaropen:true,snackbarmsg:'Stored Successfully'});
-      this.setState(intialfacultystate);
-
-    }
-
   }
 
   handleChange = (event) => {
@@ -192,10 +98,8 @@ class Auth  extends React.Component {
     })
   }
 
-
   handleSubmit(event) {
     event.preventDefault();
-    const isvalid =this.validate();
 
     let data = {
       userFullName: this.state.username,
@@ -204,28 +108,21 @@ class Auth  extends React.Component {
       password:this.state.userpassword
     }
 
-    if(isvalid)
-    {
-    fetch('http://localhost:5000/api/user/saveUser', {
+      fetch('http://localhost:5000/api/user/saveUser', {
         method: 'POST',
         body: JSON.stringify(data), // data can be `string` or {object}!
 
         headers: {'Content-Type': 'application/json'}
-    })
+      })
 
-        .then(res => res.json())
+          .then(res => res.json())
 
-        .catch(error => console.error('Error:', error))
+          .catch(error => console.error('Error:', error))
 
-        .then(response => console.log('Success:', response));
-
-
-    this.setState({snackbaropen:true,snackbarmsg:'Stored Successfully'});
-    this.setState(intialstate);
-
-}
+          .then(response => console.log('Success:', response));
 
 
+      this.setState({snackbaropen: true, snackbarmsg: 'Stored Successfully'});
   }
 
   render() {
@@ -239,7 +136,7 @@ class Auth  extends React.Component {
             </Snackbar>
             <div className="forms-container" >
               <div className="signin-signup">
-                <form action="#" method="POST"  id="form" className="sign-in-form" >
+                <form action="#" method="POST"  id="form" className="sign-in-form"  onSubmit={this.handleSubmit}>
                   <img style={{
                      width:"200px",
                     padding:"25px",
@@ -247,27 +144,24 @@ class Auth  extends React.Component {
                   <h2 className="title">SIGNUP FOR STUDENTS</h2>
                   <div className="input-field">
                     <i className="fas fa-user"/>
-                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" />
+                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" required="required"/>
                   </div>
-                    <div style={{color:"red",fontSize:"15px"}}>{this.state.nameerror}</div>
                   <div className="input-field">
                     <i className="fas fa-phone"/>
-                    <input type="number" name="userphone" value={this.state.userphone} onChange={this.handleChange} placeholder="Phone number"/>
+                    <input type="number" name="userphone" value={this.state.userphone} onChange={this.handleChange} placeholder="Phone number" minLength="10" />
                   </div>
-                    <div  style={{color:"red",fontSize:"15px"}}>{this.state.phoneerror}</div>
                   <div className="input-field">
                     <i className="fas fa-envelope"/>
-                    <input type="email" name="useremail" value={this.state.useremail} onChange={this.handleChange} placeholder="Email"/>
+                    <input type="email" name="useremail" value={this.state.useremail} onChange={this.handleChange} placeholder="Email" required="required"/>
                   </div>
-                    <div  style={{color:"red",fontSize:"15px"}}>{this.state.emailerror}</div>
                   <div className="input-field">
                     <i className="fas fa-lock"/>
-                    <input  type="password" name="userpassword" value={this.state.userpassword} onChange={this.handleChange} placeholder="Password"/>
+                    <input  type="password" name="userpassword" value={this.state.userpassword} onChange={this.handleChange} placeholder="Password" required="required"/>
                   </div>
-                    <div style={{color:"red",fontSize:"15px"}}>{this.state.passworderror}</div>
-                  <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info" onClick={this.handleSubmit}  >Register</Button>
+                  <Button type="submit" style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info"  >Register</Button>
+                  <p  className="already"><span>Already on Groundzero ? <a style={{padding:8}} href="/login"> Log in</a></span></p>
                   <p style={{marginBottom:0}} className="social-text">Or Sign in with social platforms</p>
-                    <div style={{display: "flex"}} className="social">
+                    <div style={{display: "flex",justifyContent:"center"}} className="social">
                         <a href="https://www.facebook.com/GZLearnings/">
                             <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="social-icon"/>
                         </a>
@@ -282,7 +176,9 @@ class Auth  extends React.Component {
                         </a>
                     </div>
                 </form>
-                <form action="#" method="POST" className="sign-up-form">
+
+
+                <form action="#" method="POST" className="sign-up-form" onSubmit={this.facultysubmit}>
                   <img style={{
                     width:"200px",
                     padding:"25px",
@@ -290,25 +186,22 @@ class Auth  extends React.Component {
                   <h2 className="title">SIGN UP FOR FACULTY</h2>
                   <div className="input-field">
                     <i className="fas fa-user"/>
-                    <input type="text" name="facultyname" value={this.state.facultyname} onChange={this.handlefacultychange} placeholder="Name"/>
+                    <input type="text" name="facultyname" value={this.state.facultyname} onChange={this.handlefacultychange} placeholder="Name" required="required"/>
                   </div>
-                  <div style={{color:"red",fontSize:"15px"}}>{this.state.nameerror}</div>
                   <div className="input-field">
                     <i className="fas fa-user"/>
-                    <input type="number" name="facultyphone" value={this.state.facultyphone} onChange={this.handlefacultychange} placeholder="Phone number"/>
+                    <input type="number" name="facultyphone" value={this.state.facultyphone} onChange={this.handlefacultychange} placeholder="Phone number" required="required"/>
                   </div>
-                  <div style={{color:"red",fontSize:"15px"}}>{this.state.phoneerror}</div>
                   <div className="input-field">
                     <i className="fas fa-envelope"/>
-                    <input type="email" name="facultyemail" value={this.state.facultyemail} onChange={this.handlefacultychange} placeholder="Email"/>
+                    <input type="email" name="facultyemail" value={this.state.facultyemail} onChange={this.handlefacultychange} placeholder="Email" required="required"/>
                   </div>
-                  <div style={{color:"red",fontSize:"15px"}}>{this.state.emailerror}</div>
                   <div className="input-field">
                     <i className="fas fa-lock"/>
-                    <input  type="password" name="facultypassword" value={this.state.facultypassword} onChange={this.handlefacultychange} placeholder="Password"/>
+                    <input  type="password" name="facultypassword" value={this.state.facultypassword} onChange={this.handlefacultychange} placeholder="Password" required="required"/>
                   </div>
-                  <div style={{color:"red",fontSize:"15px"}}>{this.state.passworderror}</div>
-                  <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info" onClick={this.facultysubmit} >Register</Button>
+                  <Button style={{width:"100%",maxWidth:"385px",borderRadius:"55px",height:"45px"}} outline color="info"  >Register</Button>
+                  <p  className="already"><span>Already on Groundzero ? <a style={{padding:8}} href="/login"> Log in</a></span></p>
                   <p style={{marginBottom:0}} className="social-text">Or Sign up with social platforms</p>
                     <div style={{display: "flex"}} className="social">
                         <a href="https://www.facebook.com/GZLearnings/">
