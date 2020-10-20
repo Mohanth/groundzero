@@ -7,7 +7,6 @@ import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -38,17 +37,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JdbcTemplate gzJdbcTemplate;
-
-
     @Autowired
     private SpringTemplateEngine templateEngine;
-
-
     @Autowired
     private JavaMailSender mailSender;
-
-
-
 
     @Override
     public UserDetails getUserDetailsById(String userId) {
@@ -66,21 +58,25 @@ public class UserServiceImpl implements UserService {
         return userDetails;
     }
 
-    public String saveUserDetails(UserDetails userDetails)  {
+    public String saveUserDetails(UserDetails userDetails) throws MessagingException {
 
         String sql = "INSERT into user(  user_name , user_email ,user_phone , password ) VALUES(?,?,?,?)";
         gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getUserEmail(), userDetails.getUserPhone(),userDetails.getPassword());
 
-
-        SimpleMailMessage simpleMailMessage=new SimpleMailMessage();
+        MimeMessage message=mailSender.createMimeMessage();
+        MimeMessageHelper helper  = new MimeMessageHelper(message, false, "utf-8");
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("name",userDetails.getUserFullName());
+        model.put("email",userDetails.getUserEmail());
+        model.put("password",userDetails.getPassword());
         Context context = new Context();
+        context.setVariables(model);
         String html = templateEngine.process("gmail",  context);
-
-        simpleMailMessage.setFrom("n.srisai1234@gmail.com");
-        simpleMailMessage.setTo(userDetails.getUserEmail());
-        simpleMailMessage.setSubject("groundzerolearning");
-        simpleMailMessage.setText(html);
-        mailSender.send(simpleMailMessage);
+        helper.setFrom("n.srisai1234@gmail.com");
+        helper.setTo(userDetails.getUserEmail());
+        helper.setSubject("groundzerolearning");
+        helper.setText(html,true);
+        mailSender.send(message);
         return "successfully saved";
     }
 
@@ -89,11 +85,8 @@ public class UserServiceImpl implements UserService {
         String sql = "SELECT order_id FROM user_orders WHERE user_id = ?";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", userid);
-
         List<UserOrder> userOrder = gzJdbcTemplate.query(sql, new Object[]{userid}, BeanPropertyRowMapper.newInstance(UserOrder.class));
         return userOrder;
-
-
     }
 
     @Override

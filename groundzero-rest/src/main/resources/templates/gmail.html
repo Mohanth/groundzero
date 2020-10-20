@@ -1,6 +1,7 @@
-<!DOCTYPE >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
 
-<html >
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" >
 
 <head>
     <title>Good Thymes Virtual Grocery</title>
@@ -9,9 +10,11 @@
 </head>
 
 <body>
-
-<p >Welcome to our grocery store!</p>
-
+<h1>GroundZeroLearnings</h1>
+<p th:text="${'Hello  ' + name}"></p>
+<p>Welcome to Groundzero , GroundZero is a E-Learning Platform we are here you to help to prepare for the tough entrace exams like GATE , NEET,JEE MAINS ,JEE ADVANCE  e.t.c and it helps you to succed in your life  </p>
+<p>you have registerd with your email :- <b th:text="${email}"></b></p>
+<p>Your Password is :- <b th:text="${password}"></b></p>
 </body>
 
 </html>

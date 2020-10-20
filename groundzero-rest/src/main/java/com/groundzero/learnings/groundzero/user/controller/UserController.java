@@ -11,6 +11,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 @RestController
@@ -29,19 +30,13 @@ public class UserController {
 
     @PostMapping("/saveUser")
     @CrossOrigin("*")
-    public String saveuser(@RequestBody String userDetailsStr) throws JsonProcessingException {
+    public String saveuser(@RequestBody String userDetailsStr) throws JsonProcessingException, MessagingException {
         ObjectMapper mapper = new ObjectMapper();
         UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
 
         return userService.saveUserDetails(userDetails);
     }
 
-    /*SimpleMailMessage simpleMailMessage=new SimpleMailMessage();
-        simpleMailMessage.setFrom("srisai50814@gmail.com");
-        simpleMailMessage.setTo(to);
-        simpleMailMessage.setSubject(topic);
-        simpleMailMessage.setText(text);
-        javaMailSender.send(simpleMailMessage)*/
 
 
     @GetMapping("/getorders/{id}")

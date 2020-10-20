@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +24,11 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Autowired
     private JdbcTemplate gzJdbcTemplate;
+    @Autowired
+    private SpringTemplateEngine templateEngine;
+    @Autowired
+    private JavaMailSender mailSender;
+
 
     @Override
     public FacultyDetails getFacultyDetailsById(String facultyid) {
