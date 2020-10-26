@@ -4,7 +4,7 @@ import groundZeroLogo from "../resources/images/Pink_Transparent_200.png";
 import faculty01 from "../resources/images/faculty_01.png";
 import humanIcon from "../resources/images/human_01.png";
 import vrImg from "../resources/vr.png";
-import website_01 from "../resources/website_01.png";
+import website_01 from "../resources/website_01_3_500x300.png";
 import website_02 from "../resources/Website_02.png";
 import groupClasses from "../resources/images/group_classes.png";
 import onlineExam from "../resources/images/online_exam.png";
@@ -27,7 +27,68 @@ class LandingPage extends React.Component {
 
                 <Head />
 
-                <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" className="carousel slide d-none d-lg-block d-xl-block"  data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2" />
+                    </ol>
+                    <div className="carousel-inner"  >
+                        <div className="carousel-item active">
+                            <img  style={{width:"800px",height:"500px",marginLeft:"20%"}} className="" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img style={{width:"800px",height:"500px",marginLeft:"20%"}} className="" src={website_02} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img style={{width:"800px",height:"500px",marginLeft:"20%"}} className="" src={vrImg} alt="First slide"/>
+                        </div>
+                    </div>
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                       data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true" />
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                       data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true" />
+                        <span className="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <div id="carouselExampleIndicators" className="carousel slide d-block d-sm-block  d-lg-none d-xl-none"  data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2" />
+                    </ol>
+                    <div className="carousel-inner"  >
+                        <div className="carousel-item active">
+                            <img   className="d-block w-100" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img  className="d-block w-100" src={website_02} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img  className="d-block w-100" src={vrImg} alt="First slide"/>
+                        </div>
+                    </div>
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                       data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true" />
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                       data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true" />
+                        <span className="sr-only">Next</span>
+                    </a>
+                </div>
+
+
+
+
+                {/*<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"/>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"/>
@@ -43,13 +104,13 @@ class LandingPage extends React.Component {
                     </div>
                     <div className="carousel-inner 	d-block d-sm-block d-md-none">
                         <div className="carousel-item image-container">
-                            <img style={{width:"360px"}} className="" src={vrImg} alt="First slide"/>
+                            <img style={{width:"500px"}} className="" src={vrImg} alt="First slide"/>
                         </div>
                         <div className="carousel-item image-container">
                             <img style={{width:"500px"}} className="" src={website_01} alt="First slide"/>
                         </div>
                         <div className="carousel-item image-container">
-                            <img style={{width:"50%"}} className="" src={website_02} alt="First slide"/>
+                            <img style={{width:"500px"}} className="" src={website_02} alt="First slide"/>
                         </div>
                     </div>
 
@@ -64,7 +125,7 @@ class LandingPage extends React.Component {
                         <span className="sr-only">Next</span>
                     </a>
                 </div>
-
+*/}
 
                 <section className="achieveyourgoals">
                     <div>
