@@ -4,6 +4,8 @@ import groundZeroLogo from "../resources/images/Pink_Transparent_200.png";
 import faculty01 from "../resources/images/faculty_01.png";
 import humanIcon from "../resources/images/human_01.png";
 import vrImg from "../resources/vr.png";
+import website_01 from "../resources/website_01.png";
+import website_02 from "../resources/Website_02.png";
 import groupClasses from "../resources/images/group_classes.png";
 import onlineExam from "../resources/images/online_exam.png";
 import doubts from "../resources/images/doubts.png";
@@ -33,16 +35,25 @@ class LandingPage extends React.Component {
                     </ol>
                     <div className="carousel-inner d-none d-md-block d-lg-block d-xl-block">
                         <div className="carousel-item image-container">
-                            <img className="" src={vrImg} alt="First slide"/>
+                            <img style={{width:"500px"}} className="" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item image-container">
+                            <img style={{width:"50%"}} className="" src={website_02} alt="First slide"/>
                         </div>
                     </div>
                     <div className="carousel-inner 	d-block d-sm-block d-md-none">
                         <div className="carousel-item image-container">
                             <img style={{width:"360px"}} className="" src={vrImg} alt="First slide"/>
                         </div>
+                        <div className="carousel-item image-container">
+                            <img style={{width:"500px"}} className="" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item image-container">
+                            <img style={{width:"50%"}} className="" src={website_02} alt="First slide"/>
+                        </div>
                     </div>
-                    
-                    {/*<a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                        data-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"/>
                         <span className="sr-only">Previous</span>
@@ -51,7 +62,7 @@ class LandingPage extends React.Component {
                        data-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true"/>
                         <span className="sr-only">Next</span>
-                    </a>*/}
+                    </a>
                 </div>
 
 

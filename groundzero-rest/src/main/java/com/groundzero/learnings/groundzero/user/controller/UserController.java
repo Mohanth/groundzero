@@ -7,8 +7,6 @@ import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
