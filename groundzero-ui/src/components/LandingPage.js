@@ -1,6 +1,5 @@
 import React from "react";
 import FacultyImg from "../resources/mohanthbrothersmall.png";
-import groundZeroLogo from "../resources/images/Pink_Transparent_200.png";
 import faculty01 from "../resources/images/faculty_01.png";
 import humanIcon from "../resources/images/human_01.png";
 import vrImg from "../resources/vr.png";
@@ -13,7 +12,6 @@ import support from "../resources/images/support.png";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
-import {Button} from "reactstrap";
 import Head from "./LandingPageHeader"
 import Footer from "./LandingPageFooter"
 
