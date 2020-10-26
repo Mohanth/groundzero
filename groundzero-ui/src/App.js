@@ -4,6 +4,9 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import Registerpage from "./components/Loginandsignin";
 import Loginpage from "./components/Loginpage";
+import Add from "./courseadding"
+import Dash from "./components/Dashboard";
+import Co from "./components/Courses"
 
 class App extends React.Component {
     render() {
@@ -39,6 +42,15 @@ class App extends React.Component {
                 </Route>
                 <Route exact path="/login">
                     <Loginpage/>
+                </Route>
+                <Route exact path="/add">
+                    <Add/>
+                </Route>
+                <Route exact path="/dashboard">
+                    <Dash />
+                </Route>
+                <Route exact path="/courses">
+                    <Co />
                 </Route>
             </Router>
         );
