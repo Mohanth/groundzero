@@ -1,6 +1,5 @@
 import React from "react";
 import img from "../resources/Pink_Transparent_200 (1).png";
-import background from "../resources/FullLogo_Black (1).png";
 import "../login.css";
 import {Button} from "reactstrap";
 import Snackbar from "@material-ui/core/Snackbar";

@@ -1,30 +1,51 @@
 import * as React from "react";
-import Courses from "../resources/Courses";
+import firebaseDb from "./Firebaseconfig"
 
 class DisplayDashboardContent extends React.Component {
-  render() {
-    return Courses.course.map((Courses) => {
-      return (
 
-        <div className="card">
+    constructor(props) {
+        super(props);
+        this.state = {
+            courses: []
+        }
+    }
 
-          <img
-            className="card-img-top"
-            src={Courses.img}
-            alt="Card image cap"
-          />
-          <div className="card-body">
+    componentDidMount() {
+        firebaseDb.child("courses").on("value", snapshot => {
+            let courses = [];
+            snapshot.forEach(snap => {
+                courses.push(snap.val());
+            });
+            this.setState({courses: courses});
+        });
 
-            <h5 className="card-title">{Courses.title}</h5>
-            <p className="card-text" style={{color:"black"}}>{Courses.desc}</p>
-            <span>Rs.{Courses.prize}</span>
-          </div>
+    }
 
-        </div>
+    render() {
+        return  this.state.courses.map(data => {
+                return (
+                    <div className="card caard">
+                        <img style={{height:"214px"}}
+                            className="card-img-top"
+                            src={data.imgurl}
+                            alt="course image"
+                        />
+                        <div className="card-body">
+                            <h3 className="card-title">{data.coursename}</h3>
+                            <a href="/login" >Detail</a>
+                            <p className="card-text" style={{color:"black"}}>{data.coursedesc}</p>
+                            <div style={{display:"flex"}}>
+                                <button style={{marginRight:"100px"}} className="btn btn-primary">Buy now</button>
+                                <span style={{marginTop:"10px"}}><p>Rs.{data.courseprice}</p></span>
+                            </div>
+                        </div>
+                    </div>
+                );
+            })
+        }
 
-      );
-    });
-  }
+
+
 }
 
 export default DisplayDashboardContent;

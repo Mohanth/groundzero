@@ -12,6 +12,8 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
 import {Button} from "reactstrap";
+import Head from "./LandingPageHeader"
+import Footer from "./LandingPageFooter"
 
 
 AOS.init({offset: 200, duration: 1000});
@@ -21,38 +23,7 @@ class LandingPage extends React.Component {
         return (
             <div style={{overflowX:"hidden"}}>
 
-                <nav style={{backgroundColor: "black"}} className="navbar navbar-expand-lg navbar-light ">
-
-                    <h3 style={{color: "white"}}>GroundZero Learnings</h3>
-                    <button  className="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"/>
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul id="navlist" className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <a style={{color: "white", marginRight: 10}} className="nav-link"
-                                   href="/">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a style={{color: "white", marginRight: 10}} className="nav-link" href="/">Courses</a>
-                            </li>
-                            <li className="nav-item">
-                                <a style={{color: "white"}} className="nav-link " href="/"
-                                >About</a>
-                            </li>
-
-                            <li style={{textAlign:"center"}} className="nav-item">
-                                <a style={{padding:8}} href="/register">
-                                    <Button className="butt" outline color="info">Register</Button>{' '}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
+                <Head />
 
                 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
@@ -221,65 +192,7 @@ class LandingPage extends React.Component {
                     </div>
                 </section>
 
-
-                <footer className="page-footer font-small blue pt-4">
-                    <div style={{backgroundColor: "#f3f3f3"}} className="container-fluid text-center  text-md-left">
-                        <div className="row" style={{marginLeft: 20}}>
-                            <div className="col-md-5 mt-md-0 mt-3">
-                                <h5 style={{fontSize: 20, marginTop: 20, font: "bold"}}
-                                    className="text-uppercase">GroundZeroLearning</h5>
-                                <img style={{width: 80, marginBottom: 10}} src={groundZeroLogo} alt="img"/>
-                                <p style={{color: "black"}}>We GroundZero Learnings in a new era of online school. We
-                                    provide online classes for all students on MPC, JEE preparation, online coding for
-                                    kids. We also provide the One-One mentoring system and group classes</p>
-                            </div>
-                            <hr className="clearfix w-100 d-md-none pb-3"/>
-                            <div className="col-md-3 mb-md-0 mb-3">
-                                <h5 style={{
-                                    fontSize: 20,
-                                    marginTop: 20,
-                                    font: "bold",
-                                    fontFamily: "sanserif",
-                                    color: "black",
-                                    marginBottom: 15
-                                }} className="text-uppercase">Location</h5>
-                                <p style={{color: "black"}}><i style={{marginRight: 20, color: "black"}}
-                                                               className="fa fa-map-marker"/>Hyderabad</p>
-                                <p style={{color: "black"}}><i style={{marginRight: 20, color: "black"}}
-                                                               className="fa fa-phone"/>9676161442 </p>
-                                <p style={{color: "black"}}><i style={{marginRight: 20, color: "black"}}
-                                                               className="fa fa-envelope"/>groundzero.learnings@gmail.com
-                                </p>
-                            </div>
-                            <hr className="clearfix w-100 d-md-none pb-3"/>
-                            <div className="col-md-4 mb-md-0 mb-3">
-                                <h5 style={{fontSize: 20, marginTop: 20, font: "bold",textAlign:"center"}}
-                                    className="text-uppercase">Follow Us On</h5>
-                                <div style={{display: "flex",justifyContent:"center"}} className="social">
-                                    <a href="https://www.facebook.com/GZLearnings/">
-                                        <img src="https://img.icons8.com/color/48/000000/facebook.png"/>
-                                    </a>
-                                    <a href="https://www.instagram.com/groundzerolearnings/" >
-                                        <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
-                                    </a>
-                                    <a href="https://g.page/groundzero-learnings/review?rc">
-                                        <img src="https://img.icons8.com/color/48/000000/google-plus-squared.png"/>
-                                    </a>
-                                    <a href="https://www.linkedin.com/company/groundzero-learnings"
-                                    >
-                                        <img src="https://img.icons8.com/color/48/000000/linkedin.png"/>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                            <a href="/"> GroundZero Learnings Pvt Ltd.,</a>
-                        </div>
-                    </div>
-
-                </footer>
-
+                <Footer />
 
             </div>
         );
