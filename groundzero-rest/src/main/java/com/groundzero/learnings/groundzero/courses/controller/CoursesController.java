@@ -24,6 +24,4 @@ public class CoursesController {
         return coursesService.saveCourseDetails(courseDetails);
     }
 
-
-
 }

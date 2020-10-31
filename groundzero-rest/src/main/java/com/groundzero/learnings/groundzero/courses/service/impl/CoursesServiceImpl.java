@@ -37,4 +37,5 @@ public class CoursesServiceImpl implements CoursesService {
         gzJdbcTemplate.update(sql, courseDetails.getCourseId() , courseDetails.getCourseName(), courseDetails.getCoursePrice(),courseDetails.getCourseInstructor());
         return "successfully saved";
     }
+    
 }
