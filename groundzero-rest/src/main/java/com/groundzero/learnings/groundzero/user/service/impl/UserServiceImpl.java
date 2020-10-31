@@ -1,19 +1,35 @@
 package com.groundzero.learnings.groundzero.user.service.impl;
 
 import com.groundzero.learnings.groundzero.exception.StudentNotFoundException;
+import com.groundzero.learnings.groundzero.user.controller.UserController;
 import com.groundzero.learnings.groundzero.user.model.UserCredits;
 import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Repository;
+import org.thymeleaf.context.IContext;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 @Slf4j
 @Repository
@@ -21,6 +37,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JdbcTemplate gzJdbcTemplate;
+    @Autowired
+    private SpringTemplateEngine templateEngine;
+    @Autowired
+    private JavaMailSender mailSender;
 
     @Override
     public UserDetails getUserDetailsById(String userId) {
@@ -38,11 +58,25 @@ public class UserServiceImpl implements UserService {
         return userDetails;
     }
 
-    public String saveUserDetails(UserDetails userDetails) {
+    public String saveUserDetails(UserDetails userDetails) throws MessagingException {
 
         String sql = "INSERT into user(  user_name , user_email ,user_phone , password ) VALUES(?,?,?,?)";
         gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getUserEmail(), userDetails.getUserPhone(),userDetails.getPassword());
 
+        MimeMessage message=mailSender.createMimeMessage();
+        MimeMessageHelper helper  = new MimeMessageHelper(message, false, "utf-8");
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("name",userDetails.getUserFullName());
+        model.put("email",userDetails.getUserEmail());
+        model.put("password",userDetails.getPassword());
+        Context context = new Context();
+        context.setVariables(model);
+        String html = templateEngine.process("gmail",  context);
+        helper.setFrom("n.srisai1234@gmail.com");
+        helper.setTo(userDetails.getUserEmail());
+        helper.setSubject("groundzerolearning");
+        helper.setText(html,true);
+        mailSender.send(message);
         return "successfully saved";
     }
 
@@ -51,11 +85,8 @@ public class UserServiceImpl implements UserService {
         String sql = "SELECT order_id FROM user_orders WHERE user_id = ?";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", userid);
-
         List<UserOrder> userOrder = gzJdbcTemplate.query(sql, new Object[]{userid}, BeanPropertyRowMapper.newInstance(UserOrder.class));
         return userOrder;
-
-
     }
 
     @Override

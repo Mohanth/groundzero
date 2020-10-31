@@ -1,9 +1,10 @@
 import React from "react";
 import FacultyImg from "../resources/mohanthbrothersmall.png";
-import groundZeroLogo from "../resources/images/Pink_Transparent_200.png";
 import faculty01 from "../resources/images/faculty_01.png";
 import humanIcon from "../resources/images/human_01.png";
 import vrImg from "../resources/vr.png";
+import website_01 from "../resources/website_01_3_500x300.png";
+import website_02 from "../resources/Website_02.png";
 import groupClasses from "../resources/images/group_classes.png";
 import onlineExam from "../resources/images/online_exam.png";
 import doubts from "../resources/images/doubts.png";
@@ -11,7 +12,8 @@ import support from "../resources/images/support.png";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
-import {Button} from "reactstrap";
+import Head from "./LandingPageHeader"
+import Footer from "./LandingPageFooter"
 
 
 AOS.init({offset: 200, duration: 1000});
@@ -21,39 +23,70 @@ class LandingPage extends React.Component {
         return (
             <div style={{overflowX:"hidden"}}>
 
-                <nav style={{backgroundColor: "black"}} className="navbar navbar-expand-lg navbar-light ">
+                <Head />
 
-                    <h3 style={{color: "white"}}>GroundZero Learnings</h3>
-                    <button  className="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"/>
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul id="navlist" className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <a style={{color: "white", marginRight: 10}} className="nav-link"
-                                   href="/">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a style={{color: "white", marginRight: 10}} className="nav-link" href="/">Courses</a>
-                            </li>
-                            <li className="nav-item">
-                                <a style={{color: "white"}} className="nav-link " href="/"
-                                >About</a>
-                            </li>
-                            <li style={{textAlign:"center"}} className="nav-item">
-                                <a style={{padding:8}} href="/login">
-                                    <Button outline color="info">Register</Button>{' '}
-                                </a>
-                            </li>
-                        </ul>
+                <div id="carouselExampleIndicators" className="carousel slide d-none d-lg-block d-xl-block"  data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2" />
+                    </ol>
+                    <div className="carousel-inner"  >
+                        <div className="carousel-item active">
+                            <img  style={{width:"800px",height:"500px",marginLeft:"20%"}} className="" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img style={{width:"800px",height:"500px",marginLeft:"20%"}} className="" src={website_02} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img style={{width:"800px",height:"500px",marginLeft:"20%"}} className="" src={vrImg} alt="First slide"/>
+                        </div>
                     </div>
-                </nav>
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                       data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true" />
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                       data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true" />
+                        <span className="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <div id="carouselExampleIndicators" className="carousel slide d-block d-sm-block  d-lg-none d-xl-none"  data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1" />
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2" />
+                    </ol>
+                    <div className="carousel-inner"  >
+                        <div className="carousel-item active">
+                            <img   className="d-block w-100" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img  className="d-block w-100" src={website_02} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item">
+                            <img  className="d-block w-100" src={vrImg} alt="First slide"/>
+                        </div>
+                    </div>
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                       data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true" />
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                       data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true" />
+                        <span className="sr-only">Next</span>
+                    </a>
+                </div>
 
 
-                <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+
+
+                {/*<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"/>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"/>
@@ -61,16 +94,25 @@ class LandingPage extends React.Component {
                     </ol>
                     <div className="carousel-inner d-none d-md-block d-lg-block d-xl-block">
                         <div className="carousel-item image-container">
-                            <img className="" src={vrImg} alt="First slide"/>
+                            <img style={{width:"500px"}} className="" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item image-container">
+                            <img style={{width:"50%"}} className="" src={website_02} alt="First slide"/>
                         </div>
                     </div>
                     <div className="carousel-inner 	d-block d-sm-block d-md-none">
                         <div className="carousel-item image-container">
-                            <img style={{width:"360px"}} className="" src={vrImg} alt="First slide"/>
+                            <img style={{width:"500px"}} className="" src={vrImg} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item image-container">
+                            <img style={{width:"500px"}} className="" src={website_01} alt="First slide"/>
+                        </div>
+                        <div className="carousel-item image-container">
+                            <img style={{width:"500px"}} className="" src={website_02} alt="First slide"/>
                         </div>
                     </div>
-                    
-                    {/*<a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                        data-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"/>
                         <span className="sr-only">Previous</span>
@@ -79,9 +121,9 @@ class LandingPage extends React.Component {
                        data-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true"/>
                         <span className="sr-only">Next</span>
-                    </a>*/}
+                    </a>
                 </div>
-
+*/}
 
                 <section className="achieveyourgoals">
                     <div>
@@ -220,65 +262,7 @@ class LandingPage extends React.Component {
                     </div>
                 </section>
 
-
-                <footer className="page-footer font-small blue pt-4">
-                    <div style={{backgroundColor: "#f3f3f3"}} className="container-fluid text-center  text-md-left">
-                        <div className="row" style={{marginLeft: 20}}>
-                            <div className="col-md-5 mt-md-0 mt-3">
-                                <h5 style={{fontSize: 20, marginTop: 20, font: "bold"}}
-                                    className="text-uppercase">GroundZeroLearning</h5>
-                                <img style={{width: 80, marginBottom: 10}} src={groundZeroLogo} alt="img"/>
-                                <p style={{color: "black"}}>We GroundZero Learnings in a new era of online school. We
-                                    provide online classes for all students on MPC, JEE preparation, online coding for
-                                    kids. We also provide the One-One mentoring system and group classes</p>
-                            </div>
-                            <hr className="clearfix w-100 d-md-none pb-3"/>
-                            <div className="col-md-3 mb-md-0 mb-3">
-                                <h5 style={{
-                                    fontSize: 20,
-                                    marginTop: 20,
-                                    font: "bold",
-                                    fontFamily: "sanserif",
-                                    color: "black",
-                                    marginBottom: 15
-                                }} className="text-uppercase">Location</h5>
-                                <p style={{color: "black"}}><i style={{marginRight: 20, color: "black"}}
-                                                               className="fa fa-map-marker"/>Hyderabad</p>
-                                <p style={{color: "black"}}><i style={{marginRight: 20, color: "black"}}
-                                                               className="fa fa-phone"/>9676161442 </p>
-                                <p style={{color: "black"}}><i style={{marginRight: 20, color: "black"}}
-                                                               className="fa fa-envelope"/>groundzero.learnings@gmail.com
-                                </p>
-                            </div>
-                            <hr className="clearfix w-100 d-md-none pb-3"/>
-                            <div className="col-md-4 mb-md-0 mb-3">
-                                <h5 style={{fontSize: 20, marginTop: 20, font: "bold",textAlign:"center"}}
-                                    className="text-uppercase">Follow Us On</h5>
-                                <div style={{display: "flex",justifyContent:"center"}} className="social">
-                                    <a href="https://www.facebook.com/GZLearnings/">
-                                        <img src="https://img.icons8.com/color/48/000000/facebook.png"/>
-                                    </a>
-                                    <a href="https://www.instagram.com/groundzerolearnings/" >
-                                        <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
-                                    </a>
-                                    <a href="https://g.page/groundzero-learnings/review?rc">
-                                        <img src="https://img.icons8.com/color/48/000000/google-plus-squared.png"/>
-                                    </a>
-                                    <a href="https://www.linkedin.com/company/groundzero-learnings"
-                                    >
-                                        <img src="https://img.icons8.com/color/48/000000/linkedin.png"/>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                            <a href="/"> GroundZero Learnings Pvt Ltd.,</a>
-                        </div>
-                    </div>
-
-                </footer>
-
+                <Footer />
 
             </div>
         );

@@ -1,19 +1,32 @@
 import React from "react";
 import "../live.css";
 
-function Class() {
-  return (
-    <div class="main_container">
-      <div class="content">
-        <div class="border">
-          <div class="row">
-            <h5 className="">Programing for Begineers</h5>
-            <button class="btn btn-primary">Completed</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+class  Live extends React.Component {
+
+    render(){
+        return (
+            <div style={{marginLeft:"15px", width:"1000px"}}>
+                <div>
+                    <div className="list-group" id="list-tab" role="tablist">
+                        <li style={{textDecoration:"none"}} className="list-group-item  d-flex justify-content-between align-items-center" id="list-home-list" data-toggle="list"
+                            href="#list-home" role="tab" aria-controls="home">Home <span className="badge badge-primary badge-pill">inprogress</span></li>
+                    </div>
+                </div>
+                <div>
+                    <div className="tab-content" id="nav-tabContent">
+                        <div className="tab-pane fade " id="list-home" role="tabpanel"
+                             aria-labelledby="list-home-list">
+                            <ul className="list-group">
+                                <a href="/"><li className="list-group-item">
+                                    infra
+                                </li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
-export default Class;
+export default Live;

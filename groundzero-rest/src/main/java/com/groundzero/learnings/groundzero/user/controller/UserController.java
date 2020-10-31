@@ -9,6 +9,7 @@ import com.groundzero.learnings.groundzero.user.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 @RestController
@@ -17,6 +18,7 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+
     @GetMapping("/getUser/{id}")
     @ResponseBody
     public UserDetails getUserId(@PathVariable String id) {
@@ -24,15 +26,15 @@ public class UserController {
     }
 
 
-
-
     @PostMapping("/saveUser")
     @CrossOrigin("*")
-    public String saveuser(@RequestBody String userDetailsStr) throws JsonProcessingException {
+    public String saveuser(@RequestBody String userDetailsStr) throws JsonProcessingException, MessagingException {
         ObjectMapper mapper = new ObjectMapper();
         UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
+
         return userService.saveUserDetails(userDetails);
     }
+
 
 
     @GetMapping("/getorders/{id}")

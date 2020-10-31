@@ -265,6 +265,25 @@ form.sign-in-form {
 .container-fluid-login.sign-up-mode .right-panel {
   pointer-events: all;
 }
+.hr{
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.already{
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.hori{
+  height: 1px;
+  border: none;
+  background-color: rgb(225, 225, 225);
+  flex: 1 1 0%;
+
+}
 
 @media (max-width: 870px) {
   .container-fluid-login {

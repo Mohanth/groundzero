@@ -73,7 +73,7 @@ export default class HeaderComponent extends React.Component {
     };
   }
 
-  render(): React.ReactNode {
+  render() {
     return (
       <Row
         className={css(styles.container)}
