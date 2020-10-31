@@ -7,6 +7,7 @@ import Loginpage from "./components/Loginpage";
 import Add from "./courseadding"
 import Dash from "./components/Dashboard";
 import Co from "./components/Courses"
+import Live from "./components/Mylive"
 
 class App extends React.Component {
     render() {
@@ -51,6 +52,9 @@ class App extends React.Component {
                 </Route>
                 <Route exact path="/courses">
                     <Co />
+                </Route>
+                <Route exact path="/live">
+                    <Live />
                 </Route>
             </Router>
         );

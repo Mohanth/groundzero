@@ -1,13 +1,46 @@
 import * as React from "react";
 import firebaseDb from "./Firebaseconfig"
+import image from "../resources/Final_Logo.png";
 
 class DisplayDashboardContent extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            courses: []
+            courses: [],
         }
+        this.razorpay=this.razorpay.bind(this)
+    }
+
+    razorpay =(e,data) =>{
+
+        var options = {
+            "key": "rzp_test_3etUd9HgxlWZ1o", // Enter the Key ID generated from the Dashboard
+            "amount": data.courseprice*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": data.coursename,
+            "courseid":data.courseid,
+            "description": "Payment",
+            "image":{image},
+            "handler": function (response){
+                let info= {
+                    paymentid:response.razorpay_payment_id,
+                    coursename:data.coursename,
+                    courseid:data.courseid
+                }
+                firebaseDb.child("paymentid").push(info)
+                console.log(info)
+            },
+
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        var rzp1 = new window.Razorpay(options);
+        rzp1.open();
     }
 
     componentDidMount() {
@@ -20,6 +53,10 @@ class DisplayDashboardContent extends React.Component {
         });
 
     }
+    buynow(data){
+        console.log(data.coursename)
+    }
+
 
     render() {
         return  this.state.courses.map(data => {
@@ -35,7 +72,7 @@ class DisplayDashboardContent extends React.Component {
                             <a href="/login" >Detail</a>
                             <p className="card-text" style={{color:"black"}}>{data.coursedesc}</p>
                             <div style={{display:"flex"}}>
-                                <button style={{marginRight:"100px"}} className="btn btn-primary">Buy now</button>
+                                <button style={{marginRight:"100px"}}  onClick={e => this.razorpay(e,data)}  className="btn btn-primary">Buy now</button>
                                 <span style={{marginTop:"10px"}}><p>Rs.{data.courseprice}</p></span>
                             </div>
                         </div>

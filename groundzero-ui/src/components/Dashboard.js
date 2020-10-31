@@ -5,6 +5,7 @@ import { StyleSheet } from "aphrodite";
 import { Column, Row } from "simple-flexbox";
 import "../App.css";
 import DisplayDashboardContent from "./DisplayDashboardContent";
+import MyLive from "./Mylive"
 
 const styles = StyleSheet.create({
   container: {
@@ -35,6 +36,18 @@ export default class Dashboard extends React.Component {
 
   resize = () => this.forceUpdate();
 
+  changecomponent =() =>{
+    if(this.state.selectedItem == "myLiveClasses"){
+      return <MyLive />
+    }
+  }
+
+  coursecatlog =() =>{
+    if(this.state.selectedItem == "courseCatalog"){
+      return <DisplayDashboardContent />
+    }
+  }
+
   render() {
     const { selectedItem } = this.state;
     return (
@@ -46,8 +59,14 @@ export default class Dashboard extends React.Component {
         <Column flexGrow={1} className={styles.mainBlock}>
           <HeaderComponent title={selectedItem} />
           <div className={styles.content}>
+            {
+              this.changecomponent()
+            }
             <div className="row">
-              <DisplayDashboardContent />
+              {
+                this.coursecatlog()
+              }
+
             </div>
           </div>
         </Column>
