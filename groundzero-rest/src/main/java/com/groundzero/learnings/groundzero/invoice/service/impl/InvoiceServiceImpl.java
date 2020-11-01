@@ -43,9 +43,9 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     public String saveInvoiceItemDetails(InvoiceItemDetails invoiceitemDetails) {
-        String sql = "INSERT into invoiceitemdetails(invoiceNumber , itemName , itemQuantity , itemRate, totalAmount) values (?,?,?,?,?)";
+        String sql = "INSERT into invoiceitemdetails(itemId , invoiceNumber , itemName , itemQuantity , itemRate, totalAmount , addedDateTime) values (?,?,?,?,?,?,?)";
         gzJdbcTemplate.update(sql, invoiceitemDetails.getItemId(), invoiceitemDetails.getItemName(), invoiceitemDetails.getItemQuantity(),
-                invoiceitemDetails.getItemRate(), invoiceitemDetails.getItemRate());
+                invoiceitemDetails.getItemRate(), invoiceitemDetails.getTotalAmount(), invoiceitemDetails.getAddedDateTime());
         return "details added";
     }
 
