@@ -5,13 +5,13 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class InvoiceItemDetails {
-    Integer itemId;
+    int itemId;
     String itemName;
-    Integer itemQuantity;
-    Integer itemRate;
-    Integer addedDateTime;
+    int itemQuantity;
+    int itemRate;
+    int addedDateTime;
+    int totalAmount;
 
     public InvoiceItemDetails() {
     }

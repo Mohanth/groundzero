@@ -11,11 +11,5 @@ import java.util.List;
 
 public interface UserService {
 
-    UserDetails getUserDetailsById(String userId);
-    String saveUserDetails(UserDetails userDetails) throws MessagingException, IOException;
-    List<UserOrder> getUserOrders(String userId);
 
-    UserCredits getUserCredits(String id);
-
-    String updateUserCredits(UserCredits userCredits);
 }
