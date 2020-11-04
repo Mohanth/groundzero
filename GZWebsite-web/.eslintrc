@@ -1,0 +1,49 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": [
+    "standard",
+    "standard-jsx",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-extra-semi": "off",
+    "react/jsx-indent": "off",
+    "indent": "off",
+    "spaced-comment": "off",
+    "space-before-function-paren": "off",
+    "no-path-concat": "off",
+    "jsx-quotes": "off",
+    "no-return-assign": "off",
+    "prefer-const": [
+      "warn",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "camelcase": [
+      0,
+      {
+        "properties": "always"
+      }
+    ],
+    "one-var": [
+      "error",
+      {
+        "var": "never"
+      }
+    ],
+    "no-multiple-empty-lines": "off"
+  }
+}
