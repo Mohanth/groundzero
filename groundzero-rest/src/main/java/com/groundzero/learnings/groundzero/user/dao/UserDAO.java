@@ -15,6 +15,6 @@ public interface UserDAO {
     List<UserOrder> getUserOrders(String userId);
 
     UserCredits getUserCredits(String id);
-
+    String loginauthentication(UserDetails userDetails) ;
     String updateUserCredits(UserCredits userCredits);
 }

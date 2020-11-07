@@ -89,10 +89,19 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
+
+
     @Override
     public String updateUserCredits(UserCredits userCredits) {
         String sql = "UPDATE user_credits SET coins_available=? WHERE user_id=?";
         gzJdbcTemplate.update(sql, userCredits.getCoinsAvailable());
         return "successfully updated";
+    }
+
+    public String loginauthentication(UserDetails userDetails) {
+        String sql = "SELECT 1 * from user where username =?";
+        gzJdbcTemplate.update(sql, userDetails.getUserFullName());
+        return "successfully";
+
     }
 }
