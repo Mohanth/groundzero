@@ -16,7 +16,9 @@ public interface UserService {
 
 
     UserDetails getUserDetailsById(String userId);
+
     String saveUserDetails(UserDetails userDetails) throws MessagingException, IOException;
+
     List<UserOrder> getUserOrders(String userId);
 
     UserCredits getUserCredits(String id);
@@ -24,6 +26,5 @@ public interface UserService {
     String updateUserCredits(UserCredits userCredits);
 
 
-
-    String loginauthentication(UserDetails userDetails);
+    UserDetailsResponse loginauthentication(UserDetails userDetails);
 }

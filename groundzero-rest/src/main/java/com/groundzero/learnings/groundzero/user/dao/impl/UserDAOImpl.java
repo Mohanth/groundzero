@@ -90,7 +90,6 @@ public class UserDAOImpl implements UserDAO {
     }
 
 
-
     @Override
     public String updateUserCredits(UserCredits userCredits) {
         String sql = "UPDATE user_credits SET coins_available=? WHERE user_id=?";
@@ -99,8 +98,8 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public String loginauthentication(UserDetails userDetails) {
-        String sql = "SELECT 1 * from user where username =?";
-        gzJdbcTemplate.update(sql, userDetails.getUserFullName());
+        String sql = "SELECT userId from user where username =? and password =?";
+        int userId = gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getPassword());
         return "successfully";
 
     }

@@ -2,12 +2,11 @@ package com.groundzero.learnings.groundzero.user.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.groundzero.learnings.groundzero.user.dao.impl.UserDAOImpl;
 import com.groundzero.learnings.groundzero.user.model.UserCredits;
 import com.groundzero.learnings.groundzero.user.model.UserDetails;
+import com.groundzero.learnings.groundzero.user.model.UserDetailsResponse;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.UserService;
-import com.groundzero.learnings.groundzero.user.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,7 +39,7 @@ public class UserController {
 
     @PostMapping("/login")
     @CrossOrigin("*")
-    public String Login (@RequestBody String userDetailsStr) throws JsonProcessingException{
+    public UserDetailsResponse Login (@RequestBody String userDetailsStr) throws JsonProcessingException{
         ObjectMapper mapper = new ObjectMapper();
         UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
 
@@ -54,11 +53,13 @@ public class UserController {
     public List<UserOrder> getuserorder(@PathVariable String id){
         return  userService.getUserOrders(id);
     }
+
     @GetMapping("/getusercredits/{id}")
     @ResponseBody
     public UserCredits getusercredits(@PathVariable String id){
         return userService.getUserCredits(id);
     }
+
     @PostMapping("updatecredits")
     public String updatecredits(@RequestBody String userCreditsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();

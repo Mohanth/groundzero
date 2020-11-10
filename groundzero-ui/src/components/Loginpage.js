@@ -1,8 +1,7 @@
-import React ,{useState}from "react";
-import img from "../resources/Pink_Transparent_200 (1).png";
-import {Button} from "reactstrap";
-import "../login.css";
-import Dashboard from "./Dashboard";
+import React, { useState } from 'react';
+import img from '../resources/Pink_Transparent_200 (1).png';
+import { Button } from 'reactstrap';
+import '../login.css';
 
 function script() {
     const sign_in_btn = document.querySelector("#sign-in-btn");
@@ -27,12 +26,12 @@ export default  function Loginauth(props){
     function handlepassword (e){
         setpassword(e.target.value);
     }
-     function handlesubmit(e){
+     function handleSubmit(e){
          e.preventDefault();
          let data={
              Username:username,
              Password:password
-         }
+         };
          console.log(data);
          fetch('http://localhost:5000/api/user/login', {
              method: 'POST',
@@ -47,7 +46,7 @@ export default  function Loginauth(props){
                      throw new Error("Server responds with error!")
                  }
                  else{
-                     alert("hii");
+
                  }
 
              })
@@ -60,7 +59,7 @@ export default  function Loginauth(props){
             <div style={{backgroundColor:""}} className="container-fluid-login">
                 <div className="forms-container" >
                     <div className="signin-signup">
-                        <form action="#" method="POST" className="sign-in-form" onSubmit={handlesubmit} >
+                        <form action="#" method="POST" className="sign-in-form" onSubmit={handleSubmit} >
                             <img style={{
                                 width:"200px",
                                 padding:"25px",
