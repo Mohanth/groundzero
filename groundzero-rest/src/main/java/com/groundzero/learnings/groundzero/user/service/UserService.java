@@ -14,13 +14,16 @@ public interface UserService {
 
     UserDetailsResponse getUserDetailsResponse(String userId);
 
-    /*UserDetails getUserDetailsById(String userId);
+
+    UserDetails getUserDetailsById(String userId);
     String saveUserDetails(UserDetails userDetails) throws MessagingException, IOException;
     List<UserOrder> getUserOrders(String userId);
 
     UserCredits getUserCredits(String id);
 
-    String updateUserCredits(UserCredits userCredits);*/
+    String updateUserCredits(UserCredits userCredits);
 
 
+
+    String loginauthentication(UserDetails userDetails);
 }
