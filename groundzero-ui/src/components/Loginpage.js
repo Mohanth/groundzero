@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import img from '../resources/Pink_Transparent_200 (1).png';
 import { Button } from 'reactstrap';
 import '../login.css';
+import Dashboard from "./Dashboard";
 
 function script() {
     const sign_in_btn = document.querySelector("#sign-in-btn");
@@ -15,10 +16,11 @@ function script() {
     });
 }
 
-export default  function Loginauth(props){
+export default  function Loginauth(){
 
     const [username,setusername] =useState('');
     const [password , setpassword] = useState("");
+    const [userinfo ,setuserinfo] =useState('');
 
      function handlechange (e){
          setusername(e.target.value);
@@ -38,22 +40,12 @@ export default  function Loginauth(props){
              body: JSON.stringify(data), // data can be `string` or {object}!
              headers: {'Content-Type': 'application/json'}
          })
-             .then(res =>  {
-                 // Unfortunately, fetch doesn't send (404 error)
-                 // into the cache itself
-                 // You have to send it, as I have done below
-                 if (res.status >= 400) {
-                     throw new Error("Server responds with error!")
-                 }
-                 else{
-
-                 }
-
+             .then(response  => {
+                 console.log(response)
+                 setuserinfo(response.data);
              })
-             .catch(error => console.error('Error:', error))
-             .then(response => console.log('Success:', response));
+             .catch(error => console.log(error))
      }
-
     return(
         <div>
             <div style={{backgroundColor:""}} className="container-fluid-login">
@@ -157,6 +149,7 @@ export default  function Loginauth(props){
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }

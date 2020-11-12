@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
         this.userDAO = userDAO;
     }
 
-    public UserDetailsResponse getUserDetailsResponse(String userId) {
+    public UserDetailsResponse getUserDetailsResponse(String   userId) {
         UserDetailsResponse detailsResponse = new UserDetailsResponse();
         detailsResponse.setUserCredits(userDAO.getUserCredits(userId));
         detailsResponse.setUserDetails(userDAO.getUserDetailsById(userId));
@@ -37,7 +37,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails getUserDetailsById(String userId) {
-        return null;
+        if (userId != null) {
+            return userDAO.getUserDetailsById(userId);
+        }
+        else{
+            return null;
+        }
     }
 
     @Override
@@ -49,7 +54,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserOrder> getUserOrders(String userId) {
+    public List<UserOrder> getUserOrders(String  userId) {
         if (!StringUtils.isEmpty(userId)) {
             return userDAO.getUserOrders(userId);
         }
@@ -58,6 +63,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserCredits getUserCredits(String id) {
+        if(id != null){
+            return userDAO.getUserCredits(id);
+        }
         return null;
     }
 
@@ -66,9 +74,11 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+
+
     @Override
     public UserDetailsResponse loginauthentication(UserDetails userDetails) {
-        String userId = userDAO.loginauthentication(userDetails);
+        String  userId = userDAO.loginauthentication(userDetails);
         UserDetailsResponse response = new UserDetailsResponse();
         response.setUserDetails(userDAO.getUserDetailsById(userId));
         response.setUserCredits(userDAO.getUserCredits(userId));

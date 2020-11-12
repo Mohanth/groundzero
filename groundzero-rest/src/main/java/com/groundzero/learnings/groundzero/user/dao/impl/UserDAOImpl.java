@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.springframework.jdbc.core.BeanPropertyRowMapper.*;
+
 @Slf4j
 @Repository
 public class UserDAOImpl implements UserDAO {
@@ -74,7 +76,7 @@ public class UserDAOImpl implements UserDAO {
         String sql = "SELECT order_id FROM user_orders WHERE user_id = ?";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", userid);
-        List<UserOrder> userOrder = gzJdbcTemplate.query(sql, new Object[]{userid}, BeanPropertyRowMapper.newInstance(UserOrder.class));
+        List<UserOrder> userOrder = gzJdbcTemplate.query(sql, new Object[]{userid}, newInstance(UserOrder.class));
         return userOrder;
     }
 
@@ -84,10 +86,12 @@ public class UserDAOImpl implements UserDAO {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", userid);
         UserCredits userCredits = gzJdbcTemplate.queryForObject(sql, new Object[]{userid},
-                BeanPropertyRowMapper.newInstance(UserCredits.class));
+                newInstance(UserCredits.class));
         return userCredits;
 
     }
+
+
 
 
     @Override
@@ -97,10 +101,12 @@ public class UserDAOImpl implements UserDAO {
         return "successfully updated";
     }
 
-    public String loginauthentication(UserDetails userDetails) {
-        String sql = "SELECT userId from user where username =? and password =?";
-        int userId = gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getPassword());
-        return "successfully";
+   public String loginauthentication(UserDetails userDetails) {
+        String sql = "SELECT user_id as userId  from user where useremail =:useremail";
+       Map<String, Object> paramMap = new HashMap<>();
+       paramMap.put("useremail",userDetails.getUserEmail());
 
+       String  userId = gzJdbcTemplate.queryForObject(sql, new Object[]{userDetails.getUserEmail()}, String.class);
+        return userId;
     }
 }
