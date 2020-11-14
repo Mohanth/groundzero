@@ -85,5 +85,10 @@ public class UserServiceImpl implements UserService {
         response.setUserOrder(userDAO.getUserOrders(userId));
         return response;
     }
+
+    @Override
+    public String saveUserCourses(UserOrder userOrder) {
+        return userDAO.saveUserCourses(userOrder);
+    }
 }
 

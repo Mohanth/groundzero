@@ -48,11 +48,6 @@ public class UserController {
 
 
 
-    @GetMapping("/getorders/{id}")
-    @ResponseBody
-    public List<UserOrder> getuserorder(@PathVariable String id){
-        return  userService.getUserOrders(id);
-    }
 
     @GetMapping("/getusercredits/{id}")
     @ResponseBody
@@ -65,6 +60,19 @@ public class UserController {
         ObjectMapper mapper = new ObjectMapper();
         UserCredits userCredits = mapper.readValue(userCreditsStr,UserCredits.class);
         return userService.updateUserCredits(userCredits);
+    }
+    @PostMapping("/saveUserCourses")
+    @CrossOrigin("*")
+    public String saveUserCourses(@RequestBody String userOrderStr) throws JsonProcessingException{
+        ObjectMapper mapper = new ObjectMapper();
+        UserOrder userOrder = mapper.readValue(userOrderStr,UserOrder.class);
+        return userService.saveUserCourses(userOrder);
+    }
+
+    @GetMapping("/getorders/{id}")
+    @ResponseBody
+    public List<UserOrder> getuserorder(@PathVariable String id){
+        return  userService.getUserOrders(id);
     }
 
 }

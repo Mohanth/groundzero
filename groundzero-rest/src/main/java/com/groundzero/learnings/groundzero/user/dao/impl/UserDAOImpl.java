@@ -101,12 +101,16 @@ public class UserDAOImpl implements UserDAO {
         return "successfully updated";
     }
 
-   public String loginauthentication(UserDetails userDetails) {
-        String sql = "SELECT user_id as userId  from user where useremail =:useremail";
-       Map<String, Object> paramMap = new HashMap<>();
-       paramMap.put("useremail",userDetails.getUserEmail());
+    @Override
+    public String saveUserCourses(UserOrder userOrder) {
+        String sql = "INSERT into user_orders(user_id, course_id , order_amount) VALUES (? ,? ,?)";
+        gzJdbcTemplate.update(sql,userOrder.getUserId(),userOrder.getCourseId(),userOrder.getOrderAmount());
+        return "hii";
+    }
 
-       String  userId = gzJdbcTemplate.queryForObject(sql, new Object[]{userDetails.getUserEmail()}, String.class);
+    public String loginauthentication(UserDetails userDetails) {
+        String sql = "SELECT user_id  from user where user_email = ? and password = ?";
+        String  userId = gzJdbcTemplate.queryForObject(sql, new String[]{userDetails.getUserEmail(),userDetails.getPassword()}, String.class);
         return userId;
     }
 }

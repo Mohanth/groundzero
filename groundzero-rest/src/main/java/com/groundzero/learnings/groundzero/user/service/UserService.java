@@ -27,4 +27,6 @@ public interface UserService {
 
 
     UserDetailsResponse loginauthentication(UserDetails userDetails);
+
+    String saveUserCourses(UserOrder userOrder);
 }

@@ -17,4 +17,7 @@ public interface UserDAO {
     UserCredits getUserCredits(String id);
     String loginauthentication(UserDetails userDetails) ;
     String updateUserCredits(UserCredits userCredits);
+
+
+    String saveUserCourses(UserOrder userOrder);
 }
