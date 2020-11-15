@@ -66,7 +66,7 @@ export default function Auth(props){
             password: userpassword
         }
         console.log(data)
-        fetch('http://localhost:5000/api/user/saveUser', {
+        fetch('http://localhost:5000/api/userDetails/saveUser', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {'content-Type': 'application/json'}
@@ -389,7 +389,7 @@ class Auth extends React.Component {
                                 }} src={img} className="image  d-none d-md-none d-lg-block d-xl-block " alt=""/>
                                 <h2 className="title">SIGNUP FOR STUDENTS</h2>
                                 <div className="input-field">
-                                    <i className="fas fa-user"/>
+                                    <i className="fas fa-userDetails"/>
                                     <input type="text" name="username" value={this.state.username}
                                            onChange={this.handleChange} placeholder="Username" required="required"/>
                                 </div>
@@ -444,12 +444,12 @@ class Auth extends React.Component {
                                 }} src={img} className="image " alt=""/>
                                 <h2 className="title">SIGN UP FOR FACULTY</h2>
                                 <div className="input-field">
-                                    <i className="fas fa-user"/>
+                                    <i className="fas fa-userDetails"/>
                                     <input type="text" name="facultyname" value={this.state.facultyname}
                                            onChange={this.handlefacultychange} placeholder="Name" required="required"/>
                                 </div>
                                 <div className="input-field">
-                                    <i className="fas fa-user"/>
+                                    <i className="fas fa-userDetails"/>
                                     <input type="number" name="facultyphone" value={this.state.facultyphone}
                                            onChange={this.handlefacultychange} placeholder="Phone number"
                                            required="required"/>

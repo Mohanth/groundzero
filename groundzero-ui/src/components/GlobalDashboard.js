@@ -1,5 +1,5 @@
 import React from "react";
-// import {UserDetails} from './UserDetails';
+// import {userResponse} from './userResponse';
 import DashboardContent from "./DashboardContent";
 import GlobalHeader from "./GlobalHeader";
 

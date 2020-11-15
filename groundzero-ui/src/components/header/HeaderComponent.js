@@ -1,9 +1,8 @@
-import React from "react";
-import { string } from "prop-types";
-import { Row } from "simple-flexbox";
-import { css, StyleSheet } from "aphrodite";
-import IconBellNew from "../../assets/icon-bell-new";
-import User from "../../resources/user";
+import React from 'react';
+import { any, string } from 'prop-types';
+import { Row } from 'simple-flexbox';
+import { css, StyleSheet } from 'aphrodite';
+import IconBellNew from '../../assets/icon-bell-new';
 
 const styles = StyleSheet.create({
   avatar: {
@@ -11,65 +10,65 @@ const styles = StyleSheet.create({
     width: 35,
     borderRadius: 50,
     marginLeft: 14,
-    border: "1px solid #DFE0EB",
+    border: '1px solid #DFE0EB'
   },
   container: {
-    height: 40,
+    height: 40
   },
   cursorPointer: {
-    cursor: "pointer",
+    cursor: 'pointer'
   },
   name: {
-    fontFamily: "Muli",
-    fontStyle: "normal",
+    fontFamily: 'Muli',
+    fontStyle: 'normal',
     fontWeight: 600,
     fontSize: 14,
-    lineHeight: "20px",
-    textAlign: "right",
+    lineHeight: '20px',
+    textAlign: 'right',
     letterSpacing: 0.2,
-    "@media (max-width: 768px)": {
-      display: "none",
-    },
+    '@media (max-width: 768px)': {
+      display: 'none'
+    }
   },
   separator: {
-    borderLeft: "1px solid #DFE0EB",
+    borderLeft: '1px solid #DFE0EB',
     marginLeft: 32,
     marginRight: 32,
     height: 32,
     width: 2,
-    "@media (max-width: 768px)": {
+    '@media (max-width: 768px)': {
       marginLeft: 12,
-      marginRight: 12,
-    },
+      marginRight: 12
+    }
   },
   title: {
-    fontFamily: "Muli",
-    fontStyle: "normal",
-    fontWeight: "bold",
+    fontFamily: 'Muli',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
     fontSize: 24,
-    lineHeight: "30px",
+    lineHeight: '30px',
     letterSpacing: 0.3,
-    "@media (max-width: 768px)": {
-      marginLeft: 36,
+    '@media (max-width: 768px)': {
+      marginLeft: 36
     },
-    "@media (max-width: 468px)": {
-      fontSize: 20,
-    },
+    '@media (max-width: 468px)': {
+      fontSize: 20
+    }
   },
   iconStyles: {
-    cursor: "pointer",
+    cursor: 'pointer',
     marginLeft: 25,
-    "@media (max-width: 768px)": {
-      marginLeft: 12,
-    },
-  },
+    '@media (max-width: 768px)': {
+      marginLeft: 12
+    }
+  }
 });
 
 export default class HeaderComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: User.userDetails,
+      userDetails: props.userDetails
     };
   }
 
@@ -84,18 +83,18 @@ export default class HeaderComponent extends React.Component {
         <span className={css(styles.title)}>{this.props.title}</span>
         <Row vertical="center">
           <div className={css(styles.iconStyles)}>
-            <IconBellNew />
+            <IconBellNew/>
           </div>
-          <div className={css(styles.separator)} />
+          <div className={css(styles.separator)}/>
           <Row vertical="center">
             <span className={css(styles.name, styles.cursorPointer)}>
-              {this.props.info.userId.userId}
+              {this.props.userDetails.userFullName}
             </span>
 
             <img
-              src={this.state.user.userAvatar}
-              alt="avatar"
-              className={css(styles.avatar, styles.cursorPointer)}
+            src={"https://source.unsplash.com/user/erondu/35x35"}
+            alt="avatar"
+            className={css(styles.avatar, styles.cursorPointer)}
             />
           </Row>
         </Row>
@@ -106,5 +105,5 @@ export default class HeaderComponent extends React.Component {
 
 HeaderComponent.propTypes = {
   title: string,
-  userId:'',
+  userDetails: any
 };

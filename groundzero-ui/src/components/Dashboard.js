@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 });
 
 export default class Dashboard extends React.Component {
-  state = { selectedItem: 'Tickets' , UserDetails:'' };
+  state = { selectedItem: 'Tickets', userResponse: {}, userDetails:{} };
 
   componentDidMount() {
     this.getUserDetails();
@@ -37,14 +37,14 @@ export default class Dashboard extends React.Component {
     const userId = store.get('userId');
     let data = await axios.get('http://localhost:5000/api/user/getuserdetails/' + userId)
       .then(function(response) {
-      return response;
-    })
+        return response;
+      })
       .catch(function(error) {
         console.log(error);
       });
 
-    this.setState({ UserDetails: data.data });
-     console.log(this.state.UserDetails);
+    this.setState({ userResponse: data.data });
+    this.setState({ userDetails: data.data.userDetails });
   }
 
   componentWillUnmount() {
@@ -56,7 +56,7 @@ export default class Dashboard extends React.Component {
 
   changecomponent = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
-      return <MyLive info={this.state.UserDetails}/>;
+      return <MyLive info={this.state.userResponse}/>;
     }
   };
 
@@ -75,7 +75,7 @@ export default class Dashboard extends React.Component {
           onChange={(selectedItem) => this.setState({ selectedItem })}
         />
         <Column flexGrow={1} className={styles.mainBlock}>
-          <HeaderComponent title={selectedItem} info={this.state.UserDetails.userDetails}/>
+          <HeaderComponent title={selectedItem} userDetails={this.state.userDetails}/>
           <div className={styles.content}>
             {
               this.changecomponent()
