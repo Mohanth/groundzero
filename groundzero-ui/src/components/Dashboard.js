@@ -8,6 +8,7 @@ import DisplayDashboardContent from './DisplayDashboardContent';
 import MyLive from './Mylive';
 import store from 'store';
 import axios from 'axios';
+import AnimationLoader from './AnimationLoader';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
 });
 
 export default class Dashboard extends React.Component {
-  state = { selectedItem: 'Tickets', userResponse: {}, userDetails:{} };
+  state = { selectedItem: 'Tickets', userResponse: {}, userDetails: {}, showAnimation: true };
 
   componentDidMount() {
     this.getUserDetails();
@@ -45,6 +46,7 @@ export default class Dashboard extends React.Component {
 
     this.setState({ userResponse: data.data });
     this.setState({ userDetails: data.data.userDetails });
+    this.setState({ showAnimation: false });
   }
 
   componentWillUnmount() {
@@ -54,13 +56,13 @@ export default class Dashboard extends React.Component {
   resize = () => this.forceUpdate();
 
 
-  changecomponent = () => {
+  changeComponent = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
       return <MyLive info={this.state.userResponse}/>;
     }
   };
 
-  coursecatlog = () => {
+  courseCatalog = () => {
     if (this.state.selectedItem === 'courseCatalog') {
       return <DisplayDashboardContent/>;
     }
@@ -69,26 +71,28 @@ export default class Dashboard extends React.Component {
   render() {
     const { selectedItem } = this.state;
     return (
-      <Row className={styles.container}>
-        <SidebarComponent
-          selectedItem={selectedItem}
-          onChange={(selectedItem) => this.setState({ selectedItem })}
-        />
-        <Column flexGrow={1} className={styles.mainBlock}>
-          <HeaderComponent title={selectedItem} userDetails={this.state.userDetails}/>
-          <div className={styles.content}>
-            {
-              this.changecomponent()
-            }
-            <div className="row">
-              {
-                this.coursecatlog()
-              }
-
-            </div>
-          </div>
-        </Column>
-      </Row>
+      this.state.showAnimation ? <AnimationLoader/> :
+        (
+          <Row className={styles.container}>
+            <SidebarComponent
+              selectedItem={selectedItem}
+              onChange={(selectedItem) => this.setState({ selectedItem })}
+            />
+            <Column flexGrow={1} className={styles.mainBlock}>
+              <HeaderComponent title={selectedItem} userDetails={this.state.userDetails}/>
+              <div className={styles.content}>
+                {
+                  this.changeComponent()
+                }
+                <div className="row">
+                  {
+                    this.courseCatalog()
+                  }
+                </div>
+              </div>
+            </Column>
+          </Row>
+        )
     );
   }
 }
