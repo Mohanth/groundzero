@@ -18,8 +18,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
 
     @GetMapping("/getUser/{id}")
@@ -30,8 +34,7 @@ public class UserController {
 
 
     @PostMapping("/saveUser")
-    @CrossOrigin("*")
-    public String saveuser(@RequestBody String userDetailsStr) throws IOException, MessagingException {
+    public String saveUser(@RequestBody String userDetailsStr) throws IOException, MessagingException {
         ObjectMapper mapper = new ObjectMapper();
         UserDetails userDetails = mapper.readValue(userDetailsStr, UserDetails.class);
 
@@ -39,8 +42,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    @CrossOrigin("*")
-    public String Login(@RequestBody String userDetailsStr) throws JsonProcessingException {
+    public String login(@RequestBody String userDetailsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         UserDetails userDetails = mapper.readValue(userDetailsStr, UserDetails.class);
 
@@ -50,19 +52,18 @@ public class UserController {
 
     @GetMapping("/getusercredits/{id}")
     @ResponseBody
-    public UserCredits getusercredits(@PathVariable String id) {
+    public UserCredits getUserCredits(@PathVariable String id) {
         return userService.getUserCredits(id);
     }
 
     @PostMapping("updatecredits")
-    public String updatecredits(@RequestBody String userCreditsStr) throws JsonProcessingException {
+    public String updateCredits(@RequestBody String userCreditsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         UserCredits userCredits = mapper.readValue(userCreditsStr, UserCredits.class);
         return userService.updateUserCredits(userCredits);
     }
 
     @PostMapping("/saveUserCourses")
-    @CrossOrigin("*")
     public String saveUserCourses(@RequestBody String userOrderStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         UserOrder userOrder = mapper.readValue(userOrderStr, UserOrder.class);
@@ -77,7 +78,6 @@ public class UserController {
 
     @GetMapping("/getuserdetails/{id}")
     @ResponseBody
-    @CrossOrigin("*")
     public UserDetailsResponse getUserDetails(@PathVariable String id) {
         UserDetailsResponse userDetailsResponse = new UserDetailsResponse();
         if (!StringUtils.isEmpty(id)) {

@@ -20,7 +20,7 @@ public class UserDetails {
     String isActive;
     String password;
 
-    public UserDetails(){
+    public UserDetails() {
 
     }
 
