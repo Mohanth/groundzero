@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^7.2.1",
     "aos": "^3.0.0-beta.6",
     "aphrodite": "^2.4.0",
+    "axios": "^0.21.0",
     "emailjs-com": "^2.6.3",
     "firebase": "^7.24.0",
     "node-sass": "^4.14.1",
@@ -29,7 +30,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "reactstrap": "^8.6.0",
-    "simple-flexbox": "^2.3.2"
+    "simple-flexbox": "^2.3.2",
+    "store": "^2.0.12"
   },
   "scripts": {
     "start": "react-scripts start",

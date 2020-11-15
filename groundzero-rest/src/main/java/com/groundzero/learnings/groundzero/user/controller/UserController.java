@@ -9,6 +9,7 @@ import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.StringUtils;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -19,7 +20,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-    
+
 
     @GetMapping("/getUser/{id}")
     @ResponseBody
@@ -32,47 +33,56 @@ public class UserController {
     @CrossOrigin("*")
     public String saveuser(@RequestBody String userDetailsStr) throws IOException, MessagingException {
         ObjectMapper mapper = new ObjectMapper();
-        UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
+        UserDetails userDetails = mapper.readValue(userDetailsStr, UserDetails.class);
 
         return userService.saveUserDetails(userDetails);
     }
 
     @PostMapping("/login")
     @CrossOrigin("*")
-    public UserDetailsResponse Login (@RequestBody String userDetailsStr) throws JsonProcessingException{
+    public String Login(@RequestBody String userDetailsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        UserDetails userDetails = mapper.readValue(userDetailsStr,UserDetails.class);
+        UserDetails userDetails = mapper.readValue(userDetailsStr, UserDetails.class);
 
         return userService.loginauthentication(userDetails);
     }
 
 
-
-
     @GetMapping("/getusercredits/{id}")
     @ResponseBody
-    public UserCredits getusercredits(@PathVariable String id){
+    public UserCredits getusercredits(@PathVariable String id) {
         return userService.getUserCredits(id);
     }
 
     @PostMapping("updatecredits")
     public String updatecredits(@RequestBody String userCreditsStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        UserCredits userCredits = mapper.readValue(userCreditsStr,UserCredits.class);
+        UserCredits userCredits = mapper.readValue(userCreditsStr, UserCredits.class);
         return userService.updateUserCredits(userCredits);
     }
+
     @PostMapping("/saveUserCourses")
     @CrossOrigin("*")
-    public String saveUserCourses(@RequestBody String userOrderStr) throws JsonProcessingException{
+    public String saveUserCourses(@RequestBody String userOrderStr) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        UserOrder userOrder = mapper.readValue(userOrderStr,UserOrder.class);
+        UserOrder userOrder = mapper.readValue(userOrderStr, UserOrder.class);
         return userService.saveUserCourses(userOrder);
     }
 
     @GetMapping("/getorders/{id}")
     @ResponseBody
-    public List<UserOrder> getuserorder(@PathVariable String id){
-        return  userService.getUserOrders(id);
+    public List<UserOrder> getuserorder(@PathVariable String id) {
+        return userService.getUserOrders(id);
+    }
+
+    @GetMapping("/getuserdetails/{id}")
+    @ResponseBody
+    public UserDetailsResponse getUserDetails(@PathVariable String id) {
+        UserDetailsResponse userDetailsResponse = new UserDetailsResponse();
+        if (!StringUtils.isEmpty(id)) {
+            userDetailsResponse = userService.getUserDetailsResponse(id);
+        }
+        return userDetailsResponse;
     }
 
 }

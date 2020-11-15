@@ -26,7 +26,7 @@ public interface UserService {
     String updateUserCredits(UserCredits userCredits);
 
 
-    UserDetailsResponse loginauthentication(UserDetails userDetails);
+    String loginauthentication(UserDetails userDetails);
 
     String saveUserCourses(UserOrder userOrder);
 }

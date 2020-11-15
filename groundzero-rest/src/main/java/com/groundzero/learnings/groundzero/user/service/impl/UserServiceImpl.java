@@ -77,13 +77,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDetailsResponse loginauthentication(UserDetails userDetails) {
+    public String loginauthentication(UserDetails userDetails) {
         String  userId = userDAO.loginauthentication(userDetails);
-        UserDetailsResponse response = new UserDetailsResponse();
-        response.setUserDetails(userDAO.getUserDetailsById(userId));
-        response.setUserCredits(userDAO.getUserCredits(userId));
-        response.setUserOrder(userDAO.getUserOrders(userId));
-        return response;
+        return userId;
     }
 
     @Override
