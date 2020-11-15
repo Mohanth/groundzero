@@ -3,6 +3,7 @@ import img from '../resources/Pink_Transparent_200 (1).png';
 import { Button } from 'reactstrap';
 import '../login.css';
 import Dashboard from "./Dashboard";
+import Redirect from "react-router-dom";
 
 function script() {
     const sign_in_btn = document.querySelector("#sign-in-btn");
@@ -53,8 +54,8 @@ export default class Loginauth extends React.Component{
         })
     .catch(error => console.log(error))
 
-       if(userinfo!=null){
-           <Dashboard info={this.state.userinfo}/>
+       if(this.state.userinfo!=null){
+         return <link  to="/dash" />
        }
        else{
            alert("Details not found")
