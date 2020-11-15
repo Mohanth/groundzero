@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 });
 
 export default class Dashboard extends React.Component {
-  state = { selectedItem: 'Tickets' };
+  state = { selectedItem: 'Tickets' , UserDetails:'' };
 
   componentDidMount() {
     this.getUserDetails();
@@ -42,8 +42,9 @@ export default class Dashboard extends React.Component {
       .catch(function(error) {
         console.log(error);
       });
-    console.log(data.data);
-    this.setState({ userDetails: data });
+
+    this.setState({ UserDetails: data.data });
+     console.log(this.state.UserDetails);
   }
 
   componentWillUnmount() {
@@ -52,9 +53,10 @@ export default class Dashboard extends React.Component {
 
   resize = () => this.forceUpdate();
 
+
   changecomponent = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
-      return <MyLive/>;
+      return <MyLive info={this.state.UserDetails}/>;
     }
   };
 
@@ -73,7 +75,7 @@ export default class Dashboard extends React.Component {
           onChange={(selectedItem) => this.setState({ selectedItem })}
         />
         <Column flexGrow={1} className={styles.mainBlock}>
-          <HeaderComponent title={selectedItem}/>
+          <HeaderComponent title={selectedItem} info={this.state.UserDetails.userDetails}/>
           <div className={styles.content}>
             {
               this.changecomponent()

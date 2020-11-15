@@ -77,6 +77,7 @@ public class UserController {
 
     @GetMapping("/getuserdetails/{id}")
     @ResponseBody
+    @CrossOrigin("*")
     public UserDetailsResponse getUserDetails(@PathVariable String id) {
         UserDetailsResponse userDetailsResponse = new UserDetailsResponse();
         if (!StringUtils.isEmpty(id)) {

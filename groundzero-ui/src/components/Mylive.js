@@ -9,7 +9,7 @@ class  Live extends React.Component {
                 <div>
                     <div className="list-group" id="list-tab" role="tablist">
                         <li style={{textDecoration:"none"}} className="list-group-item  d-flex justify-content-between align-items-center" id="list-home-list" data-toggle="list"
-                            href="#list-home" role="tab" aria-controls="home">Home <span className="badge badge-primary badge-pill">inprogress</span></li>
+                            href="#list-home" role="tab" aria-controls="home">{this.props.userinfo.userDetails.userId} <span className="badge badge-primary badge-pill">inprogress</span></li>
                     </div>
                 </div>
                 <div>

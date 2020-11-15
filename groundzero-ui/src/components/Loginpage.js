@@ -49,8 +49,9 @@ export default class Loginauth extends React.Component {
       .then((resp) => {
         resp.json().then((data) => {
           this.setState({ userinfo: data });
+          console.log(this.state.userinfo);
           store.set('loggedIn', true);
-          store.set('userId', data.userDetails.userId);
+          store.set('userId', data);
           history.push('/dashboard');
         });
       })

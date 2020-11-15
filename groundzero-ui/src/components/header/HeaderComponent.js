@@ -73,6 +73,7 @@ export default class HeaderComponent extends React.Component {
     };
   }
 
+
   render() {
     return (
       <Row
@@ -88,8 +89,9 @@ export default class HeaderComponent extends React.Component {
           <div className={css(styles.separator)} />
           <Row vertical="center">
             <span className={css(styles.name, styles.cursorPointer)}>
-              {this.state.user.userFullName}
+              {this.props.info.userId.userId}
             </span>
+
             <img
               src={this.state.user.userAvatar}
               alt="avatar"
@@ -101,6 +103,8 @@ export default class HeaderComponent extends React.Component {
     );
   }
 }
+
 HeaderComponent.propTypes = {
   title: string,
+  userId:'',
 };
