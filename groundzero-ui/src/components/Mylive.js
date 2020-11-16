@@ -7,8 +7,27 @@ class Live extends React.Component {
     console.log(this.props.myCourses);
     return this.props.myCourses.map(courses => {
       return (
-        <div style={{ marginLeft: '15px', width: '1000px' }}>
-          <div>
+        <div >
+          <div className="panel-group">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <li style={{ textDecoration: 'none' }}
+                    className="list-group-item  d-flex justify-content-between align-items-center panel-title" id="list-home-list"
+                    data-toggle="collapse"
+                    href={'#collapse' + courses.courseId} >{courses.courseName}<span
+                    className="badge badge-primary badge-pill">inprogress</span></li>
+              </div>
+              <div id={'collapse' + courses.courseId} className="panel-collapse collapse">
+                <ul className="list-group">
+                  <a href="#"><li className="list-group-item">One</li></a>
+                  <li className="list-group-item">Two</li>
+                  <li className="list-group-item">Three</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/*<div>
             <div className="list-group" id={'list-tab' + courses.courseId} role="tablist">
               <li style={{ textDecoration: 'none' }}
                   className="list-group-item  d-flex justify-content-between align-items-center" id="list-home-list"
@@ -30,7 +49,7 @@ class Live extends React.Component {
                 </ul>
               </div>
             </div>
-          </div>
+          </div>*/}
         </div>
       );
     });

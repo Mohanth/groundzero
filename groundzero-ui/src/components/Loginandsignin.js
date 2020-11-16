@@ -114,7 +114,7 @@ export default function Auth(props){
                 </Snackbar>
                 <div className="forms-container">
                     <div className="signin-signup">
-                        <form action="#" method="POST" id="form" className="sign-in-form"
+                        <form action="#" method="POST" id="form" className="sign-in-form forms"
                               onSubmit={handlesubmit}>
                             <img style={{
                                 width: "200px",
@@ -171,7 +171,7 @@ export default function Auth(props){
 
 
 
-                        <form action="#" method="POST" className="sign-up-form" onSubmit={facultysubmit}>
+                        <form action="#" method="POST" className="sign-up-form forms" onSubmit={facultysubmit}>
                             <img style={{
                                 width: "200px",
                                 padding: "25px",

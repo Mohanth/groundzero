@@ -6,6 +6,7 @@ import { Column, Row } from 'simple-flexbox';
 import '../App.css';
 import DisplayDashboardContent from './DisplayDashboardContent';
 import MyLive from './Mylive';
+import Settings from './UserSettings'
 import store from 'store';
 import axios from 'axios';
 import AnimationLoader from './AnimationLoader';
@@ -46,7 +47,10 @@ export default class Dashboard extends React.Component {
       });
     console.log(data);
     this.setState({ userResponse: data.data });
-    this.setState({ userDetails: data.data.userDetails });
+    this.setState({userDetails:data.data.userDetails})
+   this.setState({userCourses:data.data.userOrder})
+    console.log(this.state.userDetails)
+
     this.setState({ showAnimation: false });
     console.log(this.state.userResponse);
   }
@@ -60,7 +64,10 @@ export default class Dashboard extends React.Component {
 
   getLiveCourses = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
-      return <MyLive myCourses={this.state.userDetails.userCourses}/>;
+      return <MyLive myCourses={this.state.userCourses}/>;
+    }
+    if (this.state.selectedItem === 'Settings') {
+      return <Settings info={this.state.userDetails} /> ;
     }
   };
 
@@ -68,6 +75,7 @@ export default class Dashboard extends React.Component {
     if (this.state.selectedItem === 'courseCatalog') {
       return <DisplayDashboardContent info={this.state.userDetails}/>;
     }
+
   };
 
   render() {

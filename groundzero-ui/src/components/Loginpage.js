@@ -65,7 +65,7 @@ export default class Loginauth extends React.Component {
         <div style={{ backgroundColor: '' }} className="container-fluid-login">
           <div className="forms-container">
             <div className="signin-signup">
-              <form action="#" method="POST" className="sign-in-form" onSubmit={this.handlesubmit}>
+              <form action="#" method="POST" className="sign-in-form forms" onSubmit={this.handlesubmit}>
                 <img style={{
                   width: '200px',
                   padding: '25px'
@@ -100,7 +100,7 @@ export default class Loginauth extends React.Component {
                   </a>
                 </div>
               </form>
-              <form method="POST" className="sign-up-form">
+              <form method="POST" className="sign-up-form forms" >
                 <img style={{
                   width: '200px',
                   padding: '25px'
