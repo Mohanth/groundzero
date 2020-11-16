@@ -41,7 +41,7 @@ input {
   z-index: 5;
 }
 
-form {
+.forms {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -389,7 +389,7 @@ form.sign-in-form {
 }
 
 @media (max-width: 570px) {
-  form {
+  .forms {
     padding: 0 1.5rem;
   }
 

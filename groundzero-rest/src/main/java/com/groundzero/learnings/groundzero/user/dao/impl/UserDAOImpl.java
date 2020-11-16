@@ -2,10 +2,12 @@ package com.groundzero.learnings.groundzero.user.dao.impl;
 
 import com.groundzero.learnings.groundzero.exception.StudentNotFoundException;
 import com.groundzero.learnings.groundzero.user.dao.UserDAO;
+import com.groundzero.learnings.groundzero.user.model.UserCourses;
 import com.groundzero.learnings.groundzero.user.model.UserCredits;
 import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,6 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.springframework.jdbc.core.BeanPropertyRowMapper.*;
+
 @Slf4j
 @Repository
 public class UserDAOImpl implements UserDAO {
@@ -35,9 +39,7 @@ public class UserDAOImpl implements UserDAO {
     public UserDetails getUserDetailsById(String userId) {
         UserDetails userDetails = null;
         try {
-            String sql = "SELECT user_id as userId,user_firstname as userFirstName ,user_lastname as userLastName , user_name as userFullName , user_email as userEmail FROM user WHERE user_id = ?";
-            Map<String, Object> paramMap = new HashMap<>();
-            paramMap.put("userId", userId);
+            String sql = "select user_id as userID,user_name as userFullName,user_firstname as userFirstName,user_lastname as userLastName,user_email as userEmail,user_phone as userPhone from user where user_id = ?";
             userDetails = gzJdbcTemplate.queryForObject(sql, new Object[]{userId},
                     BeanPropertyRowMapper.newInstance(UserDetails.class));
         } catch (Exception e) {
@@ -71,10 +73,10 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<UserOrder> getUserOrders(String userid) {
-        String sql = "SELECT order_id FROM user_orders WHERE user_id = ?";
+        String sql = "SELECT * FROM user_orders WHERE user_id = ?";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", userid);
-        List<UserOrder> userOrder = gzJdbcTemplate.query(sql, new Object[]{userid}, BeanPropertyRowMapper.newInstance(UserOrder.class));
+        List<UserOrder> userOrder = gzJdbcTemplate.query(sql, new Object[]{userid}, newInstance(UserOrder.class));
         return userOrder;
     }
 
@@ -84,11 +86,10 @@ public class UserDAOImpl implements UserDAO {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", userid);
         UserCredits userCredits = gzJdbcTemplate.queryForObject(sql, new Object[]{userid},
-                BeanPropertyRowMapper.newInstance(UserCredits.class));
+                newInstance(UserCredits.class));
         return userCredits;
 
     }
-
 
 
     @Override
@@ -98,10 +99,23 @@ public class UserDAOImpl implements UserDAO {
         return "successfully updated";
     }
 
-    public String loginauthentication(UserDetails userDetails) {
-        String sql = "SELECT 1 * from user where username =?";
-        gzJdbcTemplate.update(sql, userDetails.getUserFullName());
-        return "successfully";
+    @Override
+    public String saveUserCourses(UserOrder userOrder) {
+        String sql = "INSERT into user_orders(user_id, course_id , order_amount,course_name) VALUES (? ,? ,?)";
+        gzJdbcTemplate.update(sql, userOrder.getUserId(), userOrder.getCourseId(), userOrder.getOrderAmount(), userOrder.getCourseName());
+        return "hii";
+    }
 
+    @Override
+    public List<UserCourses> getUserCoursesById(String userId) {
+        String sql = "select user_id as userId,course_id as courseId,purchase_date as purchaseDate,course_validity as courseValidity,coursename from user_courses where user_id = ?";
+        List<UserCourses> userCourses = gzJdbcTemplate.query(sql, new String[]{userId}, newInstance(UserCourses.class));
+        return userCourses;
+    }
+
+    public String loginauthentication(UserDetails userDetails) {
+        String sql = "SELECT user_id  from user where user_email = ? and password = ?";
+        String userId = gzJdbcTemplate.queryForObject(sql, new String[]{userDetails.getUserEmail(), userDetails.getPassword()}, String.class);
+        return userId;
     }
 }

@@ -1,20 +1,16 @@
 package com.groundzero.learnings.groundzero.user.model;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-@Data
-@Setter
 @Getter
-public class UserOrder {
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class UserCourses {
     String userId;
-    String orderId;
     String courseId;
     String purchaseDate;
-    String orderAmount;
+    String courseValidity;
     String courseName;
-
-    public UserOrder() {
-    }
 }
