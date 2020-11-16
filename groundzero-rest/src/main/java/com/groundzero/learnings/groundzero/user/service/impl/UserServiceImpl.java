@@ -1,5 +1,6 @@
 package com.groundzero.learnings.groundzero.user.service.impl;
 
+import com.groundzero.learnings.groundzero.helper.SendMailHelper;
 import com.groundzero.learnings.groundzero.user.dao.UserDAO;
 import com.groundzero.learnings.groundzero.user.model.UserCredits;
 import com.groundzero.learnings.groundzero.user.model.UserDetails;
@@ -8,18 +9,28 @@ import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import com.groundzero.learnings.groundzero.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import javax.mail.MessagingException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserDAO userDAO;
+
+    private SendMailHelper sendMailHelper = new SendMailHelper();
+
+    @Value("${groundzero.email.from}")
+    private String fromAddress;
+
+    @Value("${groundzero.email.newuser.subject}")
+    private String newUserSubject;
 
     @Autowired
     public UserServiceImpl(UserDAO userDAO) {
@@ -48,9 +59,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String saveUserDetails(UserDetails userDetails) throws MessagingException, IOException {
+    public String saveUserDetails(UserDetails userDetails) throws IOException {
         if (userDetails != null) {
-            return userDAO.saveUserDetails(userDetails);
+            userDAO.saveUserDetails(userDetails);
+
+            Map<String, Object> model = new HashMap<>();
+            model.put("name", userDetails.getUserFullName());
+            model.put("email", userDetails.getUserEmail());
+            model.put("password", userDetails.getPassword());
+            try {
+                sendMailHelper.sendMail(fromAddress, userDetails.getUserEmail(), newUserSubject, model, "gmail");
+            } catch (Exception e) {
+                log.error("Unable to send emails" + e);
+            }
+            return "User Details Saved Successfully";
         }
         return "User Details are empty";
     }

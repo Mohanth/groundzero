@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface UserDAO {
     UserDetails getUserDetailsById(String  userId);
-    String saveUserDetails(UserDetails userDetails) throws MessagingException, IOException;
+    String saveUserDetails(UserDetails userDetails) throws IOException;
     List<UserOrder> getUserOrders(String userId);
 
     UserCredits getUserCredits(String id);

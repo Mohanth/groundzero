@@ -66,7 +66,7 @@ export default function Auth(props){
             password: userpassword
         }
         console.log(data)
-        fetch('http://localhost:5000/api/userDetails/saveUser', {
+        fetch('http://localhost:5000/api/user/saveUser', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {'content-Type': 'application/json'}
