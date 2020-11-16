@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
 export default class Dashboard extends React.Component {
 
-  state = { selectedItem: 'Tickets', userResponse: {}, userDetails: {}, userCourses:{}, showAnimation: true };
+  state = { selectedItem: 'Tickets', userResponse: {}, userDetails: {}, userCourses: {}, showAnimation: true };
 
   componentDidMount() {
     this.getUserDetails();
@@ -44,11 +44,11 @@ export default class Dashboard extends React.Component {
       .catch(function(error) {
         console.log(error);
       });
-  console.log(data)
+    console.log(data);
     this.setState({ userResponse: data.data });
     this.setState({ userDetails: data.data.userDetails });
-    this.setState({userCourses:data.data.userOrder})
     this.setState({ showAnimation: false });
+    console.log(this.state.userResponse);
   }
 
   componentWillUnmount() {
@@ -58,15 +58,15 @@ export default class Dashboard extends React.Component {
   resize = () => this.forceUpdate();
 
 
-  changeComponent = () => {
+  getLiveCourses = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
-      return <MyLive info={this.state.userCourses}/>;
+      return <MyLive myCourses={this.state.userDetails.userCourses}/>;
     }
   };
 
   courseCatalog = () => {
     if (this.state.selectedItem === 'courseCatalog') {
-      return <DisplayDashboardContent info={this.state.userDetails} />
+      return <DisplayDashboardContent info={this.state.userDetails}/>;
     }
   };
 
@@ -84,7 +84,7 @@ export default class Dashboard extends React.Component {
               <HeaderComponent title={selectedItem} userDetails={this.state.userDetails}/>
               <div className={styles.content}>
                 {
-                  this.changeComponent()
+                  this.getLiveCourses()
                 }
                 <div className="row">
                   {

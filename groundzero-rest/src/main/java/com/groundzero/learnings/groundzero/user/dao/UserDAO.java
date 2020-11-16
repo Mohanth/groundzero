@@ -1,6 +1,7 @@
 package com.groundzero.learnings.groundzero.user.dao;
 
 
+import com.groundzero.learnings.groundzero.user.model.UserCourses;
 import com.groundzero.learnings.groundzero.user.model.UserCredits;
 import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
@@ -20,4 +21,6 @@ public interface UserDAO {
 
 
     String saveUserCourses(UserOrder userOrder);
+
+    List<UserCourses> getUserCoursesById(String userId);
 }

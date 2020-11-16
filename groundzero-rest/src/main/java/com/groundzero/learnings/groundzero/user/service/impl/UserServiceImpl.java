@@ -26,10 +26,10 @@ public class UserServiceImpl implements UserService {
         this.userDAO = userDAO;
     }
 
-    public UserDetailsResponse getUserDetailsResponse(String   userId) {
+    public UserDetailsResponse getUserDetailsResponse(String userId) {
         UserDetailsResponse detailsResponse = new UserDetailsResponse();
         detailsResponse.setUserCredits(userDAO.getUserCredits(userId));
-        detailsResponse.setUserDetails(userDAO.getUserDetailsById(userId));
+        detailsResponse.setUserDetails(this.getUserDetailsById(userId));
         detailsResponse.setUserOrder(userDAO.getUserOrders(userId));
 
         return detailsResponse;
@@ -38,9 +38,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails getUserDetailsById(String userId) {
         if (userId != null) {
-            return userDAO.getUserDetailsById(userId);
-        }
-        else{
+            UserDetails userDetails = new UserDetails();
+            userDetails = userDAO.getUserDetailsById(userId);
+            userDetails.setUserCourses(userDAO.getUserCoursesById(userId));
+            return userDetails;
+        } else {
             return null;
         }
     }
@@ -54,7 +56,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserOrder> getUserOrders(String  userId) {
+    public List<UserOrder> getUserOrders(String userId) {
         if (!StringUtils.isEmpty(userId)) {
             return userDAO.getUserOrders(userId);
         }
@@ -63,7 +65,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserCredits getUserCredits(String id) {
-        if(id != null){
+        if (id != null) {
             return userDAO.getUserCredits(id);
         }
         return null;
@@ -75,10 +77,9 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     @Override
     public String loginauthentication(UserDetails userDetails) {
-        String  userId = userDAO.loginauthentication(userDetails);
+        String userId = userDAO.loginauthentication(userDetails);
         return userId;
     }
 

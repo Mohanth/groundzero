@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
@@ -19,6 +21,7 @@ public class UserDetails {
     String createdDt;
     String isActive;
     String password;
+    List<UserCourses> userCourses;
 
     public UserDetails() {
 
