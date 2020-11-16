@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 });
 
 export default class Dashboard extends React.Component {
-  state = { selectedItem: 'Tickets', userResponse: {}, userDetails:{} };
+  state = { selectedItem: 'Tickets', userResponse: {}, userDetails:{} , userCourses:{} };
 
   componentDidMount() {
     this.getUserDetails();
@@ -42,9 +42,10 @@ export default class Dashboard extends React.Component {
       .catch(function(error) {
         console.log(error);
       });
-
+  console.log(data)
     this.setState({ userResponse: data.data });
     this.setState({ userDetails: data.data.userDetails });
+    this.setState({userCourses:data.data.userOrder})
   }
 
   componentWillUnmount() {
@@ -56,13 +57,13 @@ export default class Dashboard extends React.Component {
 
   changecomponent = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
-      return <MyLive info={this.state.userResponse}/>;
+      return <MyLive info={this.state.userCourses}/>;
     }
   };
 
   coursecatlog = () => {
     if (this.state.selectedItem === 'courseCatalog') {
-      return <DisplayDashboardContent/>;
+      return <DisplayDashboardContent info={this.state.userDetails} />
     }
   };
 

@@ -13,6 +13,7 @@ public class UserOrder {
     String courseId;
     String purchaseDate;
     String orderAmount;
+    String courseName;
 
     public UserOrder() {
     }

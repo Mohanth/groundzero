@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
     public UserDetails getUserDetailsById(String userId) {
         UserDetails userDetails = null;
         try {
-            String sql = "SELECT user_id as userId,user_firstname as userFirstName ,user_lastname as userLastName , user_name as userFullName , user_email as userEmail FROM user WHERE user_id = ?";
+            String sql = "SELECT  * FROM user WHERE user_id = ?";
             Map<String, Object> paramMap = new HashMap<>();
             paramMap.put("userId", userId);
             userDetails = gzJdbcTemplate.queryForObject(sql, new Object[]{userId},
@@ -73,7 +73,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<UserOrder> getUserOrders(String userid) {
-        String sql = "SELECT order_id FROM user_orders WHERE user_id = ?";
+        String sql = "SELECT * FROM user_orders WHERE user_id = ?";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", userid);
         List<UserOrder> userOrder = gzJdbcTemplate.query(sql, new Object[]{userid}, newInstance(UserOrder.class));
@@ -103,8 +103,8 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public String saveUserCourses(UserOrder userOrder) {
-        String sql = "INSERT into user_orders(user_id, course_id , order_amount) VALUES (? ,? ,?)";
-        gzJdbcTemplate.update(sql,userOrder.getUserId(),userOrder.getCourseId(),userOrder.getOrderAmount());
+        String sql = "INSERT into user_orders(user_id, course_id , order_amount,course_name) VALUES (? ,? ,?)";
+        gzJdbcTemplate.update(sql,userOrder.getUserId(),userOrder.getCourseId(),userOrder.getOrderAmount(),userOrder.getCourseName());
         return "hii";
     }
 

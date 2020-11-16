@@ -1,6 +1,7 @@
 import * as React from "react";
 import firebaseDb from "./Firebaseconfig"
 import image from "../resources/Final_Logo.png";
+import store from "store";
 
 class DisplayDashboardContent extends React.Component {
 
@@ -23,13 +24,25 @@ class DisplayDashboardContent extends React.Component {
             "description": "Payment",
             "image":{image},
             "handler": function (response){
-                let info= {
-                    paymentid:response.razorpay_payment_id,
-                    coursename:data.coursename,
-                    courseid:data.courseid
+                let details= {
+                    /*paymentid:response.razorpay_payment_id,*/
+                    courseName:data.coursename,
+                    courseId:data.courseid,
+                    user_id:this.props.info.userId,
+                    orderAmount:data.courseprice
                 }
-                firebaseDb.child("paymentid").push(info)
-                console.log(info)
+
+                fetch('http://localhost:5000/api/user/saveUserCourses', {
+                    method: 'POST',
+                    body: JSON.stringify(details), // data can be `string` or {object}!
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                    .then((resp) => {
+                        resp.json()
+                        })
+                    .catch(error => console.log(error));
+                /*firebaseDb.child("paymentid").push(info)
+                console.log(info)*/
             },
 
             "notes": {
@@ -51,13 +64,10 @@ class DisplayDashboardContent extends React.Component {
             });
             this.setState({courses: courses});
         });
-
     }
     buynow(data){
         console.log(data.coursename)
     }
-
-
     render() {
         return  this.state.courses.map(data => {
                 return (
