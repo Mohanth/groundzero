@@ -19,7 +19,31 @@
 body{
     overflow-x: hidden;
 }
-
+.shapeyourfuture{
+    margin-top: 50px;
+    margin-bottom: 119px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.future-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.shapeyourfuture .future-item .img-container{
+    display: flex;
+    align-items: center;
+}
+.card{
+    width: 16rem;
+    padding: 10px;
+    box-shadow: 3px 3px 3px 3px gray;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
 .achieveyourgoals{
     margin-top: 50px;
     margin-bottom: 119px;
@@ -29,6 +53,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
 .achieve{
     list-style-type: none;
     padding: 0;
@@ -72,6 +97,31 @@ body{
     font-size: 32px;
     line-height: 44px;
 }
+.accomplish{
+    margin-top: 50px;
+    margin-bottom: 119px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.accomplish-title{
+    display: block;
+    font-weight: 700;
+    color: #1f1f1f;
+    margin-bottom: 50px;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 32px;
+    line-height: 44px;
+}
+.accomplish-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .achieve-item:not(:last-child){
     margin-right: 6vw;
 }
@@ -200,6 +250,11 @@ h6{
 @media (max-width: 767px){
     .achieve-item:not(:last-child){
         margin-bottom: 2rem;
+    }
+    .future-item{
+        max-width: 100vw;
+        margin: auto .5rem 0;
+        align-items: center;
     }
     .achieve-item{
         max-width: 100vw;
