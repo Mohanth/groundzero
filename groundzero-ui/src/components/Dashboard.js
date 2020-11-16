@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
 });
 
 export default class Dashboard extends React.Component {
-  state = { selectedItem: 'Tickets', userResponse: {}, userDetails:{} , userCourses:{} };
-  state = { selectedItem: 'Tickets', userResponse: {}, userDetails: {}, showAnimation: true };
+
+  state = { selectedItem: 'Tickets', userResponse: {}, userDetails: {}, userCourses:{}, showAnimation: true };
 
   componentDidMount() {
     this.getUserDetails();
