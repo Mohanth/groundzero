@@ -132,7 +132,7 @@ class LandingPage extends React.Component {
                     <div className="row">
                         <div className="future-item">
                             <div className="col-3 col-md-4">
-                                <h1 style={{fontWeight: 800}}>Shape Your Future <br />With Us</h1>
+                                <h1 className={"merriwetherFont"} style={{fontWeight: 800}}>Shape Your Future <br />With Us</h1>
                                 <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 </p>
@@ -147,7 +147,7 @@ class LandingPage extends React.Component {
                 </section>
                 <section className="achieveyourgoals">
                     <div>
-                        <h2 className="achieve-title">Get the GroundZero Learning's Advantage</h2>
+                        <h2 className="achieve-title merriwetherFont">Get the GroundZero Learning's Advantage</h2>
                     </div>
                     <div className="row" style={{ display: 'flex', justifyContent: 'center'}}>
                         <div className="card" >
@@ -233,7 +233,7 @@ class LandingPage extends React.Component {
                 </section>
                 <section className="accomplish">
                     <div>
-                    <h2 className="accomplish-title">What you accomplish through GroundZero</h2>
+                    <h2 className="accomplish-title merriwetherFont">What you accomplish through GroundZero</h2>
                     </div>
                     <div className="accomplish-content">
                         <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
@@ -253,7 +253,7 @@ class LandingPage extends React.Component {
 
                 <section className="instructor-class" data-aos="fade-right">
                     <div>
-                        <h2 className="instructor-title">Meet our experts</h2>
+                        <h2 className="instructor-title merriwetherFont">Meet our experts</h2>
                         <ul className="instructor">
                             <li className="instructor-items">
                                 <div className="instructor-img">
@@ -293,7 +293,7 @@ class LandingPage extends React.Component {
 
                 <section data-aos="fade-left" className="testimonial">
                     <div className="contain contain-small">
-                        <h3 style={{fontWeight: 700, color: "#1f1f1f"}} className="text-center">Testimonials</h3>
+                        <h3 style={{fontWeight: 700, color: "#1f1f1f"}} className="text-center merriwetherFont">Testimonials</h3>
                         <div className="row main-item">
                             <div className="col-md-12">
                                 <div className="carousel slide" data-ride="carousel" id="quote-carousel">

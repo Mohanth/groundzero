@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Peddana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 .cookieFont {
     font-family: 'Cookie', cursive;
 }
-
+.merriwetherFont{
+    font-family: 'Merriweather', serif;
+}
 .navbar-toggler {
     background-color: gainsboro;
 }
