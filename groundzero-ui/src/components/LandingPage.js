@@ -134,7 +134,7 @@ class LandingPage extends React.Component {
                             <div className="col-3 col-md-4">
                                 <h1 className={"merriwetherFont"} style={{fontWeight: 800}}>Shape Your Future <br />With Us</h1>
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                We provide personalized one-one mentoring for students. We will help you achieve your dreams.
                                 </p>
                             </div>
                             <div className="col-3 col-md-4">
