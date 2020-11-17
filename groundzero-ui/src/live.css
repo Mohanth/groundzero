@@ -1,10 +1,23 @@
 .ListItem.collapsed .fa-chevron-down,
-.ListItem .fa-chevron-right {
+.ListItem .fa-chevron-left {
     display: none;
 }
-
-.ListItem.collapsed .fa-chevron-right,
+.ListItem.collapsed .fa-chevron-left,
 .ListItem.fa-chevron-down {
     display: inline-block;
+}
+.content li{
+background-color:#dee2e6 ;
+}
+.video-icon{
+    min-height:1.96rem;
+    color:#73726c;
+    width:1.6rem;
+    height:1.6rem;
+    fill:currentColor;
+    margin-right:10px
+}
+.content li span{
+    color: black;
 }
 
