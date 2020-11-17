@@ -1,0 +1,10 @@
+.ListItem.collapsed .fa-chevron-down,
+.ListItem .fa-chevron-right {
+    display: none;
+}
+
+.ListItem.collapsed .fa-chevron-right,
+.ListItem.fa-chevron-down {
+    display: inline-block;
+}
+
