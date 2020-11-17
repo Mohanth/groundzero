@@ -5,10 +5,13 @@ import humanIcon from "../resources/images/human_01.png";
 import vrImg from "../resources/vr.png";
 import website_01 from "../resources/website_01_3_500x300.png";
 import website_02 from "../resources/Website_02.png";
-import groupClasses from "../resources/images/group_classes.png";
+import groupClasses from "../resources/images/group-classes.jpg";
+import assesments from "../resources/images/weekly_assesments.jpg";
 import onlineExam from "../resources/images/online_exam.png";
-import doubts from "../resources/images/doubts.png";
-import support from "../resources/images/support.png";
+import doubts from "../resources/images/students-doubts.jpg";
+import support from "../resources/images/online_support.jpg";
+import shapeFuture from "../resources/images/shape-your-future.png";
+import progress from "../resources/images/students-progress.png";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
@@ -25,7 +28,7 @@ class LandingPage extends React.Component {
 
                 <Head />
 
-                <div id="carouselExampleIndicators" className="carousel slide d-none d-lg-block d-xl-block"  data-ride="carousel">
+                {/* <div id="carouselExampleIndicators" className="carousel slide d-none d-lg-block d-xl-block"  data-ride="carousel">
                     <ol className="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
                         <li data-target="#carouselExampleIndicators" data-slide-to="1" />
@@ -81,7 +84,7 @@ class LandingPage extends React.Component {
                         <span className="carousel-control-next-icon" aria-hidden="true" />
                         <span className="sr-only">Next</span>
                     </a>
-                </div>
+                </div> */}
 
 
 
@@ -125,11 +128,62 @@ class LandingPage extends React.Component {
                 </div>
 */}
 
+                <section className="shapeyourfuture">
+                    <div className="row">
+                        <div className="future-item">
+                            <div className="col-3 col-md-4">
+                                <h1 className={"merriwetherFont"} style={{fontWeight: 800}}>Shape Your Future <br />With Us</h1>
+                                <p>
+                                We provide personalized one-one mentoring for students. We will help you achieve your dreams.
+                                </p>
+                            </div>
+                            <div className="col-3 col-md-4">
+                                <div className="img-container">
+                                    <img src={shapeFuture} alt="img"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section className="achieveyourgoals">
                     <div>
-                        <h2 className="achieve-title">Achieve your goals with GroundZero</h2>
-
-                        <ul className="achieve">
+                        <h2 className="achieve-title merriwetherFont">Get the GroundZero Learning's Advantage</h2>
+                    </div>
+                    <div className="row" style={{ display: 'flex', justifyContent: 'center'}}>
+                        <div className="card" >
+                            <img src={groupClasses} className="card-img-top" alt="..."/>
+                            <div class="card-body">
+                                
+                                <p className="card-text">Group classes with personalized care for students</p>
+                                
+                            </div>
+                        </div>
+                        <div className="card" >
+                            <img src={assesments} className="card-img-top" alt="..."/>
+                            <div class="card-body">
+                                
+                                <p className="card-text">Weekely assesments to monitor performance of students</p>
+                                
+                            </div>
+                        </div>
+                        <div className="card" >
+                            <img src={doubts} className="card-img-top" alt="..."/>
+                            <div class="card-body">
+                                
+                                <p className="card-text">Dedicated doubt solving sessions for students</p>
+                                
+                            </div>
+                        </div>
+                        <div className="card" >
+                            <img src={support} className="card-img-top" alt="..."/>
+                            <div class="card-body">
+                                
+                                <p className="card-text">24/7 technical support for students</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                        {/* <ul className="achieve">
                             <li className="achieve-item">
                                 <div className="img-container">
                                     <img src={groupClasses} alt="img"/>
@@ -174,13 +228,32 @@ class LandingPage extends React.Component {
                                     </span>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> */}
+                    
+                </section>
+                <section className="accomplish">
+                    <div>
+                    <h2 className="accomplish-title merriwetherFont">What you accomplish through GroundZero</h2>
+                    </div>
+                    <div className="accomplish-content">
+                        <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
+                            <div className="col-3">
+                                <p style={{marginTop: '100px'}}>
+                                    Courses that mainly focus on strengthing the student's basics , hence creating a strong foundation for them.
+                                </p>
+                            </div>
+                            <div className="col-3">
+                                <div className="img-container">
+                                    <img src={progress} alt="img" style={{width: '95%',height: '95%'}}/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 <section className="instructor-class" data-aos="fade-right">
                     <div>
-                        <h2 className="instructor-title">Meet our experts</h2>
+                        <h2 className="instructor-title merriwetherFont">Meet our experts</h2>
                         <ul className="instructor">
                             <li className="instructor-items">
                                 <div className="instructor-img">
@@ -220,7 +293,7 @@ class LandingPage extends React.Component {
 
                 <section data-aos="fade-left" className="testimonial">
                     <div className="contain contain-small">
-                        <h3 style={{fontWeight: 700, color: "#1f1f1f"}} className="text-center">Testimonials</h3>
+                        <h3 style={{fontWeight: 700, color: "#1f1f1f"}} className="text-center merriwetherFont">Testimonials</h3>
                         <div className="row main-item">
                             <div className="col-md-12">
                                 <div className="carousel slide" data-ride="carousel" id="quote-carousel">
@@ -234,7 +307,7 @@ class LandingPage extends React.Component {
                                             <div className="row">
                                                 <div className="col-sm-12">
                                                     <h4 className="text-center cookieFont mb-half">
-                                                        "Learning directly from mentor is a bliss. The classrooms where
+                                                        "Learning directly from mentor is a bliss. The classrooms were
                                                         always discussion oriented rather than ‘pause and google doubts
                                                         mode of MOOCs’. The program emphasis on practise of concepts
                                                         with supervision is what I loved the most."

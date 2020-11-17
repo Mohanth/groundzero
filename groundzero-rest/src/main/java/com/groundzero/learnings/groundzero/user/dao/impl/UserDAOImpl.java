@@ -1,39 +1,29 @@
 package com.groundzero.learnings.groundzero.user.dao.impl;
 
 import com.groundzero.learnings.groundzero.exception.StudentNotFoundException;
+import com.groundzero.learnings.groundzero.helper.EncryptionHelper;
 import com.groundzero.learnings.groundzero.user.dao.UserDAO;
 import com.groundzero.learnings.groundzero.user.model.UserCourses;
 import com.groundzero.learnings.groundzero.user.model.UserCredits;
 import com.groundzero.learnings.groundzero.user.model.UserDetails;
 import com.groundzero.learnings.groundzero.user.model.UserOrder;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Repository;
-import org.thymeleaf.context.Context;
-import org.thymeleaf.spring5.SpringTemplateEngine;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.springframework.jdbc.core.BeanPropertyRowMapper.*;
+import static org.springframework.jdbc.core.BeanPropertyRowMapper.newInstance;
 
 @Slf4j
 @Repository
 public class UserDAOImpl implements UserDAO {
     @Autowired
     private JdbcTemplate gzJdbcTemplate;
-    @Autowired
-    private SpringTemplateEngine templateEngine;
-    @Autowired
-    private JavaMailSender mailSender;
 
     @Override
     public UserDetails getUserDetailsById(String userId) {
@@ -49,25 +39,11 @@ public class UserDAOImpl implements UserDAO {
         return userDetails;
     }
 
-    public String saveUserDetails(UserDetails userDetails) throws MessagingException {
+    public String saveUserDetails(UserDetails userDetails) {
 
-        String sql = "INSERT into user(  user_name , user_email ,user_phone , password ) VALUES(?,?,?,?)";
-        gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getUserEmail(), userDetails.getUserPhone(), userDetails.getPassword());
+        String sql = "INSERT into user(  user_name , user_email ,user_phone , password,isAvtive ) VALUES(?,?,?,?,?)";
+        gzJdbcTemplate.update(sql, userDetails.getUserFullName(), userDetails.getUserEmail(), userDetails.getUserPhone(), EncryptionHelper.encrypt(userDetails.getPassword()), "1");
 
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("name", userDetails.getUserFullName());
-        model.put("email", userDetails.getUserEmail());
-        model.put("password", userDetails.getPassword());
-        Context context = new Context();
-        context.setVariables(model);
-        String html = templateEngine.process("gmail", context);
-        helper.setFrom("n.srisai1234@gmail.com");
-        helper.setTo(userDetails.getUserEmail());
-        helper.setSubject("groundzerolearning");
-        helper.setText(html, true);
-        mailSender.send(message);
         return "successfully saved";
     }
 
