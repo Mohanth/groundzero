@@ -1,0 +1,7 @@
+.icons {
+    filter: grayscale(100%);
+    transition: all 0.5s;
+}
+.icons:hover {
+    filter: grayscale(0%);
+}

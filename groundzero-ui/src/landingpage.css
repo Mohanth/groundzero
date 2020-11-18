@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap');
 
 .cookieFont {
     font-family: 'Cookie', cursive;
@@ -35,12 +36,33 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+.future-image{
+    padding-left: 80px;
+}
 .future-item {
     display: flex;
     align-items: center;
     justify-content: center;
-
+}
+.signup-btn {
+    background: linear-gradient(to bottom, #ff9933 0%, #ff66cc 100%);
+    color: white;
+}
+.signup-textbox {
+    background: linear-gradient(to top left, #ff9933 0%, #ff66cc 100%);   
+}
+.form-control::-webkit-input-placeholder{
+    color: white;
+}
+.blg-image{
+    width: 55px;
+    margin-top: -50px;
+    margin-left: -20px;
+}
+.blg-img::before{
+    color: #666;
+    border-width: 5px;
+    
 }
 
 .shapeyourfuture .future-item .img-container {
@@ -153,7 +175,22 @@ body {
     margin-top: 10px;
 }
 
-.instructor-title {
+.instructor {
+    width: 240px;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin-right: 50px;
+  }  
+  .container {
+    padding: 10px;
+  }
+  .instructor-name{
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+  }
+
+
+ .instructor-title {
     display: block;
     font-weight: 700;
     color: #1f1f1f;
@@ -162,9 +199,9 @@ body {
     text-align: center;
     font-size: 32px;
     line-height: 44px;
-}
+} 
 
-.instructor {
+/* .instructor {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -197,7 +234,7 @@ body {
 
 .instructor-items:not(:last-child) {
     margin-right: 6vw;
-}
+} */
 
 .testimonial {
     position: relative;

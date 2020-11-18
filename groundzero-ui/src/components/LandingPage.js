@@ -1,6 +1,9 @@
 import React from "react";
 import FacultyImg from "../resources/mohanthbrothersmall.png";
-import faculty01 from "../resources/images/faculty_01.png";
+import faculty01 from "../resources/images/faculty_1.jpg";
+import faculty02 from "../resources/images/faculty_2.jpg";
+import faculty03 from "../resources/images/faculty_3.jpg";
+import faculty04 from "../resources/images/faculty_4.jpg"
 import humanIcon from "../resources/images/human_01.png";
 import vrImg from "../resources/vr.png";
 import website_01 from "../resources/website_01_3_500x300.png";
@@ -12,6 +15,7 @@ import doubts from "../resources/images/students-doubts.jpg";
 import support from "../resources/images/online_support.jpg";
 import shapeFuture from "../resources/images/shape-your-future.png";
 import progress from "../resources/images/students-progress.png";
+import blogDate from "../resources/images/blog-date.svg";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
@@ -136,10 +140,21 @@ class LandingPage extends React.Component {
                                 <p>
                                 We provide personalized one-one mentoring for students. We will help you achieve your dreams.
                                 </p>
+                                <div class="row" style={{justifyContent: 'center', marginTop: 20}}>
+                                    <div style={{marginRight: 20}}>
+                                        <input type="text" class="form-control signup-textbox" placeholder="Enter phone no. / email" aria-label="Enter phone no. / email" aria-describedby="basic-addon2" style={{color: 'white'}}></input>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-light signup-btn" ><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                </div>
+                                
+
+                                
                             </div>
                             <div className="col-3 col-md-4">
                                 <div className="img-container">
-                                    <img src={shapeFuture} alt="img"/>
+                                    <img src={shapeFuture} alt="img" className="future-image" />
                                 </div>
                             </div>
                         </div>
@@ -250,11 +265,45 @@ class LandingPage extends React.Component {
                         </div>
                     </div>
                 </section>
-
+                
+                <section className="blog">
+                    
+                </section>
                 <section className="instructor-class" data-aos="fade-right">
                     <div>
-                        <h2 className="instructor-title merriwetherFont">Meet our experts</h2>
-                        <ul className="instructor">
+                        <h2 className="instructor-title merriwetherFont">Meet our experts team</h2>
+                        <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
+                            <div className="instructor">
+                                <img src={faculty01} style={{width: '240px'}}/>
+                                <div className="container" >
+                                    <h3 className="instructor-name">Samanth</h3>
+                                    <p>Some text</p>
+                                </div>
+                            </div>
+                            <div className="instructor">
+                                <img src={faculty02} style={{width: '240px'}}/>
+                                <div className="container" >
+                                    <h3 className="instructor-name">Purnesh</h3>
+                                    <p>Some text</p>
+                                </div>
+                            </div>
+                            <div className="instructor">
+                                <img src={faculty03} style={{width: '240px'}}/>
+                                <div className="container" >
+                                    <h3 className="instructor-name">Mohanth</h3>
+                                    <p>Some text</p>
+                                </div>
+                            </div>
+                            <div className="instructor">
+                                <img src={faculty04} style={{width: '240px'}}/>
+                                <div className="container" >
+                                    <h3 className="instructor-name">Keerthana</h3>
+                                    <p>Some text</p>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        {/* <ul className="instructor">
                             <li className="instructor-items">
                                 <div className="instructor-img">
                                     <img className="image-instructor rounded-circle mb-3" src={FacultyImg} alt="no"/>
@@ -287,7 +336,7 @@ class LandingPage extends React.Component {
                                     <span>Mohanth</span>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </section>
 
@@ -334,6 +383,23 @@ class LandingPage extends React.Component {
 
                     </div>
                 </section>
+                {/* <section className="blog">
+                <h3 style={{fontWeight: 700, color: "#1f1f1f"}} className="text-center merriwetherFont">Blog</h3>
+                <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
+                <div class="card" style={{width: '18rem'}}>
+                    <img className="card-img-top" src={progress} alt="Card image cap"/>
+                    <div>
+                        <img src={blogDate} className="blg-image" />
+                        ::before
+                    </div>
+                    <div className="card-body">
+                        <h5 className="card-title">Card title</h5>
+                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                </section> */}
 
                 <Footer />
 
