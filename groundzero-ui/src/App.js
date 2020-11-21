@@ -8,6 +8,7 @@ import Add from './courseadding';
 import Dash from './components/Dashboard';
 import Co from './components/Courses';
 import Live from './components/Mylive';
+import Video from './components/VideoPage';
 
 class App extends React.Component {
   render() {
@@ -29,6 +30,11 @@ class App extends React.Component {
           <Route exact path="/live">
             <Live/>
           </Route>
+
+          <Route exact path="/video">
+            <Video />
+          </Route>
+
         </Switch>
       </BrowserRouter>
     );

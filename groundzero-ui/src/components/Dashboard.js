@@ -7,6 +7,7 @@ import '../App.css';
 import DisplayDashboardContent from './DisplayDashboardContent';
 import MyLive from './Mylive';
 import Settings from './UserSettings'
+import VideoPage from "./VideoPage";
 import store from 'store';
 import axios from 'axios';
 import AnimationLoader from './AnimationLoader';
@@ -64,7 +65,7 @@ export default class Dashboard extends React.Component {
 
   getLiveCourses = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
-      return <MyLive myCourses={this.state.userCourses}/>;
+      return <VideoPage />;
     }
     if (this.state.selectedItem === 'Settings') {
       return <Settings info={this.state.userDetails} /> ;
