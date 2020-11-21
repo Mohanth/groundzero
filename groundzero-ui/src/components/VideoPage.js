@@ -53,56 +53,64 @@ export default class VideoPlayer extends React.Component {
 */
 import React from 'react';
 import { PlyrComponent } from 'plyr-react';
-import "./video.css";
+import './video.css';
 
 export default class VideoPlayer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sources: {
-                type: 'video',
-                sources: [
-                    {
-                        src: 'rpF_4dHmZIw',
-                        provider: 'youtube'
-                    }
-                ]
-            }
-        };
-    }
-    render(){
-        return(
-            <div className="wrapper">
-                <nav id="bar">
-                    <div className="sidebar-header">
-                        <h3>Overview</h3>
-                    </div>
-                    <ul className="lisst-unstyled components">
-                        <p>Course Name</p>
-                        <li className="active">
-                            <a href="#homeSubmenu"  >Topics </a>
-                        </li>
-                        <li className="active">
-                            <a href="#homeSubmenu" >Topics </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div id="content">
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                        <div className="container-fluid">
-                            <button type="button" id="sidebarcollapse" className="btn  btn-info">
-                                <i className="fas fa-align-left"></i>
-                                <span>Overview</span>
-                            </button>
-                        </div>
-                    </nav>
-                    <br /><br />
-                    <div id={"videoPlayer"}  >
-                        <PlyrComponent sources={this.state.sources}/>
-                    </div>
+  constructor(props) {
+    super(props);
+    this.hideCourseNav = this.hideCourseNav.bind(this);
+    this.state = {
+      sources: {
+        type: 'video',
+        sources: [
+          {
+            src: 'rpF_4dHmZIw',
+            provider: 'youtube'
+          }
+        ]
+      },
+      showCourseNavBar: false
+    };
+  }
+
+  hideCourseNav() {
+    this.setState({showCourseNavBar: !this.state.showCourseNavBar});
+  }
+
+  render() {
+    return (
+      <div className="wrapper">
+        {this.state.showCourseNavBar ? (<nav id="courseBar">
+          <div className="sidebar-header">
+            <h3>Overview</h3>
+          </div>
+          <ul className="lisst-unstyled components">
+            <p>Course Name</p>
+            <li className="active">
+              <a href="#homeSubmenu">Topics </a>
+            </li>
+            <li className="active">
+              <a href="#homeSubmenu">Topics </a>
+            </li>
+          </ul>
+        </nav>) : <div/>}
+
+        <div id="content">
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid">
+              <button type="button" id="sidebarCollapse" className="btn  btn-info" onClick={this.hideCourseNav}>
+                <i className="fas fa-align-left"/>
+                <span>Overview</span>
+              </button>
             </div>
-            </div>
+          </nav>
+          <br/><br/>
+          <div id={'videoPlayer'}>
+            <PlyrComponent sources={this.state.sources}/>
+          </div>
+        </div>
+      </div>
 
     );
-    }
+  }
 }

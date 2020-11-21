@@ -21,7 +21,7 @@ a:focus{
 
 
 
-#bar.active {
+#courseBar.active {
     margin-left: -250px;
 }
 .wrapper{
@@ -30,7 +30,7 @@ a:focus{
     transition: all 0.3s;
 }
 
-#bar{
+#courseBar{
     min-width: 250px;
     max-width: 250px;
     background: #7386D5;
@@ -39,11 +39,11 @@ a:focus{
 }
 
 
-#bar .bar-header{
+#courseBar .bar-header{
     padding: 20px;
     background: #6d7fcc;
 }
-#bar ul.components{
+#courseBar ul.components{
     padding: 20px 0;
     border-bottom: 1px solid #47748b;
 }
@@ -53,17 +53,17 @@ a:focus{
     padding: 10px;
 }
 
-#bar ul li a{
+#courseBar ul li a{
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
 
-#bar ul li a:hover{
+#courseBar ul li a:hover{
     color: #7386D5;
     background: #fff;
 }
-#bar ul li.active>a,
+#courseBar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
