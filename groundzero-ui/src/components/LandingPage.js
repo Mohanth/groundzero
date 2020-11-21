@@ -15,7 +15,7 @@ import doubts from "../resources/images/students-doubts.jpg";
 import support from "../resources/images/online_support.jpg";
 import shapeFuture from "../resources/images/shape-your-future.png";
 import progress from "../resources/images/students-progress.png";
-import blogDate from "../resources/images/blog-date.svg";
+
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../landingpage.css";
@@ -273,6 +273,13 @@ class LandingPage extends React.Component {
                     <div>
                         <h2 className="instructor-title merriwetherFont">Meet our experts team</h2>
                         <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
+                        <div className="instructor">
+                                <img src={faculty04} style={{width: '240px'}}/>
+                                <div className="container" >
+                                    <h3 className="instructor-name">Keerthana</h3>
+                                    <p>Some text</p>
+                                </div>
+                            </div>
                             <div className="instructor">
                                 <img src={faculty01} style={{width: '240px'}}/>
                                 <div className="container" >
@@ -294,13 +301,7 @@ class LandingPage extends React.Component {
                                     <p>Some text</p>
                                 </div>
                             </div>
-                            <div className="instructor">
-                                <img src={faculty04} style={{width: '240px'}}/>
-                                <div className="container" >
-                                    <h3 className="instructor-name">Keerthana</h3>
-                                    <p>Some text</p>
-                                </div>
-                            </div>
+                            
                         </div>
                             
                         {/* <ul className="instructor">
