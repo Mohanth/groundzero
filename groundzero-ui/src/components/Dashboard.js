@@ -50,6 +50,7 @@ export default class Dashboard extends React.Component {
     this.setState({ userResponse: data.data });
     this.setState({userDetails:data.data.userDetails})
    this.setState({userCourses:data.data.userOrder})
+
     console.log(this.state.userDetails)
 
     this.setState({ showAnimation: false });
@@ -65,7 +66,7 @@ export default class Dashboard extends React.Component {
 
   getLiveCourses = () => {
     if (this.state.selectedItem === 'myLiveClasses') {
-      return <VideoPage />;
+      return <MyLive myCourses={this.state.userCourses} />;
     }
     if (this.state.selectedItem === 'Settings') {
       return <Settings info={this.state.userDetails} /> ;
