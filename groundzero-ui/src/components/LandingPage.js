@@ -1,15 +1,22 @@
-import React from 'react';
-import faculty01 from '../resources/images/faculty_1.jpg';
-import faculty02 from '../resources/images/faculty_2.jpg';
-import faculty03 from '../resources/images/faculty_3.jpg';
-import faculty04 from '../resources/images/faculty_4.jpg';
-import groupClasses from '../resources/images/group-classes.jpg';
-import assesments from '../resources/images/weekly_assesments.jpg';
-import doubts from '../resources/images/students-doubts.jpg';
-import support from '../resources/images/online_support.jpg';
-import shapeFuture from '../resources/images/shape-your-future.png';
-import progress from '../resources/images/students-progress.png';
-import AOS from 'aos';
+import React from "react";
+import FacultyImg from "../resources/mohanthbrothersmall.png";
+import faculty01 from "../resources/images/faculty_1.jpg";
+import faculty02 from "../resources/images/faculty_2.jpg";
+import faculty03 from "../resources/images/faculty_3.jpg";
+import faculty04 from "../resources/images/faculty_4.jpg"
+import humanIcon from "../resources/images/human_01.png";
+import vrImg from "../resources/vr.png";
+import website_01 from "../resources/website_01_3_500x300.png";
+import website_02 from "../resources/Website_02.png";
+import groupClasses from "../resources/images/group-classes.jpg";
+import assesments from "../resources/images/weekly_assesments.jpg";
+import onlineExam from "../resources/images/online_exam.png";
+import doubts from "../resources/images/students-doubts.jpg";
+import support from "../resources/images/online_support.jpg";
+import shapeFuture from "../resources/images/shape-your-future.png";
+import progress from "../resources/images/students-progress.png";
+
+import AOS from "aos";
 import 'aos/dist/aos.css';
 import '../landingpage.css';
 import Head from './LandingPageHeader';
@@ -120,6 +127,13 @@ class LandingPage extends React.Component {
                     <div>
                         <h2 className="instructor-title merriwetherFont">Meet our experts team</h2>
                         <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
+                        <div className="instructor">
+                                <img src={faculty04} style={{width: '240px'}}/>
+                                <div className="container" >
+                                    <h3 className="instructor-name">Keerthana</h3>
+                                    <p>Some text</p>
+                                </div>
+                            </div>
                             <div className="instructor">
                                 <img src={faculty01} style={{width: '240px'}}/>
                                 <div className="container" >
@@ -141,13 +155,7 @@ class LandingPage extends React.Component {
                                     <p>Some text</p>
                                 </div>
                             </div>
-                            <div className="instructor">
-                                <img src={faculty04} style={{width: '240px'}}/>
-                                <div className="container" >
-                                    <h3 className="instructor-name">Keerthana</h3>
-                                    <p>Some text</p>
-                                </div>
-                            </div>
+                            
                         </div>
                             
                     </div>
