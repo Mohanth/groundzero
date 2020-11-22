@@ -39,7 +39,7 @@ a:focus{
 }
 
 
-#courseBar .bar-header{
+#courseBar .courseBar-header{
     padding: 20px;
     background: #6d7fcc;
 }
@@ -48,7 +48,7 @@ a:focus{
     border-bottom: 1px solid #47748b;
 }
 
-#bar ul p{
+#courseBar ul p{
     color: #fff;
     padding: 10px;
 }
@@ -95,13 +95,13 @@ ul ul a{
 
 
 @media (max-width: 768px) {
-    #bar {
+    #courseBar {
         margin-left: -250px;
     }
-    #bar.active {
+    #courseBar.active {
         margin-left: 0;
     }
-    #barCollapse span {
+    #courseBarCollapse span {
         display: none;
     }
 }

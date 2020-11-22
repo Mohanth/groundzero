@@ -82,7 +82,7 @@ export default class VideoPlayer extends React.Component {
       <div className="wrapper">
         {this.state.showCourseNavBar ? (<nav id="courseBar">
           <div className="sidebar-header">
-            <h3>Overview</h3>
+            <h3 style={{paddingTop:"2rem"}}><a href="/dashboard" ><i className="fas fa-chevron-circle-left" style={{marginLeft:"10px"}}  data-toggle="tooltip" data-placement="top" title="Back" /></a><span style={{paddingLeft:"2rem"}}>Overview</span></h3>
           </div>
           <ul className="lisst-unstyled components">
             <p>Course Name</p>
