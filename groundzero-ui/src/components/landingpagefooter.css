@@ -5,3 +5,30 @@
 .icons:hover {
     filter: grayscale(0%);
 }
+li{
+    display: inline-block;
+    margin-right: 10px;
+    color: black;
+    font-size: 18px;
+}
+.nav-home{
+    background-color: rgb(241, 200, 171); 
+    padding: 0.4rem 1.4rem;
+}
+.nav-home:hover{
+    background-color: rgb(255, 187, 145);
+}
+.nav-register{
+    background-color: rgb(174, 219, 210);
+    padding: 0.4rem 1.4rem;
+}
+.nav-register:hover{
+    background-color: rgb(110, 218, 196);
+}
+.nav-login{
+    background-color: rgb(203, 224, 118);
+    padding: 0.4rem 1.4rem;
+}
+.nav-login:hover{
+    background-color: rgb(168, 189, 85);
+}

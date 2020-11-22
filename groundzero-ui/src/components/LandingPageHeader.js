@@ -1,6 +1,7 @@
 import React from "react";
 import {Button} from "reactstrap";
 
+
 class LandingPageHeader extends React.Component{
     render(){
         return(
@@ -17,19 +18,19 @@ class LandingPageHeader extends React.Component{
                     <ul id="navlist" className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <a style={{color: "white", marginRight: 10}} className="nav-link"
-                               href="/">Home</a>
+                               href="/"><i class="fas fa-home" style={{marginRight: 5}}></i>Home</a>
                         </li>
                         <li className="nav-item">
-                            <a style={{color: "white", marginRight: 10}} className="nav-link" href="/courses">Courses</a>
+                            <a style={{color: "white", marginRight: 10}} className="nav-link" href="/courses"><i class="fas fa-book-open" style={{marginRight: 5}}></i>Courses</a>
                         </li>
                         <li className="nav-item">
                             <a style={{color: "white"}} className="nav-link " href="/"
-                            >About</a>
+                            ><i class="fas fa-question-circle" style={{marginRight: 5}}></i>About</a>
                         </li>
 
                         <li style={{textAlign:"center"}} className="nav-item">
                             <a style={{padding:8}} href="/register">
-                                <Button className="butt" outline color="info">Register</Button>{' '}
+                                <Button className="butt" outline color="info" style={{marginTop: 4}}>Register<i class="fas fa-sign-in-alt" style={{marginLeft: 5}}></i></Button>{' '}
                             </a>
                         </li>
                     </ul>

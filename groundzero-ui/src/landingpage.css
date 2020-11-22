@@ -49,10 +49,10 @@ body {
     color: white;
 }
 .signup-textbox {
-    background: linear-gradient(to top left, #ff9933 0%, #ff66cc 100%);   
+    background: #cccccc;
 }
 .form-control::-webkit-input-placeholder{
-    color: white;
+    color: black;
 }
 .blg-image{
     width: 55px;

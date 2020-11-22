@@ -42,7 +42,7 @@ class LandingPage extends React.Component {
                                 </p>
                                 <div class="row" style={{justifyContent: 'center', marginTop: 20}}>
                                     <div style={{marginRight: 20}}>
-                                        <input type="text" class="form-control signup-textbox" placeholder="Enter phone no. / email" aria-label="Enter phone no. / email" aria-describedby="basic-addon2" style={{color: 'white'}}></input>
+                                        <input type="text" class="form-control signup-textbox" placeholder="Enter phone no. / email" aria-label="Enter phone no. / email" aria-describedby="basic-addon2" ></input>
                                     </div>
                                     <div>
                                         <button type="button" class="btn btn-light signup-btn" ><i class="fas fa-chevron-right"></i></button>
