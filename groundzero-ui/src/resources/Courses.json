@@ -1,39 +1,19 @@
 {
-  "course": [
-    {
-      "id": 1,
-      "img": "https://image.shutterstock.com/image-photo/software-developer-programming-code-abstract-260nw-577183882.jpg",
-      "title": "About Programming",
-      "desc": "this is my class",
-      "prize": "100"
-    },
-    {
-      "id": 2,
-      "img": "https://image.shutterstock.com/image-photo/software-developer-programming-code-abstract-260nw-577183882.jpg",
-      "title": "About Programming",
-      "desc": "this is my class",
-      "prize": "100"
-    },
-    {
-      "id": 3,
-      "img": "https://image.shutterstock.com/image-photo/software-developer-programming-code-abstract-260nw-577183882.jpg",
-      "title": "About Programming",
-      "desc": "this is my class",
-      "prize": "100"
-    },
-    {
-      "id": 4,
-      "img": "https://image.shutterstock.com/image-photo/software-developer-programming-code-abstract-260nw-577183882.jpg",
-      "title": "About Programming",
-      "desc": "this is my class",
-      "prize": "100"
-    },
-    {
-      "id": 5,
-      "img": "https://image.shutterstock.com/image-photo/software-developer-programming-code-abstract-260nw-577183882.jpg",
-      "title": "About Programming",
-      "desc": "this is my class",
-      "prize": "100"
-    }
-  ]
+  "react":{
+    "syllabus": [
+      "introduction",
+      "developing first project using react js ",
+      "introducing backend for our project"
+    ]
+  },
+  "angular": {
+    "syllabus": [
+      "introduction",
+      "developing first project using angular js ",
+      "introducing backend for our project"
+    ]
+  }
+
+
+
 }

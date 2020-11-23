@@ -15,7 +15,6 @@ import doubts from "../resources/images/students-doubts.jpg";
 import support from "../resources/images/online_support.jpg";
 import shapeFuture from "../resources/images/shape-your-future.png";
 import progress from "../resources/images/students-progress.png";
-
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import '../landingpage.css';
@@ -48,9 +47,6 @@ class LandingPage extends React.Component {
                                         <button type="button" class="btn btn-light signup-btn" ><i class="fas fa-chevron-right"></i></button>
                                     </div>
                                 </div>
-                                
-
-                                
                             </div>
                             <div className="col-3 col-md-4">
                                 <div className="img-container">
@@ -124,7 +120,53 @@ class LandingPage extends React.Component {
                     
                 </section>
                 <section className="instructor-class" data-aos="fade-right">
-                    <div>
+                    <h2 className="instructor-title merriwetherFont">Meet our experts team</h2>
+
+                    <div className="team-grid">
+                        <div className="container">
+                            <div className="row people d-flex justify-content-center">
+                                <div className="col-md-4 col-lg-3 item">
+                                    <div className="box" style={{backgroundImage:`url("${faculty02}")`}}>
+                                        <div className="cover">
+                                            <h3 className="name">Mohanth</h3>
+                                            <p className="title">Android Developer</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-4 col-lg-3 item">
+                                    <div className="box" style={{backgroundImage:`url("${faculty01}")`}}>
+                                        <div className="cover">
+                                            <h3 className="name">Samanth</h3>
+                                            <p className="title">Professor</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-4 col-lg-3 item">
+                                    <div className="box" style={{backgroundImage:`url("${faculty03}")`}}>
+                                        <div className="cover">
+                                            <h3 className="name">Name</h3>
+                                            <p className="title">Business Analyst</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-4 col-lg-3 item">
+                                    <div className="box" style={{backgroundImage:`url("${faculty04}")`}}>
+                                        <div className="cover">
+                                            <h3 className="name">Name</h3>
+                                            <p className="title">Business Analyst</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {/*<div>
                         <h2 className="instructor-title merriwetherFont">Meet our experts team</h2>
                         <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
                         <div className="instructor">
@@ -155,10 +197,10 @@ class LandingPage extends React.Component {
                                     <p>Some text</p>
                                 </div>
                             </div>
-                            
+
                         </div>
                             
-                    </div>
+                    </div>*/}
                 </section>
 
                 <section data-aos="fade-left" className="testimonial">
